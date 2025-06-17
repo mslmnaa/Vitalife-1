@@ -2,7 +2,7 @@
   "resources/css/app.css": {
     "file": "assets/app-BStSZY0D.css",
     "src": "resources/css/app.css",
-    "isEntry": false
+    "isEntry": true
   },
   "resources/js/app.js": {
     "file": "assets/app-Wgpj0myj.js",
