@@ -25,7 +25,7 @@
                     
                     <div class="flex flex-wrap gap-4">
                         <button id="consultNowBtn" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-lg transform transition duration-300 hover:scale-105 flex items-center gap-2 group animate-bounce-subtle">
-                            <span>Consult Now</span>
+                            <span>Contolll</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
