@@ -282,11 +282,11 @@
                 <!-- Sidebar -->
                 <div class="lg:col-span-1 space-y-6">
                     <!-- Quick Actions -->
-                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
-                        <h3 class="font-bold text-lg text-gray-800 mb-6 flex items-center">
-                            <i class="fas fa-phone mr-3 text-green-500"></i>
-                            Quick Actions
-                        </h3>
+                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 mt-6">
+    <h3 class="font-bold text-lg text-gray-800 mb-6 flex items-center">
+        <i class="fas fa-phone mr-3 text-green-500"></i>
+        Quick Actions
+    </h3>
                         
                         <div class="space-y-4">
                             <a href="tel:<?php echo e($pharmacy->phone); ?>" 

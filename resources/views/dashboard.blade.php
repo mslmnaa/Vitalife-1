@@ -1,51 +1,211 @@
 <x-app-layout>
    
         
-    {{-- Hero Section - Enhanced with Animations --}}
-       <div class="bg-gradient-to-r from-blue-50 to-blue-100 py-12 md:py-20 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in-up">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-                <div class="w-full md:w-1/2 space-y-6">
-                    <div class="inline-block px-4 py-1.5 bg-blue-100 rounded-full border border-blue-200 animate-pulse">
-                        <p class="text-sm md:text-base font-medium text-blue-700">
-                            Skip the Travel! Consult Online
-                        </p>
-                    </div>
-                    
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight animate-fade-in">
-                        Welcome to <span class="text-blue-500 animate-text-gradient">Vitalife</span>
+   
+{{-- Hero Section - Premium Enhanced Design --}}
+<div class="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 overflow-hidden">
+    {{-- Animated Background Particles --}}
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] animate-pulse"></div>
+    </div>
+    
+    {{-- Dynamic Background Orbs --}}
+    <div class="absolute top-0 -left-4 w-96 h-96 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob"></div>
+    <div class="absolute top-0 -right-4 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob animation-delay-2000"></div>
+    <div class="absolute -bottom-8 left-20 w-96 h-96 bg-gradient-to-br from-green-400 to-cyan-500 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob animation-delay-4000"></div>
+    
+    {{-- Medical Cross Pattern --}}
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-20 left-20 w-6 h-6 text-white">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C13.1 2 14 2.9 14 4V10H20C21.1 10 22 10.9 22 12S21.1 14 20 14H14V20C14 21.1 13.1 22 12 22S10 21.1 10 20V14H4C2.9 14 2 13.1 2 12S2.9 10 4 10H10V4C10 2.9 10.9 2 12 2Z"/>
+            </svg>
+        </div>
+        <div class="absolute top-40 right-32 w-4 h-4 text-white animate-pulse">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C13.1 2 14 2.9 14 4V10H20C21.1 10 22 10.9 22 12S21.1 14 20 14H14V20C14 21.1 13.1 22 12 22S10 21.1 10 20V14H4C2.9 14 2 13.1 2 12S2.9 10 4 10H10V4C10 2.9 10.9 2 12 2Z"/>
+            </svg>
+        </div>
+        <div class="absolute bottom-32 left-1/3 w-5 h-5 text-white animate-pulse animation-delay-1000">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C13.1 2 14 2.9 14 4V10H20C21.1 10 22 10.9 22 12S21.1 14 20 14H14V20C14 21.1 13.1 22 12 22S10 21.1 10 20V14H4C2.9 14 2 13.1 2 12S2.9 10 4 10H10V4C10 2.9 10.9 2 12 2Z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center min-h-screen">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full py-20">
+            {{-- Left Content --}}
+            <div class="space-y-10 text-center lg:text-left">
+                {{-- Status Badge --}}
+                <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-500/20 to-green-500/20 backdrop-blur-sm rounded-full border border-emerald-400/30 animate-fade-in-up">
+                    <div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse mr-3"></div>
+                    <p class="text-sm font-semibold text-emerald-200">
+                        🏥 Health Tourism • Yogyakarta Ready
+                    </p>
+                </div>
+                
+                {{-- Main Heading --}}
+                <div class="space-y-6 animate-fade-in-up animation-delay-200">
+                    <h1 class="text-6xl lg:text-8xl font-black leading-tight tracking-tight">
+                        <span class="text-white drop-shadow-2xl">Vitalife</span>
+                        <br>
+                        {{-- <span class="bg-gradient-to-r from-cyan-200 via-blue-200 to-purple-200 bg-clip-text text-transparent animate-gradient-x">
+                            Our Priority
+                        </span> --}}
                     </h1>
                     
-                    <div class="h-16 md:h-20">
-                        <p class="text-xl md:text-2xl text-gray-700">
-                            <span id="typed-text"></span>
-                            <span class="typed-cursor animate-blink">|</span>
-                        </p>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-4">
-                        <button id="consultNowBtn" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-lg transform transition duration-300 hover:scale-105 flex items-center gap-2 group animate-bounce-subtle">
-                            <span>Consult Now</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                        
-                        <a href="#features" class="px-6 py-3 bg-white hover:bg-gray-50 text-blue-600 font-medium rounded-lg shadow border border-blue-100 transition duration-300 hover:shadow-md">
-                            Learn More
-                        </a>
+                    <div class="h-24 lg:h-28 flex items-center">
+                        <div class="text-2xl lg:text-3xl text-gray-100 font-light">
+                            <span class="inline-block">✨</span>
+                            <span id="typed-text" class="font-medium text-white ml-2"></span>
+                            <span class="typed-cursor animate-pulse text-cyan-300 text-4xl">|</span>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="w-full md:w-1/2 relative ">
-                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-yellow-200 rounded-full opacity-30 filter blur-xl animate-blob"></div>
-                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-300 rounded-full opacity-30 filter blur-xl animate-blob animation-delay-2000"></div>
+                {{-- Enhanced Description --}}
+                <div class="space-y-4 animate-fade-in-up animation-delay-400">
+                    <p class="text-xl text-gray-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        Experience world-class healthcare in Yogyakarta. Connect with specialist doctors, find trusted pharmacies, and get AI-powered health assistance - all in one platform designed for health tourists.
+                    </p>
                     
-                    <img class="w-[500px] h-[300px] object-contain transform transition-all duration-500 hover:scale-105" src="../image/dokterawal.png" alt="Vitalife Healthcare" />
+                    {{-- Feature Highlights --}}
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start text-sm">
+                        <div class="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
+                            <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-100 font-medium">Specialist Doctors</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
+                            <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-100 font-medium">Real-time Chat</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
+                            <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-100 font-medium">AI Health Assistant</span>
+                        </div>
+                    </div>
+                </div>
+                
+                {{-- Enhanced CTA Buttons --}}
+                <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start animate-fade-in-up animation-delay-600">
+                    <button id="consultNowBtn" class="group relative px-10 py-5 bg-gradient-to-r from-cyan-500 via-blue-500 to-blue-600 hover:from-cyan-600 hover:via-blue-600 hover:to-blue-700 text-white font-bold rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-110 hover:shadow-cyan-500/30 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        <div class="relative flex items-center justify-center gap-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                            </svg>
+                            <span class="text-lg">Consult Specialist Now</span>
+                            <svg class="w-6 h-6 transform transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </div>
+                    </button>
+                    
+                    <button class="group px-10 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold rounded-2xl border-2 border-white/30 hover:border-white/50 transition-all duration-500 transform hover:scale-105">
+                        <div class="flex items-center justify-center gap-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span class="text-lg">Find Pharmacies</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            {{-- Right Content - Service Cards Grid --}}
+            <div class="relative lg:pl-8 animate-fade-in-right animation-delay-400">
+                {{-- Service Cards Grid --}}
+                <div class="grid grid-cols-2 gap-6">
+                    {{-- Doctor Consultation Card --}}
+                    <div class="group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20">
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Specialist Doctors</h3>
+                            <p class="text-gray-200 text-sm leading-relaxed">Chat with certified specialists in real-time</p>
+                        </div>
+                    </div>
+                    
+                    {{-- AI Assistant Card --}}
+                    <div class="group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:border-purple-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">AI Health Assistant</h3>
+                            <p class="text-gray-200 text-sm leading-relaxed">Get instant health guidance powered by AI</p>
+                        </div>
+                    </div>
+                    
+                    {{-- Pharmacy Finder Card --}}
+                    <div class="group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Nearby Pharmacies</h3>
+                            <p class="text-gray-200 text-sm leading-relaxed">Find partner pharmacies around Yogyakarta</p>
+                        </div>
+                    </div>
+                    
+                    {{-- 24/7 Support Card --}}
+                    <div class="group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/20">
+                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">24/7 Support</h3>
+                            <p class="text-gray-200 text-sm leading-relaxed">Round-the-clock customer service support</p>
+                        </div>
+                    </div>
+                </div>
+                
+                {{-- Trust Badge --}}
+                <div class="mt-8 text-center">
+                    <div class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-emerald-500/20 to-green-500/20 backdrop-blur-sm rounded-full border border-emerald-400/30">
+                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        <span class="text-emerald-200 font-semibold">Trusted Healthcare Partner in Yogyakarta</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+        {{-- Scroll Indicator --}}
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="flex flex-col items-center text-white/60">
+                <span class="text-sm mb-2">Scroll to explore</span>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
 
     <div id="medicines" class="py-16 bg-white reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -400,6 +560,107 @@
 
     {{-- Add CSS for custom animations --}}
     <style>
+
+        @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes gradient-x {
+    0%, 100% { background-size: 200% 200%; background-position: left center; }
+    50% { background-size: 200% 200%; background-position: right center; }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 1s ease-out forwards;
+}
+
+.animate-fade-in-right {
+    animation: fade-in-right 1s ease-out forwards;
+}
+
+.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+    animation-delay: 0.6s;
+}
+
+.animation-delay-800 {
+    animation-delay: 0.8s;
+}
+
+.animation-delay-1000 {
+    animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* Typewriter Effect */
+.typed-cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+
+
+        
         /* Fade in animation */
         .animate-fade-in {
             animation: fadeIn 1s ease-in-out;
@@ -543,6 +804,8 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        
     </style>
 
     <script>

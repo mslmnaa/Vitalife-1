@@ -24,17 +24,17 @@
                     <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-xl mr-4">
                         <i class="fas fa-search text-white text-lg"></i>
                     </div>
-                    <h3 class="text-gray-800 font-bold text-xl">Cari & Filter Obat</h3>
+                    <h3 class="text-gray-800 font-bold text-xl">Search & Filter Medicine</h3>
                 </div>
                 
                 <form method="GET" action="{{ route('user.medicines.index') }}" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <!-- Search Input -->
                         <div class="lg:col-span-2">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Pencarian</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Search</label>
                             <div class="relative">
                                 <input type="text" name="search" value="{{ request('search') }}" 
-                                       placeholder="Cari nama obat, kategori, atau produsen..." 
+                                       placeholder="Search for drug name, category, or manufacturer..." 
                                        class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white">
                                 <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                             </div>
@@ -42,10 +42,10 @@
                         
                         <!-- Category Filter -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Kategori</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Categories</label>
                             <div class="relative">
                                 <select name="kategori" class="w-full pl-4 pr-10 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none bg-gray-50 hover:bg-white transition-all duration-300">
-                                    <option value="">Semua Kategori</option>
+                                    <option value="">All Categories</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category }}" {{ request('kategori') == $category ? 'selected' : '' }}>
                                             {{ $category }}
@@ -58,10 +58,10 @@
                         
                         <!-- Producer Filter -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Produsen</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Manufacturers</label>
                             <div class="relative">
                                 <select name="produsen" class="w-full pl-4 pr-10 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none bg-gray-50 hover:bg-white transition-all duration-300">
-                                    <option value="">Semua Produsen</option>
+                                    <option value="">All Manufacturers</option>
                                     @foreach($manufacturers as $manufacturer)
                                         <option value="{{ $manufacturer }}" {{ request('produsen') == $manufacturer ? 'selected' : '' }}>
                                             {{ $manufacturer }}
@@ -76,8 +76,7 @@
                     <!-- Action Buttons -->
                     <div class="flex flex-wrap gap-4 pt-4">
                         <button type="submit" class="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                            <i class="fas fa-search mr-2"></i>Cari Obat
-                        </button>
+                            <i class="fas fa-search mr-2"></i>Search for Medicine
                         @if(request('search') || request('kategori') || request('produsen'))
                             <a href="{{ route('user.medicines.index') }}" class="px-8 py-3 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                                 <i class="fas fa-times mr-2"></i>Reset Filter

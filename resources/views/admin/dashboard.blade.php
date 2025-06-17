@@ -12,87 +12,30 @@
             <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
             <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-white/5 rounded-full"></div>
             
-            <div x-data="{ weather: null }" x-init="fetchWeather()">
-                <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                    <div class="flex-1 space-y-4">
-                        <div>
-                            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
-                                Welcome back, {{ Auth::user()->name }}! 👋
-                            </h2>
-                            <p class="text-blue-100 text-base md:text-lg opacity-90">
-                                Here's what's happening with your platform today
-                            </p>
-                        </div>
-                        
-                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                            <div class="flex items-center space-x-3 mb-2">
-                                <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                                    <i class="fa-solid fa-cloud-sun text-white text-sm"></i>
-                                </div>
-                                <p class="text-white font-medium">Today's Weather</p>
-                            </div>
-                            <div class="text-white/90">
-                                <div x-show="weather" class="space-y-1">
-                                    <p class="text-lg font-semibold" x-text="weather ? `${weather.temperature}°C` : ''"></p>
-                                    <p class="text-sm opacity-80" x-text="weather ? weather.description : ''"></p>
-                                </div>
-                                <div x-show="!weather" class="flex items-center space-x-2">
-                                    <div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                                    <span class="text-sm">Loading weather...</span>
-                                </div>
-                            </div>
-                        </div>
+            <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="flex-1 space-y-4">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+                            Welcome back, {{ Auth::user()->name }}! 👋
+                        </h2>
+                        <p class="text-blue-100 text-base md:text-lg opacity-90">
+                            Here's what's happening with your platform today
+                        </p>
                     </div>
-                    
-                    <div class="relative">
-                        <div class="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden shadow-xl border-4 border-white/30">
-                            <img src="{{ asset('image/boy.png') }}" alt="User Avatar" 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-400 rounded-full border-3 border-white shadow-lg"></div>
+                </div>
+                
+                <div class="relative">
+                    <div class="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden shadow-xl border-4 border-white/30">
+                        <img src="{{ asset('image/boy.png') }}" alt="User Avatar" 
+                             class="w-full h-full object-cover">
                     </div>
+                    <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-400 rounded-full border-3 border-white shadow-lg"></div>
                 </div>
             </div>
         </div>
 
         <!-- Statistics Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <!-- Total Events Card -->
-            <a href="{{ route('admin.event.index') }}" 
-               class="group relative bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                <div class="absolute inset-0 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <div class="relative flex justify-between items-start">
-                    <div class="space-y-4">
-                        <div>
-                            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 group-hover:text-green-600 transition-colors">
-                                {{-- {{ $eventcount }} --}}
-                            </h2>
-                            <p class="text-base md:text-lg text-gray-600 font-medium mt-2">Total Events</p>
-                        </div>
-                        
-                        <div class="space-y-2">
-                            <div class="flex items-center justify-between text-sm text-gray-500">
-                                <span>Progress</span>
-                                <span>65%</span>
-                            </div>
-                            <div class="bg-gray-100 rounded-full h-3 overflow-hidden">
-                                <div class="bg-gradient-to-r from-green-400 to-emerald-500 h-full rounded-full transition-all duration-700 group-hover:from-green-500 group-hover:to-emerald-600" 
-                                     style="width: 65%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gradient-to-br from-green-100 to-emerald-100 p-4 rounded-2xl group-hover:from-green-200 group-hover:to-emerald-200 transition-all duration-300 shadow-md">
-                        <i class="fa-solid fa-person-running text-green-600 text-2xl md:text-3xl"></i>
-                    </div>
-                </div>
-                
-                <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <i class="fa-solid fa-arrow-right text-green-600 text-lg"></i>
-                </div>
-            </a>
-
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-6 md:gap-8">
             <!-- Total Specialists Card -->
             <a href="{{ route('admin.spesialisis.index') }}" 
                class="group relative bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
@@ -341,26 +284,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    function fetchWeather() {
-        fetch('/api/weather')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                this.weather = data;
-            })
-            .catch(error => {
-                console.error('Error fetching weather:', error);
-                this.weather = {
-                    temperature: 'N/A',
-                    description: 'Unable to fetch weather data'
-                };
-            });
-    }
-
     document.addEventListener('DOMContentLoaded', function() {
         fetch('/website-usage-data')
             .then(response => response.json())

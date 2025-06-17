@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('page-title', 'Medicine Management')
+@section('judul-halaman', 'Medicine Management')
 
 @section('content')
     <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -148,28 +148,33 @@
                                             {{ $medicine->kategori }}
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex flex-col">
-                                            <span class="text-sm font-medium text-gray-900">{{ $medicine->stok }} units</span>
-                                            <span class="px-2 py-1 mt-1 text-xs font-semibold rounded-full 
-                                                @if($medicine->stock_status == 'Habis') bg-red-100 text-red-800
-                                                @elseif($medicine->stock_status == 'Stok Menipis') bg-yellow-100 text-yellow-800
-                                                @else bg-green-100 text-green-800 @endif">
-                                                {{ $medicine->stock_status }}
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex flex-col">
-                                            <span class="text-sm text-gray-900">{{ $medicine->tanggal_kadaluarsa->format('d/m/Y') }}</span>
-                                            <span class="px-2 py-1 mt-1 text-xs font-semibold rounded-full 
-                                                @if($medicine->expiry_status == 'Kadaluarsa') bg-red-100 text-red-800
-                                                @elseif($medicine->expiry_status == 'Akan Kadaluarsa') bg-yellow-100 text-yellow-800
-                                                @else bg-green-100 text-green-800 @endif">
-                                                {{ $medicine->expiry_status }}
-                                            </span>
-                                        </div>
-                                    </td>
+                                   <td class="px-6 py-4">
+    <div class="flex flex-col">
+        <span class="text-sm font-medium text-gray-900">{{ $medicine->stok }} units</span>
+        <span class="px-2 py-1 mt-1 text-xs font-semibold rounded-full 
+            @if($medicine->stock_status == 'Habis') bg-red-100 text-red-800
+            @elseif($medicine->stock_status == 'Stok Menipis') bg-yellow-100 text-yellow-800
+            @else bg-green-100 text-green-800 @endif">
+            @if($medicine->stock_status == 'Habis') Out of Stock
+            @elseif($medicine->stock_status == 'Stok Menipis') Low Stock
+            @else Available @endif
+        </span>
+    </div>
+</td>
+<td class="px-6 py-4">
+    <div class="flex flex-col">
+        <span class="text-sm text-gray-900">{{ $medicine->tanggal_kadaluarsa->format('d/m/Y') }}</span>
+        <span class="px-2 py-1 mt-1 text-xs font-semibold rounded-full 
+            @if($medicine->expiry_status == 'Kadaluarsa') bg-red-100 text-red-800
+            @elseif($medicine->expiry_status == 'Akan Kadaluarsa') bg-yellow-100 text-yellow-800
+            @else bg-green-100 text-green-800 @endif">
+            @if($medicine->expiry_status == 'Kadaluarsa') Expired
+            @elseif($medicine->expiry_status == 'Akan Kadaluarsa') Expiring Soon
+            @else Valid @endif
+        </span>
+    </div>
+</td>
+
                                     <td class="px-6 py-4 text-sm text-gray-900">
                                         {{ $medicine->produsen }}
                                     </td>

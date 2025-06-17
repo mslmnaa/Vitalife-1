@@ -23,6 +23,12 @@ export default {
                     "50%": { opacity: "0" },
                 },
             },
+             colors: {
+        softblue: '#DCF0ED',
+        skyblue: '#80C8DC',
+        navyblue: '#355385',
+        darkblue: '#0E1036',
+      }
         },
     },
 

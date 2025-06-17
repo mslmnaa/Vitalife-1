@@ -1,4 +1,4 @@
-<?php $__env->startSection('page-title', 'Medicine Management'); ?>
+<?php $__env->startSection('judul-halaman', 'Medicine Management'); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -147,30 +147,33 @@
 
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex flex-col">
-                                            <span class="text-sm font-medium text-gray-900"><?php echo e($medicine->stok); ?> units</span>
-                                            <span class="px-2 py-1 mt-1 text-xs font-semibold rounded-full 
-                                                <?php if($medicine->stock_status == 'Habis'): ?> bg-red-100 text-red-800
-                                                <?php elseif($medicine->stock_status == 'Stok Menipis'): ?> bg-yellow-100 text-yellow-800
-                                                <?php else: ?> bg-green-100 text-green-800 <?php endif; ?>">
-                                                <?php echo e($medicine->stock_status); ?>
+                                   <td class="px-6 py-4">
+    <div class="flex flex-col">
+        <span class="text-sm font-medium text-gray-900"><?php echo e($medicine->stok); ?> units</span>
+        <span class="px-2 py-1 mt-1 text-xs font-semibold rounded-full 
+            <?php if($medicine->stock_status == 'Habis'): ?> bg-red-100 text-red-800
+            <?php elseif($medicine->stock_status == 'Stok Menipis'): ?> bg-yellow-100 text-yellow-800
+            <?php else: ?> bg-green-100 text-green-800 <?php endif; ?>">
+            <?php if($medicine->stock_status == 'Habis'): ?> Out of Stock
+            <?php elseif($medicine->stock_status == 'Stok Menipis'): ?> Low Stock
+            <?php else: ?> Available <?php endif; ?>
+        </span>
+    </div>
+</td>
+<td class="px-6 py-4">
+    <div class="flex flex-col">
+        <span class="text-sm text-gray-900"><?php echo e($medicine->tanggal_kadaluarsa->format('d/m/Y')); ?></span>
+        <span class="px-2 py-1 mt-1 text-xs font-semibold rounded-full 
+            <?php if($medicine->expiry_status == 'Kadaluarsa'): ?> bg-red-100 text-red-800
+            <?php elseif($medicine->expiry_status == 'Akan Kadaluarsa'): ?> bg-yellow-100 text-yellow-800
+            <?php else: ?> bg-green-100 text-green-800 <?php endif; ?>">
+            <?php if($medicine->expiry_status == 'Kadaluarsa'): ?> Expired
+            <?php elseif($medicine->expiry_status == 'Akan Kadaluarsa'): ?> Expiring Soon
+            <?php else: ?> Valid <?php endif; ?>
+        </span>
+    </div>
+</td>
 
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex flex-col">
-                                            <span class="text-sm text-gray-900"><?php echo e($medicine->tanggal_kadaluarsa->format('d/m/Y')); ?></span>
-                                            <span class="px-2 py-1 mt-1 text-xs font-semibold rounded-full 
-                                                <?php if($medicine->expiry_status == 'Kadaluarsa'): ?> bg-red-100 text-red-800
-                                                <?php elseif($medicine->expiry_status == 'Akan Kadaluarsa'): ?> bg-yellow-100 text-yellow-800
-                                                <?php else: ?> bg-green-100 text-green-800 <?php endif; ?>">
-                                                <?php echo e($medicine->expiry_status); ?>
-
-                                            </span>
-                                        </div>
-                                    </td>
                                     <td class="px-6 py-4 text-sm text-gray-900">
                                         <?php echo e($medicine->produsen); ?>
 
