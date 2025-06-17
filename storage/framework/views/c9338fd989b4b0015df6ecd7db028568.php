@@ -1,7 +1,7 @@
 <!-- resources/views/admin/voucher/index.blade.php -->
-@extends('layouts.admin')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8">
     <div class="container mx-auto px-4">
         <!-- Header Section -->
@@ -30,7 +30,7 @@
                         </svg>
                         Filter
                     </button>
-                    <a href="{{ route('admin.vouchers.create') }}" class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                    <a href="<?php echo e(route('admin.vouchers.create')); ?>" class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                         </svg>
@@ -41,7 +41,7 @@
         </div>
 
         <!-- Success Alert -->
-        @if(session('success'))
+        <?php if(session('success')): ?>
         <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6 rounded-r-lg shadow-sm">
             <div class="flex items-center">
                 <div class="flex-shrink-0">
@@ -50,7 +50,7 @@
                     </svg>
                 </div>
                 <div class="ml-3">
-                    <p class="text-sm text-green-700 font-medium">{{ session('success') }}</p>
+                    <p class="text-sm text-green-700 font-medium"><?php echo e(session('success')); ?></p>
                 </div>
                 <div class="ml-auto pl-3">
                     <button onclick="this.parentElement.parentElement.parentElement.remove()" class="text-green-400 hover:text-green-600">
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-        @endif
+        <?php endif; ?>
 
         <!-- Filter Panel (Initially Hidden) -->
         <div id="filterPanel" class="hidden bg-white rounded-xl shadow-lg border border-gray-200 mb-6 p-6">
@@ -107,7 +107,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Total Vouchers</p>
-                        <p class="text-2xl font-bold text-gray-900 mt-1">{{ $vouchers->count() }}</p>
+                        <p class="text-2xl font-bold text-gray-900 mt-1"><?php echo e($vouchers->count()); ?></p>
                     </div>
                     <div class="bg-blue-100 p-3 rounded-full">
                         <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +120,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Active</p>
-                        <p class="text-2xl font-bold text-green-600 mt-1">{{ $vouchers->where('is_used', false)->where('expired_at', '>', now())->count() }}</p>
+                        <p class="text-2xl font-bold text-green-600 mt-1"><?php echo e($vouchers->where('is_used', false)->where('expired_at', '>', now())->count()); ?></p>
                     </div>
                     <div class="bg-green-100 p-3 rounded-full">
                         <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -133,7 +133,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Expired</p>
-                        <p class="text-2xl font-bold text-red-600 mt-1">{{ $vouchers->where('expired_at', '<', now())->count() }}</p>
+                        <p class="text-2xl font-bold text-red-600 mt-1"><?php echo e($vouchers->where('expired_at', '<', now())->count()); ?></p>
                     </div>
                     <div class="bg-red-100 p-3 rounded-full">
                         <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +146,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Used</p>
-                        <p class="text-2xl font-bold text-gray-600 mt-1">{{ $vouchers->where('is_used', true)->count() }}</p>
+                        <p class="text-2xl font-bold text-gray-600 mt-1"><?php echo e($vouchers->where('is_used', true)->count()); ?></p>
                     </div>
                     <div class="bg-gray-100 p-3 rounded-full">
                         <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,20 +180,21 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        @forelse($vouchers as $voucher)
+                        <?php $__empty_1 = true; $__currentLoopData = $vouchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $voucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <tr class="hover:bg-gray-50 transition-colors duration-200">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-1 rounded-lg text-sm font-mono font-semibold">
-                                        {{ $voucher->code }}
+                                        <?php echo e($voucher->code); ?>
+
                                     </div>
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="relative group">
-                                    <img src="{{ asset($voucher->image) }}" alt="Voucher Image" 
+                                    <img src="<?php echo e(asset($voucher->image)); ?>" alt="Voucher Image" 
                                          class="h-12 w-20 object-cover rounded-lg shadow-md border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow duration-200"
-                                         onclick="showImageModal('{{ asset($voucher->image) }}', '{{ $voucher->code }}')">
+                                         onclick="showImageModal('<?php echo e(asset($voucher->image)); ?>', '<?php echo e($voucher->code); ?>')">
                                     <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 rounded-lg transition-all duration-200 flex items-center justify-center">
                                         <svg class="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
@@ -204,67 +205,68 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                                        {{ $voucher->discount_percentage }}%
+                                        <?php echo e($voucher->discount_percentage); ?>%
                                     </div>
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center space-x-2">
                                     <div class="text-sm font-medium text-gray-900">
-                                        {{ $voucher->usage_count }} / 
-                                        {{ $voucher->usage_limit ? $voucher->usage_limit : '∞' }}
+                                        <?php echo e($voucher->usage_count); ?> / 
+                                        <?php echo e($voucher->usage_limit ? $voucher->usage_limit : '∞'); ?>
+
                                     </div>
-                                    @if($voucher->usage_limit)
+                                    <?php if($voucher->usage_limit): ?>
                                     <div class="w-16 bg-gray-200 rounded-full h-2">
-                                        <div class="bg-blue-600 h-2 rounded-full" style="width: {{ ($voucher->usage_count / $voucher->usage_limit) * 100 }}%"></div>
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: <?php echo e(($voucher->usage_count / $voucher->usage_limit) * 100); ?>%"></div>
                                     </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-900">
-                                    @if($voucher->expired_at)
+                                    <?php if($voucher->expired_at): ?>
                                         <div class="flex items-center space-x-2">
-                                            <span>{{ date('d M Y', strtotime($voucher->expired_at)) }}</span>
-                                            @if($voucher->expired_at < now())
+                                            <span><?php echo e(date('d M Y', strtotime($voucher->expired_at))); ?></span>
+                                            <?php if($voucher->expired_at < now()): ?>
                                                 <span class="text-red-500 text-xs">(Expired)</span>
-                                            @else
-                                        <span class="text-green-500 text-xs">({{ \Carbon\Carbon::parse($voucher->expired_at)->diffForHumans() }})</span>
-                                            @endif
+                                            <?php else: ?>
+                                        <span class="text-green-500 text-xs">(<?php echo e(\Carbon\Carbon::parse($voucher->expired_at)->diffForHumans()); ?>)</span>
+                                            <?php endif; ?>
                                         </div>
-                                    @else
+                                    <?php else: ?>
                                         <span class="text-blue-600 font-medium">Never expires</span>
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                @if($voucher->is_used)
+                                <?php if($voucher->is_used): ?>
                                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
                                         <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
                                         </svg>
                                         Used
                                     </span>
-                                @elseif($voucher->expired_at && now() > $voucher->expired_at)
+                                <?php elseif($voucher->expired_at && now() > $voucher->expired_at): ?>
                                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
                                         <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
                                         </svg>
                                         Expired
                                     </span>
-                                @else
+                                <?php else: ?>
                                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                                         <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                                         </svg>
                                         Active
                                     </span>
-                                @endif
+                                <?php endif; ?>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <div class="flex items-center space-x-2">
                                     <!-- Tooltip for View -->
-                                   <a href="{{ route('admin.vouchers.show', $voucher) }}" 
+                                   <a href="<?php echo e(route('admin.vouchers.show', $voucher)); ?>" 
                                         class="inline-flex items-center px-3 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 rounded-lg transition-colors duration-200 group"
                                         title="Lihat voucher">
                                             <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -274,7 +276,7 @@
                                         </a>
                                     
                                     <!-- Tooltip for Edit -->
-                                   <a href="{{ route('admin.vouchers.edit', $voucher) }}" 
+                                   <a href="<?php echo e(route('admin.vouchers.edit', $voucher)); ?>" 
                                     class="inline-flex items-center px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-lg transition-colors duration-200 group"
                                     title="Edit voucher">
                                         <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -284,7 +286,7 @@
                                     
                                     <!-- Tooltip for Delete -->
                                     <button type="button" 
-                                    onclick="showDeleteModal({{ $voucher->id }}, '{{ addslashes($voucher->code) }}')" 
+                                    onclick="showDeleteModal(<?php echo e($voucher->id); ?>, '<?php echo e(addslashes($voucher->code)); ?>')" 
                                     class="inline-flex items-center px-3 py-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-lg transition-colors duration-200 group"
                                     title="Hapus voucher">
                                 <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,7 +300,7 @@
                                 </div>
                             </td>
                         </tr>
-                        @empty
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <tr>
                             <td colspan="7" class="px-6 py-12 text-center">
                                 <div class="flex flex-col items-center justify-center">
@@ -310,7 +312,7 @@
                                 </div>
                             </td>
                         </tr>
-                        @endforelse
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
@@ -350,8 +352,8 @@
                         Cancel
                     </button>
                     <form id="deleteForm" method="POST" class="flex-1">
-                        @csrf
-                        @method('DELETE')
+                        <?php echo csrf_field(); ?>
+                        <?php echo method_field('DELETE'); ?>
                         <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200">
                             Delete
                         </button>
@@ -490,4 +492,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-@endsection 
+<?php $__env->stopSection(); ?> 
+<?php echo $__env->make('layouts.admin', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Coding\Project 4 matklul\Vitalife-1\resources\views/admin/voucher/index.blade.php ENDPATH**/ ?>

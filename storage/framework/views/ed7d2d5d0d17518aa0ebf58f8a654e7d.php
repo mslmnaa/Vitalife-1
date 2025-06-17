@@ -1,7 +1,16 @@
-<x-app-layout>
+<?php if (isset($component)) { $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54 = $attributes; } ?>
+<?php $component = App\View\Components\AppLayout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('app-layout'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\App\View\Components\AppLayout::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
    
         
-    {{-- Hero Section - Enhanced with Animations --}}
+    
        <div class="bg-gradient-to-r from-blue-50 to-blue-100 py-12 md:py-20 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in-up">
             <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
@@ -114,7 +123,7 @@
             </div>
             
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                @php
+                <?php
                     $specializations = [
                         ['id' => 'anatomy', 'name' => 'Anatomy', 'image' => '../image/anatomy.png', 'color' => 'blue'],
                         ['id' => 'primaryCare', 'name' => 'Primary Care', 'image' => '../image/care.png', 'color' => 'green'],
@@ -125,25 +134,25 @@
                         ['id' => 'fisioterapy', 'name' => 'Physiotherapy', 'image' => '../image/fisio.png', 'color' => 'pink'],
                         ['id' => 'pregnancy', 'name' => 'Pregnancy', 'image' => '../image/preg.png', 'color' => 'teal']
                     ];
-                @endphp
+                ?>
                 
-                @foreach($specializations as $index => $spec)
-                    <a href="{{ route('spesialisFilter') }}?spesialisasi={{ $spec['name'] }}" 
+                <?php $__currentLoopData = $specializations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $spec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="<?php echo e(route('spesialisFilter')); ?>?spesialisasi=<?php echo e($spec['name']); ?>" 
                        class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up" 
-                       style="animation-delay: {{ $index * 100 }}ms">
+                       style="animation-delay: <?php echo e($index * 100); ?>ms">
                         <div class="p-6 flex flex-col items-center text-center">
-                            <div class="bg-{{ $spec['color'] }}-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 animate-pulse">
-                                <img src="{{ $spec['image'] }}" alt="{{ $spec['name'] }}" class="h-8 w-8" />
+                            <div class="bg-<?php echo e($spec['color']); ?>-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 animate-pulse">
+                                <img src="<?php echo e($spec['image']); ?>" alt="<?php echo e($spec['name']); ?>" class="h-8 w-8" />
                             </div>
-                            <h3 class="font-bold text-gray-900">{{ $spec['name'] }}</h3>
+                            <h3 class="font-bold text-gray-900"><?php echo e($spec['name']); ?></h3>
                         </div>
                     </a>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </div>
 
-    {{-- Voucher Section - Enhanced Carousel with 3D Effects --}}
+    
     <section id="voucher" class="py-16 bg-white reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 animate-fade-in">
@@ -162,19 +171,19 @@
                 
                 <div id="imageSlider" class="overflow-hidden">
                     <div class="flex transition-transform duration-500 ease-in-out" x-bind:style="{ transform: `translateX(-${currentIndex * (100/3)}%)` }">
-                        @foreach ($vouchers as $voucher)
-                            <div class="w-1/3 flex-shrink-0 px-3 animate-fade-in" style="animation-delay: {{ $loop->index * 100 }}ms">
+                        <?php $__currentLoopData = $vouchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $voucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="w-1/3 flex-shrink-0 px-3 animate-fade-in" style="animation-delay: <?php echo e($loop->index * 100); ?>ms">
                                 <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 hover:rotate-1"
-                                     onclick="openPopup('{{ asset($voucher->image) }}', '{{ $voucher->description }}', '{{ $voucher->code }}')">
-                                    <img class="w-full h-48 object-cover" src="{{ asset($voucher->image) }}" alt="{{ $voucher->description }}" />
+                                     onclick="openPopup('<?php echo e(asset($voucher->image)); ?>', '<?php echo e($voucher->description); ?>', '<?php echo e($voucher->code); ?>')">
+                                    <img class="w-full h-48 object-cover" src="<?php echo e(asset($voucher->image)); ?>" alt="<?php echo e($voucher->description); ?>" />
                                     <div class="p-4">
                                         <div class="inline-block px-2 py-1 bg-blue-100 rounded-full text-xs text-blue-700 font-medium mb-2">VOUCHER</div>
-                                        <h3 class="font-bold text-gray-900 mb-1 truncate">{{ $voucher->code }}</h3>
-                                        <p class="text-gray-600 text-sm line-clamp-2">{{ $voucher->description }}</p>
+                                        <h3 class="font-bold text-gray-900 mb-1 truncate"><?php echo e($voucher->code); ?></h3>
+                                        <p class="text-gray-600 text-sm line-clamp-2"><?php echo e($voucher->description); ?></p>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
                 
@@ -235,7 +244,7 @@
         </div>
     </div>
 
-    {{-- Statistics Section - Enhanced with Animated Counters --}}
+    
     <section class="py-16 bg-gradient-to-b from-blue-50 to-white reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
@@ -300,7 +309,7 @@
         </div>
     </section>
 
-    <!-- {{-- Testimonial Section - Enhanced with Animations --}}
+    <!-- 
     <section class="py-16 bg-white reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 animate-fade-in">
@@ -381,7 +390,7 @@
         </div>
     </section> -->
 
-    {{-- CTA Section - Enhanced with Gradient and Animation --}}
+    
     <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700 reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -398,7 +407,7 @@
         </div>
     </section>
 
-    {{-- Add CSS for custom animations --}}
+    
     <style>
         /* Fade in animation */
         .animate-fade-in {
@@ -747,7 +756,17 @@
             }
         });
     </script>
-    @include('layouts.footer')
+    <?php echo $__env->make('layouts.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
 
-</x-app-layout>
+ <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
+<?php $attributes = $__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
+<?php unset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
+<?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
+<?php unset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
+<?php endif; ?>
+<?php /**PATH D:\Coding\Project 4 matklul\Vitalife-1\resources\views/dashboard.blade.php ENDPATH**/ ?>

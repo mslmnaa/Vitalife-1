@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
@@ -72,7 +72,7 @@
          ">
         
         <!-- Sidebar -->
-        @include('layouts.sidenav')
+        <?php echo $__env->make('layouts.sidenav', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
         
         <!-- Mobile Overlay -->
         <div x-show="sidebarOpen && isMobile" 
@@ -98,7 +98,7 @@
                             </svg>
                         </button>
                         <div class="hidden sm:block">
-                            <h1 class="text-xl font-semibold text-gray-900">@yield('judul-halaman', 'Dashboard')</h1>
+                            <h1 class="text-xl font-semibold text-gray-900"><?php echo $__env->yieldContent('judul-halaman', 'Dashboard'); ?></h1>
                             <p class="text-sm text-gray-500 mt-1">Welcome back, manage your platform</p>
                         </div>
                     </div>
@@ -143,10 +143,10 @@
                             <button @click="open = !open" 
                                     class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
                                 <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                                    <span class="text-white font-semibold text-sm">{{ substr(Auth::user()->name, 0, 1) }}</span>
+                                    <span class="text-white font-semibold text-sm"><?php echo e(substr(Auth::user()->name, 0, 1)); ?></span>
                                 </div>
                                 <div class="hidden sm:block text-left">
-                                    <p class="text-sm font-medium text-gray-900">{{ Auth::user()->name }}</p>
+                                    <p class="text-sm font-medium text-gray-900"><?php echo e(Auth::user()->name); ?></p>
                                     <p class="text-xs text-gray-500">Administrator</p>
                                 </div>
                                 <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,19 +164,19 @@
                                  x-transition:leave-end="opacity-0 scale-95"
                                  class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                                 <div class="py-1">
-                                    <a href="{{ route('profile.edit') }}" 
+                                    <a href="<?php echo e(route('profile.edit')); ?>" 
                                        class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                                         <i class="fas fa-user-edit w-4 h-4 mr-3"></i>
                                         Edit Profile
                                     </a>
-                                    <a href="{{ route('dashboard') }}" 
+                                    <a href="<?php echo e(route('dashboard')); ?>" 
                                        class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                                         <i class="fas fa-globe w-4 h-4 mr-3"></i>
                                         Website
                                     </a>
                                     <div class="border-t border-gray-100"></div>
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
+                                    <form method="POST" action="<?php echo e(route('logout')); ?>">
+                                        <?php echo csrf_field(); ?>
                                         <button type="submit" 
                                                 class="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
                                             <i class="fas fa-sign-out-alt w-4 h-4 mr-3"></i>
@@ -193,7 +193,7 @@
             <!-- Main Content Area -->
             <main class="flex-1 overflow-auto">
                 <div id="content-wrapper" class="p-4 sm:p-6">
-                    @yield('content')
+                    <?php echo $__env->yieldContent('content'); ?>
                 </div>
             </main>
         </div>
@@ -258,6 +258,7 @@
 });
     </script>
 
-    @yield('scripts')
+    <?php echo $__env->yieldContent('scripts'); ?>
 </body>
 </html>
+<?php /**PATH D:\Coding\Project 4 matklul\Vitalife-1\resources\views/layouts/admin.blade.php ENDPATH**/ ?>

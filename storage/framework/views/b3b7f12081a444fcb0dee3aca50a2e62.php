@@ -1,8 +1,6 @@
-@extends('layouts.admin')
+<?php $__env->startSection('judul-halaman', 'Account User'); ?>
 
-@section('judul-halaman', 'Account User')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-lg sm:rounded-xl border border-gray-200">
@@ -18,7 +16,7 @@
                         </h2>
                         <p class="text-gray-600 mt-1">Manage user accounts and permissions</p>
                     </div>
-                    <button onclick="window.location.href='{{ route('admin.account.create') }}'" 
+                    <button onclick="window.location.href='<?php echo e(route('admin.account.create')); ?>'" 
                             class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-200 ease-in-out transform hover:scale-105 flex items-center gap-2"
                             title="Create new user account">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,7 +40,7 @@
                             </div>
                             <div class="ml-4">
                                 <p class="text-sm font-medium text-blue-600">Total Users</p>
-                                <p class="text-2xl font-bold text-blue-900">{{ $users->count() }}</p>
+                                <p class="text-2xl font-bold text-blue-900"><?php echo e($users->count()); ?></p>
                             </div>
                         </div>
                     </div>
@@ -59,7 +57,7 @@
                             </div>
                             <div class="ml-4">
                                 <p class="text-sm font-medium text-purple-600">Admin Users</p>
-                                <p class="text-2xl font-bold text-purple-900">{{ $users->where('role', 'admin')->count() }}</p>
+                                <p class="text-2xl font-bold text-purple-900"><?php echo e($users->where('role', 'admin')->count()); ?></p>
                             </div>
                         </div>
                     </div>
@@ -76,7 +74,7 @@
                             </div>
                             <div class="ml-4">
                                 <p class="text-sm font-medium text-green-600">Regular Users</p>
-                                <p class="text-2xl font-bold text-green-900">{{ $users->where('role', 'user')->count() }}</p>
+                                <p class="text-2xl font-bold text-green-900"><?php echo e($users->where('role', 'user')->count()); ?></p>
                             </div>
                         </div>
                     </div>
@@ -158,51 +156,54 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200" id="userTableBody">
-                                @foreach ($users as $user)
-                                <tr class="hover:bg-gray-50 transition-colors duration-150 user-row" data-name="{{ strtolower($user->name) }}" data-email="{{ strtolower($user->email) }}" data-role="{{ $user->role }}">
+                                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <tr class="hover:bg-gray-50 transition-colors duration-150 user-row" data-name="<?php echo e(strtolower($user->name)); ?>" data-email="<?php echo e(strtolower($user->email)); ?>" data-role="<?php echo e($user->role); ?>">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
                                                 <div class="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-semibold text-sm">
-                                                    {{ strtoupper(substr($user->name, 0, 2)) }}
+                                                    <?php echo e(strtoupper(substr($user->name, 0, 2))); ?>
+
                                                 </div>
                                             </div>
                                             <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">{{ $user->name }}</div>
+                                                <div class="text-sm font-medium text-gray-900"><?php echo e($user->name); ?></div>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{ $user->email }}</div>
+                                        <div class="text-sm text-gray-900"><?php echo e($user->email); ?></div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
-                                            @if($user->role === 'admin') bg-purple-100 text-purple-800
-                                            @elseif($user->role === 'user') bg-green-100 text-green-800
-                                            @else bg-gray-100 text-gray-800
-                                            @endif">
-                                            @if($user->role === 'admin')
+                                            <?php if($user->role === 'admin'): ?> bg-purple-100 text-purple-800
+                                            <?php elseif($user->role === 'user'): ?> bg-green-100 text-green-800
+                                            <?php else: ?> bg-gray-100 text-gray-800
+                                            <?php endif; ?>">
+                                            <?php if($user->role === 'admin'): ?>
                                                 <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
                                                 </svg>
-                                            @else
+                                            <?php else: ?>
                                                 <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                                                 </svg>
-                                            @endif
-                                            {{ ucfirst($user->role) }}
+                                            <?php endif; ?>
+                                            <?php echo e(ucfirst($user->role)); ?>
+
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900" title="{{ $user->created_at->format('F j, Y \a\t g:i A') }}">
-                                            {{ $user->created_at->format('M j, Y') }}
+                                        <div class="text-sm text-gray-900" title="<?php echo e($user->created_at->format('F j, Y \a\t g:i A')); ?>">
+                                            <?php echo e($user->created_at->format('M j, Y')); ?>
+
                                         </div>
-                                        <div class="text-xs text-gray-500">{{ $user->created_at->format('g:i A') }}</div>
+                                        <div class="text-xs text-gray-500"><?php echo e($user->created_at->format('g:i A')); ?></div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm">
                                         <div class="flex items-center gap-2">
                                             <!-- Edit Button -->
-                                            <a href="{{ route('admin.account.edit', $user->id) }}" 
+                                            <a href="<?php echo e(route('admin.account.edit', $user->id)); ?>" 
                                                class="inline-flex items-center px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-lg transition-colors duration-200 group"
                                                title="Edit user account">
                                                 <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -212,7 +213,7 @@
                                             
                                             <!-- Delete Button -->
                                             <button type="button" 
-                                                    onclick="showDeleteModal({{ $user->id }}, '{{ $user->name }}')"
+                                                    onclick="showDeleteModal(<?php echo e($user->id); ?>, '<?php echo e($user->name); ?>')"
                                                     class="inline-flex items-center px-3 py-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-lg transition-colors duration-200 group"
                                                     title="Delete user account">
                                                 <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -222,7 +223,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -270,8 +271,8 @@
 
 <!-- Hidden form for delete action -->
 <form id="deleteForm" method="POST" style="display: none;">
-    @csrf
-    @method('DELETE')
+    <?php echo csrf_field(); ?>
+    <?php echo method_field('DELETE'); ?>
 </form>
 
 <script>
@@ -291,7 +292,7 @@ function hideDeleteModal() {
 function confirmDelete() {
     if (deleteUserId) {
         const form = document.getElementById('deleteForm');
-        form.action = '{{ route("admin.account.destroy", ":id") }}'.replace(':id', deleteUserId);
+        form.action = '<?php echo e(route("admin.account.destroy", ":id")); ?>'.replace(':id', deleteUserId);
         form.submit();
     }
 }
@@ -355,4 +356,5 @@ document.addEventListener('keydown', function(e) {
     }
 });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Coding\Project 4 matklul\Vitalife-1\resources\views/admin/accountuser.blade.php ENDPATH**/ ?>

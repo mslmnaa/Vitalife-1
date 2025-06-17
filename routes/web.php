@@ -74,8 +74,6 @@ Route::prefix('pharmacies')->name('pharmacies.')->group(function () {
     Route::POST('/{id}/whatsapp', [PharmacyController::class, 'getWhatsAppLink'])->name('whatsapp')->where('id', '[0-9]+');
 });
 
-// ===== MEDICINE PUBLIC ROUTES =====
-// Public medicine routes (dapat diakses tanpa login)
 Route::prefix('medicines')->name('medicines.')->group(function () {
     Route::get('/', [MedicineController::class, 'index'])->name('index');
     Route::get('/{medicine}', [MedicineController::class, 'show'])->name('show');
