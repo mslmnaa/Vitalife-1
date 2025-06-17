@@ -15,7 +15,7 @@ class AdminController extends Controller
     public function Adminhomepage()
     {
 
-        $eventcount = Event::count();
+        // $eventcount = Event::count();
         $spescount = Spesialis::count();
         
         // Get recent payments
