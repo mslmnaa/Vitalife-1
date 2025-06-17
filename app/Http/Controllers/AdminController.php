@@ -21,7 +21,7 @@ class AdminController extends Controller
         // Get recent payments
         $payments = Payment::orderBy('created_at', 'desc')->take(10)->get();
         
-        return view('admin.dashboard', compact('eventcount', 'spescount', 'payments'));
+        return view('admin.dashboard', compact( 'spescount', 'payments'));
         
     }
 
