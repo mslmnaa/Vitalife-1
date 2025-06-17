@@ -8,7 +8,7 @@
                 <div class="w-full md:w-1/2 space-y-6">
                     <div class="inline-block px-4 py-1.5 bg-blue-100 rounded-full border border-blue-200 animate-pulse">
                         <p class="text-sm md:text-base font-medium text-blue-700">
-                            Skip the Travel! Consult Onlineeeeaa
+                            Skip the Travel! Consult Online12
                         </p>
                     </div>
                     
