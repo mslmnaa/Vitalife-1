@@ -1,0 +1,2 @@
+<img src="../image/LOGO_1.png" alt="Logo" class="mt-4 h-12 w-12 object-contain">
+<?php /**PATH D:\Coding\Project 4 matklul\Vitalife-1\resources\views\components\application-logo.blade.php ENDPATH**/ ?>
