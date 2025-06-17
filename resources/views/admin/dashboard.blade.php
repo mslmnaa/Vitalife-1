@@ -66,7 +66,7 @@
                     <div class="space-y-4">
                         <div>
                             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 group-hover:text-green-600 transition-colors">
-                                {{ $eventcount }}
+                                {{-- {{ $eventcount }} --}}
                             </h2>
                             <p class="text-base md:text-lg text-gray-600 font-medium mt-2">Total Events</p>
                         </div>
