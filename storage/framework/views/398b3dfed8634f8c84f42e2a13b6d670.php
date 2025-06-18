@@ -135,6 +135,25 @@
                     </div>
                 </a>
 
+                <!-- Pharmacy -->
+                <a href="<?php echo e(route('admin.pharmacies.index')); ?>"
+                    class="nav-link p-4 rounded-xl flex items-center <?php echo e(Request::routeIs('admin.pharmacies.*') ? 'active text-gray-800' : 'text-gray-300 hover:text-white hover:bg-gray-700/50'); ?> group">
+                    <div class="sidebar-icon w-10 h-10 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center mr-4 shadow-lg">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <span class="font-semibold text-base">Pharmacy</span>
+                        <p class="text-xs <?php echo e(Request::routeIs('admin.pharmacies.*') ? 'text-gray-500' : 'text-gray-400'); ?> mt-0.5">Manage pharmacies</p>
+                    </div>
+                    <div class="opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="fa-solid fa-chevron-right text-gray-400 text-sm"></i>
+                    </div>
+                </a>
+
                 <!-- Specialist -->
                 <a href="<?php echo e(route('admin.spesialisis.index')); ?>"
                     class="nav-link p-4 rounded-xl flex items-center <?php echo e(Request::routeIs('admin.spesialisis.index') ? 'active text-gray-800' : 'text-gray-300 hover:text-white hover:bg-gray-700/50'); ?> group">

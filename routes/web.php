@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\TransactionUserController;
 use App\Http\Controllers\Admin\SpesialisisController;
+use App\Http\Controllers\Admin\AdminPharmacyController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
@@ -73,6 +74,8 @@ Route::prefix('pharmacies')->name('pharmacies.')->group(function () {
     Route::get('/nearby', [PharmacyController::class, 'nearby'])->name('nearby');
     Route::POST('/{id}/whatsapp', [PharmacyController::class, 'getWhatsAppLink'])->name('whatsapp')->where('id', '[0-9]+');
 });
+
+
 
 Route::prefix('medicines')->name('medicines.')->group(function () {
     Route::get('/', [MedicineController::class, 'index'])->name('index');
@@ -302,6 +305,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/event/{id_event}/edit', [EventController::class, 'edit'])->name('event.edit');
     Route::put('/event/{id_event}', [EventController::class, 'update'])->name('event.update');
     Route::delete('/event/{id_event}', [EventController::class, 'destroy'])->name('event.destroy');
+
+    Route::resource('pharmacies', AdminPharmacyController::class);
+    Route::patch('pharmacies/{pharmacy}/toggle-status', [AdminPharmacyController::class, 'toggleStatus'])
+         ->name('pharmacies.toggle-status');
+
 });
 
 
@@ -334,6 +342,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 });
 
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/account', [AccountUserController::class, 'index'])->name('account.index');
+    Route::get('/account/create', [AccountUserController::class, 'create'])->name('account.create');
+    Route::post('/account/store', [AccountUserController::class, 'store'])->name('account.store');
+});
 
 // Broadcasting routes
 Broadcast::routes(['middleware' => ['auth']]);
