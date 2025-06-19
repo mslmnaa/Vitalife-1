@@ -1,35 +1,33 @@
-@extends('layouts.admin')
+<?php $__env->startSection('page-title', 'Edit Pharmacy'); ?>
 
-@section('page-title', 'Edit Pharmacy')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="max-w-6xl mx-auto">
             <div class="flex items-center mb-6">
-                <a href="{{ route('admin.pharmacies.index') }}" class="text-gray-600 hover:text-gray-800 mr-4">
+                <a href="<?php echo e(route('admin.pharmacies.index')); ?>" class="text-gray-600 hover:text-gray-800 mr-4">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </a>
-                <h1 class="text-2xl font-bold">Edit Pharmacy: {{ $pharmacy->name }}</h1>
+                <h1 class="text-2xl font-bold">Edit Pharmacy: <?php echo e($pharmacy->name); ?></h1>
             </div>
 
-            @if ($errors->any())
+            <?php if($errors->any()): ?>
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
                     <strong class="font-bold">Whoops!</strong>
                     <span class="block sm:inline">There were some problems with your input.</span>
                     <ul class="mt-2">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
+                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li><?php echo e($error); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                 </div>
-            @endif
+            <?php endif; ?>
 
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <form action="{{ route('admin.pharmacies.update', $pharmacy) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
+                <form action="<?php echo e(route('admin.pharmacies.update', $pharmacy)); ?>" method="POST" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
+                    <?php echo method_field('PUT'); ?>
                     
                     <div class="p-6">
                         <!-- Basic Information & Location Settings -->
@@ -42,44 +40,100 @@
                                     <!-- Nama Pharmacy -->
                                     <div>
                                         <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nama Pharmacy <span class="text-red-500">*</span></label>
-                                        <input type="text" name="name" id="name" value="{{ old('name', $pharmacy->name) }}" 
-                                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('name') border-red-500 @enderror"
+                                        <input type="text" name="name" id="name" value="<?php echo e(old('name', $pharmacy->name)); ?>" 
+                                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                                placeholder="Enter pharmacy name" required>
-                                        @error('name')
-                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
+                                        <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <p class="mt-1 text-sm text-red-600"><?php echo e($message); ?></p>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
 
                                     <!-- Alamat -->
                                     <div>
                                         <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Alamat <span class="text-red-500">*</span></label>
                                         <textarea name="address" id="address" rows="3" 
-                                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('address') border-red-500 @enderror"
-                                                  placeholder="Enter pharmacy address" required>{{ old('address', $pharmacy->address) }}</textarea>
-                                        @error('address')
-                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
+                                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['address'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                                  placeholder="Enter pharmacy address" required><?php echo e(old('address', $pharmacy->address)); ?></textarea>
+                                        <?php $__errorArgs = ['address'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <p class="mt-1 text-sm text-red-600"><?php echo e($message); ?></p>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
 
                                     <!-- Phone & WhatsApp -->
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Telepon <span class="text-red-500">*</span></label>
-                                            <input type="text" name="phone" id="phone" value="{{ old('phone', $pharmacy->phone) }}" 
-                                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('phone') border-red-500 @enderror"
+                                            <input type="text" name="phone" id="phone" value="<?php echo e(old('phone', $pharmacy->phone)); ?>" 
+                                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                                    placeholder="Phone number" required>
-                                            @error('phone')
-                                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                            @enderror
+                                            <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                                <p class="mt-1 text-sm text-red-600"><?php echo e($message); ?></p>
+                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                         </div>
                                         <div>
                                             <label for="whatsapp" class="block text-sm font-medium text-gray-700 mb-2">WhatsApp <span class="text-red-500">*</span></label>
-                                            <input type="text" name="whatsapp" id="whatsapp" value="{{ old('whatsapp', $pharmacy->whatsapp) }}" 
-                                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('whatsapp') border-red-500 @enderror"
+                                            <input type="text" name="whatsapp" id="whatsapp" value="<?php echo e(old('whatsapp', $pharmacy->whatsapp)); ?>" 
+                                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['whatsapp'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                                    placeholder="WhatsApp number" required>
-                                            @error('whatsapp')
-                                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                            @enderror
+                                            <?php $__errorArgs = ['whatsapp'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                                <p class="mt-1 text-sm text-red-600"><?php echo e($message); ?></p>
+                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                         </div>
                                     </div>
 
@@ -87,28 +141,43 @@
                                     <div>
                                         <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi</label>
                                         <textarea name="description" id="description" rows="3" 
-                                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('description') border-red-500 @enderror"
-                                                  placeholder="Enter pharmacy description">{{ old('description', $pharmacy->description) }}</textarea>
-                                        @error('description')
-                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
+                                                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['description'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                                  placeholder="Enter pharmacy description"><?php echo e(old('description', $pharmacy->description)); ?></textarea>
+                                        <?php $__errorArgs = ['description'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <p class="mt-1 text-sm text-red-600"><?php echo e($message); ?></p>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
 
                                     <!-- Current Image -->
-                                    @if($pharmacy->image)
+                                    <?php if($pharmacy->image): ?>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Current Image</label>
                                         <div class="flex items-center space-x-4">
-                                            <img src="{{ $pharmacy->image_url }}" alt="{{ $pharmacy->name }}" class="h-20 w-20 object-cover rounded-lg">
+                                            <img src="<?php echo e($pharmacy->image_url); ?>" alt="<?php echo e($pharmacy->name); ?>" class="h-20 w-20 object-cover rounded-lg">
                                             <span class="text-sm text-gray-600">Current pharmacy image</span>
                                         </div>
                                     </div>
-                                    @endif
+                                    <?php endif; ?>
 
                                     <!-- New Image -->
                                     <div>
                                         <label for="image" class="block text-sm font-medium text-gray-700 mb-2">
-                                            {{ $pharmacy->image ? 'Change Image (Optional)' : 'Pharmacy Image' }}
+                                            <?php echo e($pharmacy->image ? 'Change Image (Optional)' : 'Pharmacy Image'); ?>
+
                                         </label>
                                         <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                             <div class="space-y-1 text-center">
@@ -125,9 +194,16 @@
                                                 <p class="text-xs text-gray-500">PNG, JPG, GIF up to 2MB</p>
                                             </div>
                                         </div>
-                                        @error('image')
-                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
+                                        <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <p class="mt-1 text-sm text-red-600"><?php echo e($message); ?></p>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
                                 </div>
                             </div>
@@ -141,21 +217,49 @@
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label for="latitude" class="block text-sm font-medium text-gray-700 mb-2">Latitude</label>
-                                            <input type="number" step="any" name="latitude" id="latitude" value="{{ old('latitude', $pharmacy->latitude) }}" 
-                                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('latitude') border-red-500 @enderror"
+                                            <input type="number" step="any" name="latitude" id="latitude" value="<?php echo e(old('latitude', $pharmacy->latitude)); ?>" 
+                                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['latitude'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                                    placeholder="Latitude">
-                                            @error('latitude')
-                                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                            @enderror
+                                            <?php $__errorArgs = ['latitude'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                                <p class="mt-1 text-sm text-red-600"><?php echo e($message); ?></p>
+                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                         </div>
                                         <div>
                                             <label for="longitude" class="block text-sm font-medium text-gray-700 mb-2">Longitude</label>
-                                            <input type="number" step="any" name="longitude" id="longitude" value="{{ old('longitude', $pharmacy->longitude) }}" 
-                                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('longitude') border-red-500 @enderror"
+                                            <input type="number" step="any" name="longitude" id="longitude" value="<?php echo e(old('longitude', $pharmacy->longitude)); ?>" 
+                                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['longitude'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                                    placeholder="Longitude">
-                                            @error('longitude')
-                                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                            @enderror
+                                            <?php $__errorArgs = ['longitude'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                                <p class="mt-1 text-sm text-red-600"><?php echo e($message); ?></p>
+                                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                         </div>
                                     </div>
 
@@ -163,14 +267,14 @@
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-3">Fasilitas</label>
                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                            @foreach($facilities as $key => $label)
+                                            <?php $__currentLoopData = $facilities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <div class="flex items-center">
-                                                <input type="checkbox" name="facilities[]" value="{{ $key }}" id="facility_{{ $key }}"
+                                                <input type="checkbox" name="facilities[]" value="<?php echo e($key); ?>" id="facility_<?php echo e($key); ?>"
                                                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                                                       {{ in_array($key, old('facilities', $pharmacy->facilities ?? [])) ? 'checked' : '' }}>
-                                                <label for="facility_{{ $key }}" class="ml-2 text-sm text-gray-700">{{ $label }}</label>
+                                                       <?php echo e(in_array($key, old('facilities', $pharmacy->facilities ?? [])) ? 'checked' : ''); ?>>
+                                                <label for="facility_<?php echo e($key); ?>" class="ml-2 text-sm text-gray-700"><?php echo e($label); ?></label>
                                             </div>
-                                            @endforeach
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </div>
                                     </div>
 
@@ -179,7 +283,7 @@
                                         <div class="flex items-center">
                                             <input type="checkbox" name="is_active" value="1" id="is_active"
                                                    class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                                                   {{ old('is_active', $pharmacy->is_active) ? 'checked' : '' }}>
+                                                   <?php echo e(old('is_active', $pharmacy->is_active) ? 'checked' : ''); ?>>
                                             <label for="is_active" class="ml-2 text-sm text-gray-700">Aktif</label>
                                         </div>
                                     </div>
@@ -201,7 +305,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200">
-                                        @php
+                                        <?php
                                             $days = [
                                                 'monday' => 'Senin',
                                                 'tuesday' => 'Selasa', 
@@ -211,31 +315,31 @@
                                                 'saturday' => 'Sabtu',
                                                 'sunday' => 'Minggu'
                                             ];
-                                        @endphp
-                                        @foreach($days as $key => $day)
-                                        @php
+                                        ?>
+                                        <?php $__currentLoopData = $days; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $day): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php
                                             $dayData = $pharmacy->operating_hours[$key] ?? ['is_open' => false, 'open' => '08:00', 'close' => '22:00'];
-                                        @endphp
+                                        ?>
                                         <tr>
-                                            <td class="px-4 py-3 text-sm text-gray-900">{{ $day }}</td>
+                                            <td class="px-4 py-3 text-sm text-gray-900"><?php echo e($day); ?></td>
                                             <td class="px-4 py-3 text-center">
-                                                <input type="checkbox" name="operating_hours[{{ $key }}][is_open]" value="1"
-                                                       id="day_{{ $key }}" data-day="{{ $key }}"
+                                                <input type="checkbox" name="operating_hours[<?php echo e($key); ?>][is_open]" value="1"
+                                                       id="day_<?php echo e($key); ?>" data-day="<?php echo e($key); ?>"
                                                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded day-toggle"
-                                                       {{ old("operating_hours.{$key}.is_open", $dayData['is_open']) ? 'checked' : '' }}>
+                                                       <?php echo e(old("operating_hours.{$key}.is_open", $dayData['is_open']) ? 'checked' : ''); ?>>
                                             </td>
                                             <td class="px-4 py-3">
-                                                <input type="time" name="operating_hours[{{ $key }}][open]" 
-                                                       id="open_{{ $key }}" value="{{ old("operating_hours.{$key}.open", $dayData['open']) }}"
+                                                <input type="time" name="operating_hours[<?php echo e($key); ?>][open]" 
+                                                       id="open_<?php echo e($key); ?>" value="<?php echo e(old("operating_hours.{$key}.open", $dayData['open'])); ?>"
                                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent time-input">
                                             </td>
                                             <td class="px-4 py-3">
-                                                <input type="time" name="operating_hours[{{ $key }}][close]" 
-                                                       id="close_{{ $key }}" value="{{ old("operating_hours.{$key}.close", $dayData['close']) }}"
+                                                <input type="time" name="operating_hours[<?php echo e($key); ?>][close]" 
+                                                       id="close_<?php echo e($key); ?>" value="<?php echo e(old("operating_hours.{$key}.close", $dayData['close'])); ?>"
                                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent time-input">
                                             </td>
                                         </tr>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -254,45 +358,46 @@
                                 </button>
                             </div>
                             <div id="medicines-container" class="space-y-4">
-                                @foreach($pharmacy->medicines as $index => $medicine)
+                                <?php $__currentLoopData = $pharmacy->medicines; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $medicine): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="medicine-row bg-gray-50 border border-gray-200 rounded-lg p-4">
                                     <div class="grid grid-cols-1 md:grid-cols-6 gap-4 items-end">
                                         <div class="md:col-span-2">
                                             <label class="block text-sm font-medium text-gray-700 mb-2">Obat</label>
-                                            <select name="medicines[{{ $index }}][medicine_id]" 
+                                            <select name="medicines[<?php echo e($index); ?>][medicine_id]" 
                                                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent medicine-select">
                                                 <option value="">Pilih Obat</option>
-                                                @foreach($medicines as $med)
-                                                <option value="{{ $med->id_medicine }}" 
-                                                        {{ $med->id_medicine == $medicine->id_medicine ? 'selected' : '' }}>
-                                                    {{ $med->nama }} - {{ $med->kategori }}
+                                                <?php $__currentLoopData = $medicines; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $med): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option value="<?php echo e($med->id_medicine); ?>" 
+                                                        <?php echo e($med->id_medicine == $medicine->id_medicine ? 'selected' : ''); ?>>
+                                                    <?php echo e($med->nama); ?> - <?php echo e($med->kategori); ?>
+
                                                 </option>
-                                                @endforeach
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </select>
                                         </div>
                                         <div>
                                             <label class="block text-sm font-medium text-gray-700 mb-2">Stok</label>
-                                            <input type="number" name="medicines[{{ $index }}][stock]" min="0" 
-                                                   value="{{ $medicine->pivot->stock }}"
+                                            <input type="number" name="medicines[<?php echo e($index); ?>][stock]" min="0" 
+                                                   value="<?php echo e($medicine->pivot->stock); ?>"
                                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                         </div>
                                         <div>
                                             <label class="block text-sm font-medium text-gray-700 mb-2">Harga</label>
-                                            <input type="number" name="medicines[{{ $index }}][price]" min="0" 
-                                                   value="{{ $medicine->pivot->price }}"
+                                            <input type="number" name="medicines[<?php echo e($index); ?>][price]" min="0" 
+                                                   value="<?php echo e($medicine->pivot->price); ?>"
                                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                         </div>
                                         <div>
                                             <label class="block text-sm font-medium text-gray-700 mb-2">Catatan</label>
-                                            <input type="text" name="medicines[{{ $index }}][notes]" 
-                                                   value="{{ $medicine->pivot->notes }}"
+                                            <input type="text" name="medicines[<?php echo e($index); ?>][notes]" 
+                                                   value="<?php echo e($medicine->pivot->notes); ?>"
                                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                         </div>
                                         <div class="flex items-center justify-between">
                                             <div class="flex items-center">
-                                                <input type="checkbox" name="medicines[{{ $index }}][is_available]" value="1"
+                                                <input type="checkbox" name="medicines[<?php echo e($index); ?>][is_available]" value="1"
                                                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                                                       {{ $medicine->pivot->is_available ? 'checked' : '' }}>
+                                                       <?php echo e($medicine->pivot->is_available ? 'checked' : ''); ?>>
                                                 <label class="ml-2 text-sm text-gray-700">Tersedia</label>
                                             </div>
                                             <button type="button" class="remove-medicine text-red-600 hover:text-red-800 p-1">
@@ -303,13 +408,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-gray-50 px-6 py-4 flex justify-end space-x-3">
-                        <a href="{{ route('admin.pharmacies.index') }}" 
+                        <a href="<?php echo e(route('admin.pharmacies.index')); ?>" 
                            class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             Cancel
                         </a>
@@ -332,9 +437,9 @@
                     <select name="medicines[INDEX][medicine_id]" 
                             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent medicine-select">
                         <option value="">Pilih Obat</option>
-                        @foreach($medicines as $medicine)
-                        <option value="{{ $medicine->id_medicine }}">{{ $medicine->nama }} - {{ $medicine->kategori }}</option>
-                        @endforeach
+                        <?php $__currentLoopData = $medicines; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $medicine): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($medicine->id_medicine); ?>"><?php echo e($medicine->nama); ?> - <?php echo e($medicine->kategori); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
                 <div>
@@ -368,12 +473,12 @@
         </div>
     </template>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    let medicineIndex = {{ $pharmacy->medicines->count() }};
+    let medicineIndex = <?php echo e($pharmacy->medicines->count()); ?>;
 
     // Toggle operating hours inputs
     const dayToggles = document.querySelectorAll('.day-toggle');
@@ -414,4 +519,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-@endpush
+<?php $__env->stopPush(); ?>
+<?php echo $__env->make('layouts.admin', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Coding\Project 4 matklul\Vitalife-1\resources\views/admin/pharmacies/edit.blade.php ENDPATH**/ ?>

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
-use App\Services\TripayService;
 use Illuminate\Http\Request;
+use App\Services\TripayService;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
 
 class TripayController extends Controller
 {
