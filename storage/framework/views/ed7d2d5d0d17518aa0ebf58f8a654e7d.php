@@ -186,8 +186,7 @@
                                         </svg>
                                     </div>
                                     <h3 class="text-xl font-bold text-white mb-2">Specialist Doctors</h3>
-                                    <p class="text-gray-200 text-sm leading-relaxed">Chat with certified specialists in
-                                        real-time</p>
+                                    <p class="text-gray-200 text-sm leading-relaxed">Chat with certified specialists</p>
                                 </div>
                             </div>
                         </a>
