@@ -29,6 +29,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserMedicineController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\PaymentHistoryController;
 use App\Http\Controllers\TransactionUserController;
 use App\Http\Controllers\Admin\SpesialisisController;
 use App\Http\Controllers\Admin\AdminPharmacyController;
@@ -108,6 +109,19 @@ Route::middleware('auth')->group(function () {
         Route::patch('/email', [ProfileController::class, 'updateEmail'])->name('profile.update.email');
         Route::post('/image', [ProfileController::class, 'updateImage'])->name('profile.update.image');
     });
+
+
+    Route::get('/payment-history', [PaymentHistoryController::class, 'index'])
+        ->name('payment-history.index');
+    
+    Route::get('/payment-history/{id}', [PaymentHistoryController::class, 'show'])
+        ->name('payment-history.show');
+    
+    Route::get('/chat/available-doctors', [PaymentHistoryController::class, 'getConfirmedPayments'])
+        ->name('chat.available-doctors');
+
+
+
 
     Route::post('/health-chat/response', [HealthChatController::class, 'getResponse'])
         ->name('health-chat.response')
