@@ -122,36 +122,38 @@
                     {{-- Enhanced CTA Buttons --}}
                     <div
                         class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start animate-fade-in-up animation-delay-600">
-<a href="{{ route('spesialis') }}"
-    class="group relative px-10 py-5 bg-gradient-to-r from-cyan-500 via-blue-500 to-blue-600 hover:from-cyan-600 hover:via-blue-600 hover:to-blue-700 text-white font-bold rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-110 hover:shadow-cyan-500/30 overflow-hidden block text-center">
-    
-    <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-    
-    <div class="relative flex items-center justify-center gap-4">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-        </svg>
-        <span class="text-lg">Consult Specialist Now</span>
-        <svg class="w-6 h-6 transform transition-transform group-hover:translate-x-2"
-            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg>
-    </div>
-</a>
+                        <a href="{{ route('spesialis') }}"
+                            class="group relative px-10 py-5 bg-gradient-to-r from-cyan-500 via-blue-500 to-blue-600 hover:from-cyan-600 hover:via-blue-600 hover:to-blue-700 text-white font-bold rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-110 hover:shadow-cyan-500/30 overflow-hidden block text-center">
 
-                       <a href="{{ route('pharmacies.index') }}"
-    class="group px-10 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold rounded-2xl border-2 border-white/30 hover:border-white/50 transition-all duration-500 transform hover:scale-105 flex items-center justify-center gap-4">
-    
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-    </svg>
-    <span class="text-lg">Find Pharmacies</span>
-</a>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000">
+                            </div>
+
+                            <div class="relative flex items-center justify-center gap-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                </svg>
+                                <span class="text-lg">Consult Specialist Now</span>
+                                <svg class="w-6 h-6 transform transition-transform group-hover:translate-x-2"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                            </div>
+                        </a>
+
+                        <a href="{{ route('pharmacies.index') }}"
+                            class="group px-10 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-bold rounded-2xl border-2 border-white/30 hover:border-white/50 transition-all duration-500 transform hover:scale-105 flex items-center justify-center gap-4">
+
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="text-lg">Find Pharmacies</span>
+                        </a>
 
                     </div>
                 </div>
@@ -269,19 +271,10 @@
             </div>
         </div>
     </div>
-    {{-- Scroll Indicator --}}
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div class="flex flex-col items-center text-white/60">
-            <span class="text-sm mb-2">Scroll to explore</span>
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-        </div>
-    </div>
-    </div>
-    </div>
+  
+    
 
-    <div id="services" class="py-16 bg-white reveal">
+    <div id="services" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 animate-fade-in">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Medicines & Pharmacy Services</h2>
@@ -417,7 +410,7 @@
         </div>
     </div>
 
-    <div id="spesialis" class="py-16 bg-gray-50 reveal">
+    <div id="spesialis" class="py-16 bg-gray-50 ">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 animate-fade-in">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Specialization</h2>
@@ -457,7 +450,7 @@
     </div>
 
     {{-- Voucher Section - Enhanced Carousel with 3D Effects --}}
-    <section id="voucher" class="py-16 bg-white reveal">
+    <section id="voucher" class="py-16 bg-white ">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 animate-fade-in">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Special Promotions</h2>
@@ -569,7 +562,7 @@
     </div>
 
     {{-- Statistics Section - Enhanced with Animated Counters --}}
-    <section class="py-16 bg-gradient-to-b from-blue-50 to-white reveal">
+    <section class="py-16 bg-gradient-to-b from-blue-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
                 <div class="lg:w-1/2 animate-fade-in-left">
@@ -660,105 +653,7 @@
         </div>
     </section>
 
-    <!-- {{-- Testimonial Section - Enhanced with Animations --}}
-    <section class="py-16 bg-white reveal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 animate-fade-in">
-                <div class="inline-block px-4 py-1.5 bg-blue-100 rounded-full text-sm text-blue-700 font-medium mb-4">
-                    TESTIMONIALS
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">What They Say?</h2>
-                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Experiences from patients who have used Vitalife services</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up animation-delay-100">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6">"Online consultation with doctors at Vitalife has been very helpful for me with my busy schedule. The doctors are professional and the solutions provided are right on target."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 animate-pulse">
-                            <span class="text-blue-600 font-bold">AS</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Andy Smith</h4>
-                            <p class="text-gray-600 text-sm">Jakarta</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up animation-delay-200">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6">"I regularly attend online yoga sessions from Vitalife. The instructors are very experienced and I feel the benefits for my physical and mental health."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4 animate-pulse">
-                            <span class="text-green-600 font-bold">DP</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Diana Parker</h4>
-                            <p class="text-gray-600 text-sm">Bandung</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up animation-delay-300">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-6">"Physiotherapy services from Vitalife have been very helpful in recovering from my knee injury. The therapists are very professional and provide exercise programs tailored to my condition."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4 animate-pulse">
-                            <span class="text-purple-600 font-bold">BP</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Brian Peterson</h4>
-                            <p class="text-gray-600 text-sm">Surabaya</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    {{-- CTA Section - Enhanced with Gradient and Animation --}}
-    <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700 reveal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-                <div class="md:w-2/3 animate-fade-in-left">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Start Your Health Journey Now</h2>
-                    <p class="text-blue-100 text-lg">Consult your health issues with the best specialists anytime,
-                        anywhere.</p>
-                </div>
-                <div class="md:w-1/3 flex justify-center md:justify-end animate-fade-in-right">
-                    <a href="#spesialis"
-                        class="px-8 py-4 bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-lg shadow-lg transform transition duration-300 hover:scale-105 text-center animate-pulse">
-                        Find a Specialist
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+  
 
     {{-- Add CSS for custom animations --}}
     <style>
