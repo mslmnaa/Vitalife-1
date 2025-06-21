@@ -76,6 +76,9 @@ Route::get('/dayatganteng', function () {
 Route::get('/dayatganteng-admin', function () {
     return view('bidan.admin');
 });
+Route::get('/dayatganteng-admin2', function () {
+    return view('bidan.admin2');
+});
 
 
 Route::prefix('pharmacies')->name('pharmacies.')->group(function () {
