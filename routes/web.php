@@ -70,7 +70,7 @@ Route::get('/service', function () {
 
 
 
-Route::get('/klinik-ralinish', function () {
+Route::get('/dayatganteng', function () {
     return view('bidan');
 });
 
