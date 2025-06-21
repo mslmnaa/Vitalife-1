@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Klinik Ralinish</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'clinic-green': {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Login Modal (Initially shown) -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-clinic-green-600">Admin Login</h2>
+                <p class="text-gray-600">Klinik Ralinish Dashboard</p>
+            </div>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                    <input type="text" id="username" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent" placeholder="Masukkan username" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent" placeholder="Masukkan password" required>
+                </div>
+                <button type="submit" class="w-full bg-clinic-green-600 text-white py-2 rounded-lg font-semibold hover:bg-clinic-green-700 transition-colors">
+                    <i class="fas fa-sign-in-alt mr-2"></i>
+                    Login
+                </button>
+            </form>
+            <p class="text-xs text-gray-500 text-center mt-4">Demo: admin / admin123</p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard (Initially hidden) -->
+    <div id="dashboard" class="hidden">
+        <!-- Sidebar -->
+        <div class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg z-40">
+            <div class="flex items-center justify-center h-16 bg-clinic-green-600">
+                <h1 class="text-white text-xl font-bold">Admin Dashboard</h1>
+            </div>
+            <nav class="mt-8">
+                <div class="px-4 space-y-2">
+                    <a href="#" class="nav-link active flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-clinic-green-50 hover:text-clinic-green-600 transition-colors" data-section="patients">
+                        <i class="fas fa-users mr-3"></i>
+                        Data Pasien
+                    </a>
+                    <a href="#" class="nav-link flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-clinic-green-50 hover:text-clinic-green-600 transition-colors" data-section="appointments">
+                        <i class="fas fa-calendar-alt mr-3"></i>
+                        Jadwal Konsultasi
+                    </a>
+                    <a href="#" class="nav-link flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-clinic-green-50 hover:text-clinic-green-600 transition-colors" data-section="reports">
+                        <i class="fas fa-chart-bar mr-3"></i>
+                        Laporan
+                    </a>
+                    <a href="#" class="nav-link flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-clinic-green-50 hover:text-clinic-green-600 transition-colors" data-section="settings">
+                        <i class="fas fa-cog mr-3"></i>
+                        Pengaturan
+                    </a>
+                </div>
+            </nav>
+            <div class="absolute bottom-4 left-4 right-4">
+                <button onclick="logout()" class="w-full flex items-center justify-center px-4 py-2 text-red-600 border border-red-600 rounded-lg hover:bg-red-50 transition-colors">
+                    <i class="fas fa-sign-out-alt mr-2"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="ml-64">
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200">
+                <div class="flex items-center justify-between px-6 py-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900">Data Pasien</h2>
+                        <p class="text-gray-600">Kelola data pasien Klinik Ralinish</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <input type="text" id="searchInput" placeholder="Cari pasien..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent">
+                            <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                        </div>
+                        <button onclick="openAddModal()" class="bg-clinic-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-clinic-green-700 transition-colors">
+                            <i class="fas fa-plus mr-2"></i>
+                            Tambah Pasien
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <main class="p-6">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-users text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Total Pasien</p>
+                                <p class="text-2xl font-bold text-gray-900" id="totalPatients">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex items-center">
+                            <div class="bg-green-100 p-3 rounded-full">
+                                <i class="fas fa-user-check text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Pasien Aktif</p>
+                                <p class="text-2xl font-bold text-gray-900" id="activePatients">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex items-center">
+                            <div class="bg-yellow-100 p-3 rounded-full">
+                                <i class="fas fa-calendar-day text-yellow-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Konsultasi Hari Ini</p>
+                                <p class="text-2xl font-bold text-gray-900">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 p-3 rounded-full">
+                                <i class="fas fa-baby text-purple-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Ibu Hamil</p>
+                                <p class="text-2xl font-bold text-gray-900" id="pregnantPatients">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="bg-white p-4 rounded-lg shadow-sm mb-6">
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                            <select id="statusFilter" class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent">
+                                <option value="">Semua Status</option>
+                                <option value="aktif">Aktif</option>
+                                <option value="tidak_aktif">Tidak Aktif</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin</label>
+                            <select id="genderFilter" class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent">
+                                <option value="">Semua</option>
+                                <option value="perempuan">Perempuan</option>
+                                <option value="laki-laki">Laki-laki</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Umur</label>
+                            <select id="ageFilter" class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent">
+                                <option value="">Semua Umur</option>
+                                <option value="0-17">0-17 tahun</option>
+                                <option value="18-30">18-30 tahun</option>
+                                <option value="31-45">31-45 tahun</option>
+                                <option value="46+">46+ tahun</option>
+                            </select>
+                        </div>
+                        <div class="flex-1"></div>
+                        <button onclick="resetFilters()" class="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-undo mr-2"></i>
+                            Reset Filter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Patients Table -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Pasien</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No. RM</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Umur</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jenis Kelamin</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No. Telepon</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="patientsTableBody" class="bg-white divide-y divide-gray-200">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1 flex justify-between sm:hidden">
+                                <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                    Previous
+                                </button>
+                                <button class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                    Next
+                                </button>
+                            </div>
+                            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-700">
+                                        Menampilkan <span class="font-medium" id="showingFrom">1</span> sampai <span class="font-medium" id="showingTo">10</span> dari <span class="font-medium" id="totalRecords">0</span> data
+                                    </p>
+                                </div>
+                                <div>
+                                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" id="pagination">
+                                        <!-- Pagination buttons will be generated by JavaScript -->
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Add/Edit Patient Modal -->
+    <div id="patientModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-screen overflow-y-auto">
+            <div class="flex items-center justify-between p-6 border-b border-gray-200">
+                <h3 id="modalTitle" class="text-lg font-semibold text-gray-900">Tambah Pasien Baru</h3>
+                <button onclick="closePatientModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="patientForm" class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label>
+                        <input type="text" id="patientName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">No. Rekam Medis</label>
+                        <input type="text" id="patientRM" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent" readonly>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Lahir *</label>
+                        <input type="date" id="patientBirthDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Kelamin *</label>
+                        <select id="patientGender" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent" required>
+                            <option value="">Pilih Jenis Kelamin</option>
+                            <option value="perempuan">Perempuan</option>
+                            <option value="laki-laki">Laki-laki</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">No. Telepon *</label>
+                        <input type="tel" id="patientPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" id="patientEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Alamat *</label>
+                        <textarea id="patientAddress" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent" required></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Golongan Darah</label>
+                        <select id="patientBloodType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent">
+                            <option value="">Pilih Golongan Darah</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                        <select id="patientStatus" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent">
+                            <option value="aktif">Aktif</option>
+                            <option value="tidak_aktif">Tidak Aktif</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Catatan Medis</label>
+                        <textarea id="patientNotes" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-clinic-green-500 focus:border-transparent" placeholder="Riwayat penyakit, alergi, dll."></textarea>
+                    </div>
+                </div>
+                <div class="flex justify-end space-x-4 mt-6 pt-6 border-t border-gray-200">
+                    <button type="button" onclick="closePatientModal()" class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                        Batal
+                    </button>
+                    <button type="submit" class="px-6 py-2 bg-clinic-green-600 text-white rounded-lg hover:bg-clinic-green-700 transition-colors">
+                        <i class="fas fa-save mr-2"></i>
+                        Simpan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <div class="bg-red-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900">Konfirmasi Hapus</h3>
+                        <p class="text-gray-600">Apakah Anda yakin ingin menghapus data pasien ini?</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                    <p class="font-medium" id="deletePatientName"></p>
+                    <p class="text-sm text-gray-600" id="deletePatientRM"></p>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button onclick="closeDeleteModal()" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                        Batal
+                    </button>
+                    <button onclick="confirmDelete()" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                        <i class="fas fa-trash mr-2"></i>
+                        Hapus
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Sample patient data
+        let patients = [
+            {
+                id: 1,
+                name: "Siti Nurhaliza",
+                rm: "RM001",
+                birthDate: "1990-05-15",
+                gender: "perempuan",
+                phone: "081234567890",
+                email: "siti@email.com",
+                address: "Jl. Merdeka No. 123, Cikarang",
+                bloodType: "A",
+                status: "aktif",
+                notes: "Ibu hamil trimester 2",
+                createdAt: "2024-01-15"
+            },
+            {
+                id: 2,
+                name: "Budi Santoso",
+                rm: "RM002",
+                birthDate: "1985-08-22",
+                gender: "laki-laki",
+                phone: "081234567891",
+                email: "budi@email.com",
+                address: "Jl. Sudirman No. 456, Bekasi",
+                bloodType: "B",
+                status: "aktif",
+                notes: "Kontrol rutin diabetes",
+                createdAt: "2024-01-16"
+            },
+            {
+                id: 3,
+                name: "Maya Sari",
+                rm: "RM003",
+                birthDate: "1992-12-10",
+                gender: "perempuan",
+                phone: "081234567892",
+                email: "maya@email.com",
+                address: "Jl. Gatot Subroto No. 789, Cikarang",
+                bloodType: "O",
+                status: "aktif",
+                notes: "Program hamil",
+                createdAt: "2024-01-17"
+            },
+            {
+                id: 4,
+                name: "Ahmad Fauzi",
+                rm: "RM004",
+                birthDate: "1988-03-25",
+                gender: "laki-laki",
+                phone: "081234567893",
+                email: "ahmad@email.com",
+                address: "Jl. Diponegoro No. 321, Bekasi",
+                bloodType: "AB",
+                status: "tidak_aktif",
+                notes: "Pindah alamat",
+                createdAt: "2024-01-18"
+            },
+            {
+                id: 5,
+                name: "Rina Wati",
+                rm: "RM005",
+                birthDate: "1995-07-08",
+                gender: "perempuan",
+                phone: "081234567894",
+                email: "rina@email.com",
+                address: "Jl. Ahmad Yani No. 654, Cikarang",
+                bloodType: "A",
+                status: "aktif",
+                notes: "Ibu hamil trimester 3",
+                createdAt: "2024-01-19"
+            }
+        ];
+
+        let currentPage = 1;
+        let itemsPerPage = 10;
+        let filteredPatients = [...patients];
+        let editingPatientId = null;
+
+        // Login functionality
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'admin' && password === 'admin123') {
+                document.getElementById('loginModal').classList.add('hidden');
+                document.getElementById('dashboard').classList.remove('hidden');
+                loadPatients();
+                updateStats();
+            } else {
+                alert('Username atau password salah!');
+            }
+        });
+
+        // Logout functionality
+        function logout() {
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('loginModal').classList.remove('hidden');
+            document.getElementById('loginForm').reset();
+        }
+
+        // Calculate age from birth date
+        function calculateAge(birthDate) {
+            const today = new Date();
+            const birth = new Date(birthDate);
+            let age = today.getFullYear() - birth.getFullYear();
+            const monthDiff = today.getMonth() - birth.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        // Generate RM number
+        function generateRM() {
+            const lastRM = patients.length > 0 ? Math.max(...patients.map(p => parseInt(p.rm.replace('RM', '')))) : 0;
+            return `RM${String(lastRM + 1).padStart(3, '0')}`;
+        }
+
+        // Update statistics
+        function updateStats() {
+            document.getElementById('totalPatients').textContent = patients.length;
+            document.getElementById('activePatients').textContent = patients.filter(p => p.status === 'aktif').length;
+            document.getElementById('pregnantPatients').textContent = patients.filter(p => p.notes.toLowerCase().includes('hamil')).length;
+        }
+
+        // Load and display patients
+        function loadPatients() {
+            const tbody = document.getElementById('patientsTableBody');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const patientsToShow = filteredPatients.slice(startIndex, endIndex);
+
+            tbody.innerHTML = '';
+
+            patientsToShow.forEach((patient, index) => {
+                const age = calculateAge(patient.birthDate);
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${startIndex + index + 1}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${patient.name}</div>
+                        <div class="text-sm text-gray-500">${patient.email || '-'}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${patient.rm}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${age} tahun</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${patient.gender === 'perempuan' ? 'Perempuan' : 'Laki-laki'}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${patient.phone}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${patient.status === 'aktif' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                            ${patient.status === 'aktif' ? 'Aktif' : 'Tidak Aktif'}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="viewPatient(${patient.id})" class="text-blue-600 hover:text-blue-900 mr-3" title="Lihat Detail">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button onclick="editPatient(${patient.id})" class="text-indigo-600 hover:text-indigo-900 mr-3" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button onclick="deletePatient(${patient.id})" class="text-red-600 hover:text-red-900" title="Hapus">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            updatePagination();
+        }
+
+        // Update pagination
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredPatients.length / itemsPerPage);
+            const startIndex = (currentPage - 1) * itemsPerPage + 1;
+            const endIndex = Math.min(currentPage * itemsPerPage, filteredPatients.length);
+
+            document.getElementById('showingFrom').textContent = startIndex;
+            document.getElementById('showingTo').textContent = endIndex;
+            document.getElementById('totalRecords').textContent = filteredPatients.length;
+
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            // Previous button
+            const prevButton = document.createElement('button');
+            prevButton.className = `relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''}`;
+            prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevButton.disabled = currentPage === 1;
+            prevButton.onclick = () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    loadPatients();
+                }
+            };
+            pagination.appendChild(prevButton);
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                    const pageButton = document.createElement('button');
+                    pageButton.className = `relative inline-flex items-center px-4 py-2 border text-sm font-medium ${i === currentPage ? 'z-10 bg-clinic-green-50 border-clinic-green-500 text-clinic-green-600' : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'}`;
+                    pageButton.textContent = i;
+                    pageButton.onclick = () => {
+                        currentPage = i;
+                        loadPatients();
+                    };
+                    pagination.appendChild(pageButton);
+                } else if (i === currentPage - 2 || i === currentPage + 2) {
+                    const dots = document.createElement('span');
+                    dots.className = 'relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700';
+                    dots.textContent = '...';
+                    pagination.appendChild(dots);
+                }
+            }
+
+            // Next button
+            const nextButton = document.createElement('button');
+            nextButton.className = `relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : ''}`;
+            nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.onclick = () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    loadPatients();
+                }
+            };
+            pagination.appendChild(nextButton);
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            filteredPatients = patients.filter(patient => 
+                patient.name.toLowerCase().includes(searchTerm) ||
+                patient.rm.toLowerCase().includes(searchTerm) ||
+                patient.phone.includes(searchTerm)
+            );
+            currentPage = 1;
+            loadPatients();
+        });
+
+        // Filter functionality
+        function applyFilters() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const genderFilter = document.getElementById('genderFilter').value;
+            const ageFilter = document.getElementById('ageFilter').value;
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+            filteredPatients = patients.filter(patient => {
+                const age = calculateAge(patient.birthDate);
+                let ageMatch = true;
+
+                if (ageFilter) {
+                    switch (ageFilter) {
+                        case '0-17':
+                            ageMatch = age >= 0 && age <= 17;
+                            break;
+                        case '18-30':
+                            ageMatch = age >= 18 && age <= 30;
+                            break;
+                        case '31-45':
+                            ageMatch = age >= 31 && age <= 45;
+                            break;
+                        case '46+':
+                            ageMatch = age >= 46;
+                            break;
+                    }
+                }
+
+                return (
+                    (!statusFilter || patient.status === statusFilter) &&
+                    (!genderFilter || patient.gender === genderFilter) &&
+                    ageMatch &&
+                    (patient.name.toLowerCase().includes(searchTerm) ||
+                     patient.rm.toLowerCase().includes(searchTerm) ||
+                     patient.phone.includes(searchTerm))
+                );
+            });
+
+            currentPage = 1;
+            loadPatients();
+        }
+
+        // Add event listeners for filters
+        document.getElementById('statusFilter').addEventListener('change', applyFilters);
+        document.getElementById('genderFilter').addEventListener('change', applyFilters);
+        document.getElementById('ageFilter').addEventListener('change', applyFilters);
+
+        // Reset filters
+        function resetFilters() {
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('genderFilter').value = '';
+            document.getElementById('ageFilter').value = '';
+            document.getElementById('searchInput').value = '';
+            filteredPatients = [...patients];
+            currentPage = 1;
+            loadPatients();
+        }
+
+        // Open add patient modal
+        function openAddModal() {
+            editingPatientId = null;
+            document.getElementById('modalTitle').textContent = 'Tambah Pasien Baru';
+            document.getElementById('patientForm').reset();
+            document.getElementById('patientRM').value = generateRM();
+            document.getElementById('patientStatus').value = 'aktif';
+            document.getElementById('patientModal').classList.remove('hidden');
+        }
+
+        // Close patient modal
+        function closePatientModal() {
+            document.getElementById('patientModal').classList.add('hidden');
+            document.getElementById('patientForm').reset();
+            editingPatientId = null;
+        }
+
+        // Edit patient
+        function editPatient(id) {
+            const patient = patients.find(p => p.id === id);
+            if (!patient) return;
+
+            editingPatientId = id;
+            document.getElementById('modalTitle').textContent = 'Edit Data Pasien';
+            
+            document.getElementById('patientName').value = patient.name;
+            document.getElementById('patientRM').value = patient.rm;
+            document.getElementById('patientBirthDate').value = patient.birthDate;
+            document.getElementById('patientGender').value = patient.gender;
+            document.getElementById('patientPhone').value = patient.phone;
+            document.getElementById('patientEmail').value = patient.email || '';
+            document.getElementById('patientAddress').value = patient.address;
+            document.getElementById('patientBloodType').value = patient.bloodType || '';
+            document.getElementById('patientStatus').value = patient.status;
+            document.getElementById('patientNotes').value = patient.notes || '';
+
+            document.getElementById('patientModal').classList.remove('hidden');
+        }
+
+        // View patient details
+        function viewPatient(id) {
+            const patient = patients.find(p => p.id === id);
+            if (!patient) return;
+
+            const age = calculateAge(patient.birthDate);
+            alert(`Detail Pasien:
+            
+Nama: ${patient.name}
+No. RM: ${patient.rm}
+Umur: ${age} tahun
+Jenis Kelamin: ${patient.gender === 'perempuan' ? 'Perempuan' : 'Laki-laki'}
+Telepon: ${patient.phone}
+Email: ${patient.email || '-'}
+Alamat: ${patient.address}
+Golongan Darah: ${patient.bloodType || '-'}
+Status: ${patient.status === 'aktif' ? 'Aktif' : 'Tidak Aktif'}
+Catatan: ${patient.notes || '-'}`);
+        }
+
+        // Delete patient
+        function deletePatient(id) {
+            const patient = patients.find(p => p.id === id);
+            if (!patient) return;
+
+            document.getElementById('deletePatientName').textContent = patient.name;
+            document.getElementById('deletePatientRM').textContent = patient.rm;
+            document.getElementById('deleteModal').classList.remove('hidden');
+            
+            // Store the ID for deletion
+            document.getElementById('deleteModal').dataset.patientId = id;
+        }
+
+        // Close delete modal
+        function closeDeleteModal() {
+            document.getElementById('deleteModal').classList.add('hidden');
+        }
+
+        // Confirm delete
+        function confirmDelete() {
+            const id = parseInt(document.getElementById('deleteModal').dataset.patientId);
+            patients = patients.filter(p => p.id !== id);
+            filteredPatients = filteredPatients.filter(p => p.id !== id);
+            
+            closeDeleteModal();
+            loadPatients();
+            updateStats();
+            
+            alert('Data pasien berhasil dihapus!');
+        }
+
+        // Handle form submission
+        document.getElementById('patientForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('patientName').value,
+                rm: document.getElementById('patientRM').value,
+                birthDate: document.getElementById('patientBirthDate').value,
+                gender: document.getElementById('patientGender').value,
+                phone: document.getElementById('patientPhone').value,
+                email: document.getElementById('patientEmail').value,
+                address: document.getElementById('patientAddress').value,
+                bloodType: document.getElementById('patientBloodType').value,
+                status: document.getElementById('patientStatus').value,
+                notes: document.getElementById('patientNotes').value
+            };
+
+            if (editingPatientId) {
+                // Update existing patient
+                const index = patients.findIndex(p => p.id === editingPatientId);
+                if (index !== -1) {
+                    patients[index] = { ...patients[index], ...formData };
+                    alert('Data pasien berhasil diperbarui!');
+                }
+            } else {
+                // Add new patient
+                const newPatient = {
+                    id: Math.max(...patients.map(p => p.id)) + 1,
+                    ...formData,
+                    createdAt: new Date().toISOString().split('T')[0]
+                };
+                patients.push(newPatient);
+                alert('Pasien baru berhasil ditambahkan!');
+            }
+
+            closePatientModal();
+            filteredPatients = [...patients];
+            loadPatients();
+            updateStats();
+        });
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-generate RM number when adding new patient
+            document.getElementById('patientRM').value = generateRM();
+        });
+    </script>
+</body>
+</html>

@@ -71,7 +71,10 @@ Route::get('/service', function () {
 
 
 Route::get('/dayatganteng', function () {
-    return view('bidan');
+    return view('bidan.bidan');
+});
+Route::get('/dayatganteng-admin', function () {
+    return view('bidan.admin');
 });
 
 
