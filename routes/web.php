@@ -68,6 +68,13 @@ Route::get('/service', function () {
 })->name('service');
 
 
+
+
+Route::get('/klinik-ralinish', function () {
+    return view('bidan');
+});
+
+
 Route::prefix('pharmacies')->name('pharmacies.')->group(function () {
     Route::get('/pharmacy', [PharmacyController::class, 'index'])->name('index');
     Route::get('/{id}', [PharmacyController::class, 'show'])->name('show')->where('id', '[0-9]+');
