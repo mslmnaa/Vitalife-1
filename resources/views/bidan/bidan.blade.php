@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klinik Ralinish Cikarang Bekasi - Layanan Kesehatan Ibu dan Anak</title>
+    <title>Klinik dayat Ralinish Cikarang Bekasi - Layanan Kesehatan Ibu dan Anak</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
