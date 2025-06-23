@@ -302,7 +302,7 @@
                                 class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Supplements</span>
                         </div>
 
-                        <a href="{{ route('medicines.index') }}"
+                        <a href="{{ route('user.medicines.index') }}"
                             class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
                             <span>Explore Medicines</span>
                             <svg xmlns="http://www.w3.org/2000/svg"
