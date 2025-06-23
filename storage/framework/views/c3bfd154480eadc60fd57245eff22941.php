@@ -96,10 +96,8 @@
 
                         <div class="flex gap-4">
                             <?php if($medicine->isAvailable() && !$medicine->isExpired()): ?>
-                                <button class="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg transition-colors font-semibold"
-                                        onclick="alert('Fitur pembelian akan segera tersedia!')">
-                                    <i class="fas fa-shopping-cart mr-2"></i>Beli Sekarang
-                                </button>
+                                
+                                 
                             <?php else: ?>
                                 <button disabled class="flex-1 bg-black-600 text-black-400 py-3 rounded-lg cursor-not-allowed font-semibold">
                                     <i class="fas fa-times mr-2"></i>
