@@ -87,7 +87,7 @@ Route::prefix('pharmacies')->name('pharmacies.')->group(function () {
     Route::get('/medicine-checker', [PharmacyController::class, 'checkMedicine'])->name('medicine-checker');
     Route::get('/nearby', [PharmacyController::class, 'nearby'])->name('nearby');
     Route::POST('/{id}/whatsapp', [PharmacyController::class, 'getWhatsAppLink'])->name('whatsapp')->where('id', '[0-9]+');
-});a
+});
 
 
 
