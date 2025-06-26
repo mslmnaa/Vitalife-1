@@ -23,7 +23,7 @@ class WelcomeEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new \Illuminate\Mail\Mailables\Address('alfatiktok02@gmail.com', 'Website Anda'),
+            from: new \Illuminate\Mail\Mailables\Address('Kel7@vitalife.my.id', 'Website Anda'),
             subject: 'Selamat Datang di Website Kami',
         );
     }
