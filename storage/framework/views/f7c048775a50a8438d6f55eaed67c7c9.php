@@ -1,4 +1,13 @@
-<x-guest-layout>
+<?php if (isset($component)) { $__componentOriginal69dc84650370d1d4dc1b42d016d7226b = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal69dc84650370d1d4dc1b42d016d7226b = $attributes; } ?>
+<?php $component = App\View\Components\GuestLayout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('guest-layout'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\App\View\Components\GuestLayout::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
     <div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div class="grid lg:grid-cols-2 min-h-screen">
             <!-- Left Column - Welcome Section -->
@@ -20,7 +29,7 @@
                         <p class="text-lg opacity-90 leading-relaxed">Already have an account? Sign in to continue your journey with us</p>
                     </div>
                     
-                    <a href="{{ route('login') }}"
+                    <a href="<?php echo e(route('login')); ?>"
                         class="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white rounded-full hover:bg-white hover:text-purple-600 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                         <i class="fas fa-sign-in-alt mr-2"></i>
                         SIGN IN
@@ -45,7 +54,7 @@
 
                     <!-- Social Media Login -->
                     <div class="flex justify-center space-x-4 mb-8">
-                        <a href="{{ url('auth/google') }}" 
+                        <a href="<?php echo e(url('auth/google')); ?>" 
                            class="flex items-center justify-center w-12 h-12 bg-red-50 hover:bg-red-100 text-red-500 rounded-full transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
                            title="Continue with Google">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -53,7 +62,7 @@
                             </svg>
                         </a>
                         
-                        <a href="{{ url('auth/facebook') }}" 
+                        <a href="<?php echo e(url('auth/facebook')); ?>" 
                            class="flex items-center justify-center w-12 h-12 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-full transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
                            title="Continue with Facebook">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -73,8 +82,8 @@
                     </div>
 
                     <!-- Registration Form -->
-                    <form method="POST" action="{{ route('register') }}" class="space-y-6">
-                        @csrf
+                    <form method="POST" action="<?php echo e(route('register')); ?>" class="space-y-6">
+                        <?php echo csrf_field(); ?>
 
                         <!-- Name -->
                         <div class="space-y-2">
@@ -86,16 +95,16 @@
                                 <input id="name" 
                                        type="text" 
                                        name="name" 
-                                       value="{{ old('name') }}" 
+                                       value="<?php echo e(old('name')); ?>" 
                                        required 
                                        autofocus 
                                        autocomplete="name"
                                        class="block w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
                                        placeholder="Enter your full name">
                             </div>
-                            @if($errors->get('name'))
-                                <p class="text-red-500 text-sm">{{ implode(', ', $errors->get('name')) }}</p>
-                            @endif
+                            <?php if($errors->get('name')): ?>
+                                <p class="text-red-500 text-sm"><?php echo e(implode(', ', $errors->get('name'))); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <!-- Email Address -->
@@ -108,15 +117,15 @@
                                 <input id="email" 
                                        type="email" 
                                        name="email" 
-                                       value="{{ old('email') }}" 
+                                       value="<?php echo e(old('email')); ?>" 
                                        required 
                                        autocomplete="username"
                                        class="block w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
                                        placeholder="Enter your email">
                             </div>
-                            @if($errors->get('email'))
-                                <p class="text-red-500 text-sm">{{ implode(', ', $errors->get('email')) }}</p>
-                            @endif
+                            <?php if($errors->get('email')): ?>
+                                <p class="text-red-500 text-sm"><?php echo e(implode(', ', $errors->get('email'))); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <!-- Password -->
@@ -134,9 +143,9 @@
                                        class="block w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
                                        placeholder="Create a password">
                             </div>
-                            @if($errors->get('password'))
-                                <p class="text-red-500 text-sm">{{ implode(', ', $errors->get('password')) }}</p>
-                            @endif
+                            <?php if($errors->get('password')): ?>
+                                <p class="text-red-500 text-sm"><?php echo e(implode(', ', $errors->get('password'))); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <!-- Confirm Password -->
@@ -154,9 +163,9 @@
                                        class="block w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
                                        placeholder="Confirm your password">
                             </div>
-                            @if($errors->get('password_confirmation'))
-                                <p class="text-red-500 text-sm">{{ implode(', ', $errors->get('password_confirmation')) }}</p>
-                            @endif
+                            <?php if($errors->get('password_confirmation')): ?>
+                                <p class="text-red-500 text-sm"><?php echo e(implode(', ', $errors->get('password_confirmation'))); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <!-- Hidden Role Field -->
@@ -175,7 +184,7 @@
                         <div class="text-center pt-4">
                             <p class="text-gray-600">
                                 Already have an account? 
-                                <a href="{{ route('login') }}" class="text-purple-600 hover:text-purple-700 font-semibold hover:underline transition-colors duration-200">
+                                <a href="<?php echo e(route('login')); ?>" class="text-purple-600 hover:text-purple-700 font-semibold hover:underline transition-colors duration-200">
                                     Sign in here
                                 </a>
                             </p>
@@ -188,7 +197,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form[action="{{ route('register') }}"]');
+            const form = document.querySelector('form[action="<?php echo e(route('register')); ?>"]');
             
             if (form) {
                 form.addEventListener('submit', function(e) {
@@ -208,7 +217,7 @@
                         console.log(pair[0] + ': ' + pair[1]);
                     }
                     
-                    fetch('{{ route('register') }}', {
+                    fetch('<?php echo e(route('register')); ?>', {
                         method: 'POST',
                         body: formData,
                         headers: {
@@ -235,7 +244,7 @@
                                 showConfirmButton: false,
                                 timer: 2000
                             }).then(() => {
-                                window.location.href = data.redirect || '{{ route('dashboard') }}';
+                                window.location.href = data.redirect || '<?php echo e(route('dashboard')); ?>';
                             });
                         } else {
                             // Handle validation errors
@@ -280,23 +289,32 @@
             }
         
             // Handle existing session messages
-            @if (session('status'))
+            <?php if(session('status')): ?>
                 Swal.fire({
                     icon: 'success',
                     title: 'Success!',
-                    text: "{{ session('status') }}",
+                    text: "<?php echo e(session('status')); ?>",
                     showConfirmButton: false,
                     timer: 2000
                 });
-            @endif
+            <?php endif; ?>
         
-            @if ($errors->any())
+            <?php if($errors->any()): ?>
                 Swal.fire({
                     icon: 'error',
                     title: 'Registration Failed',
-                    text: "{!! implode('\n', $errors->all()) !!}",
+                    text: "<?php echo implode('\n', $errors->all()); ?>",
                 });
-            @endif
+            <?php endif; ?>
         });
     </script>
-</x-guest-layout>
+ <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal69dc84650370d1d4dc1b42d016d7226b)): ?>
+<?php $attributes = $__attributesOriginal69dc84650370d1d4dc1b42d016d7226b; ?>
+<?php unset($__attributesOriginal69dc84650370d1d4dc1b42d016d7226b); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal69dc84650370d1d4dc1b42d016d7226b)): ?>
+<?php $component = $__componentOriginal69dc84650370d1d4dc1b42d016d7226b; ?>
+<?php unset($__componentOriginal69dc84650370d1d4dc1b42d016d7226b); ?>
+<?php endif; ?><?php /**PATH D:\Coding\Project 4 matklul\Vitalife-1\resources\views/auth/register.blade.php ENDPATH**/ ?>
