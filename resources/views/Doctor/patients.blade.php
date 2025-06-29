@@ -6,7 +6,7 @@
 @section('content')
 <div class="bg-white rounded-lg shadow">
     <div class="p-6 border-b border-gray-200">
-        <h3 class="text-lg font-semibold text-gray-800">Daftar Pasien</h3>
+        <h3 class="text-lg font-semibold text-gray-800">Daftar Pasiennn</h3>
         <p class="text-gray-600 text-sm mt-1">Pasien yang telah melakukan pembayaran dan terkonfirmasi</p>
     </div>
     
