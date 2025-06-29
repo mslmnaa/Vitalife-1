@@ -236,7 +236,7 @@ class SpesialisisController extends Controller
             ]);
 
         } catch (\Exception $e) {
-            \Log::error('Failed to send doctor credentials: ' . $e->getMessage());
+            Log::error('Failed to send doctor credentials: ' . $e->getMessage());
         }
     }
 }

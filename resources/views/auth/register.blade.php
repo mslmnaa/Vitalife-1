@@ -164,7 +164,7 @@
                 </div>
 
                 <!-- Registration Form -->
-               <form id="registerForm" method="POST" action="{{ route('auth.register') }}" class="space-y-6">
+               <form id="registerForm" method="POST" action="{{ route('register') }}" class="space-y-6">
     @csrf
 
                     <!-- Name Field -->
