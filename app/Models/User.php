@@ -31,6 +31,9 @@ public function isDokter()
         'role',
         'password',
         'image',
+        'google_id',
+        'avatar',
+        'last_login_at',
     ];
 
     /**

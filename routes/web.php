@@ -22,6 +22,7 @@ use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\HealthChatController;
 use App\Http\Controllers\SocialAuthController;
 use App\Http\Controllers\AccountUserController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\VoucherUserController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\MedicineUserController;
@@ -378,6 +379,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 // Broadcasting routes
 Broadcast::routes(['middleware' => ['auth']]);
+
+
+
+
+// Google OAuth Routes
+Route::prefix('auth/google')->group(function () {
+    Route::get('/', [GoogleController::class, 'redirect'])->name('google.redirect');
+    Route::get('/callback', [GoogleController::class, 'callback'])->name('google.callback');
+});
 
 // Include authentication routes from auth.php
 require __DIR__ . '/auth.php';
