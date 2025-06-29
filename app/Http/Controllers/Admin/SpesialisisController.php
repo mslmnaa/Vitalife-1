@@ -228,15 +228,15 @@ class SpesialisisController extends Controller
             });
             
 
-            // For now, we'll just log the credentials (remove this in production)
-            Log::info('Doctor credentials created', [
-                'name' => $user->name,
-                'email' => $user->email,
-                'password' => $password
-            ]);
+            // // For now, we'll just log the credentials (remove this in production)
+            // Log::info('Doctor credentials created', [
+            //     'name' => $user->name,
+            //     'email' => $user->email,
+            //     'password' => $password
+            // ]);
 
         } catch (\Exception $e) {
-            Log::error('Failed to send doctor credentials: ' . $e->getMessage());
+            // Log::error('Failed to send doctor credentials: ' . $e->getMessage());
         }
     }
 }
