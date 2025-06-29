@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Mail\LoginSuccessNotification;
 use App\Mail\WelcomeEmail;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
+use App\Http\Controllers\Log;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\RedirectResponse;
+use App\Mail\LoginSuccessNotification;
 use Laravel\Socialite\Facades\Socialite;
-use Illuminate\Support\Str;
 
 class GoogleController extends Controller
 {
@@ -64,13 +65,25 @@ class GoogleController extends Controller
             // Login
             Auth::login($user, true);
 
-            // Kirim Welcome Email hanya untuk user baru
-            if ($isNewUser) {
-                Mail::to($user->email)->send(new WelcomeEmail($user));
-            }
+           if ($isNewUser) {
+    \Log::info('User baru dibuat. Mengirim WelcomeEmail ke: ' . $user->email);
 
-            // Kirim notifikasi login untuk semua user
-            Mail::to($user->email)->send(new LoginSuccessNotification($user));
+    try {
+        Mail::to($user->email)->send(new WelcomeEmail($user));
+        \Log::info('WelcomeEmail berhasil dikirim ke: ' . $user->email);
+    } catch (\Exception $e) {
+        \Log::error('Gagal kirim WelcomeEmail: ' . $e->getMessage());
+    }
+}
+
+
+           try {
+    Mail::to($user->email)->send(new LoginSuccessNotification($user));
+    \Log::info('LoginSuccessNotification dikirim ke: ' . $user->email);
+} catch (\Exception $e) {
+    \Log::error('Gagal kirim LoginSuccessNotification: ' . $e->getMessage());
+}
+
 
             return redirect()->route('dashboard')->with('success', 'Login berhasil! Email notifikasi telah dikirim.');
 
