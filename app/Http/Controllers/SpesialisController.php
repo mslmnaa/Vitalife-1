@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Spesialis;
-use App\Services\TripayService;
 use Illuminate\Http\Request;
+use App\Services\TripayService;
+use App\Http\Controllers\Controller;
 
 class SpesialisController extends Controller
 {
