@@ -1,3 +1,4 @@
+@dd('VIEW INI TERBACA!')
 @extends('layouts.doctor')
 
 @section('title', 'Chat dengan Pasien')
