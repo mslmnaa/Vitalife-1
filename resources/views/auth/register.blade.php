@@ -92,7 +92,7 @@
             <div class="relative z-20 flex flex-col justify-center px-12 text-white">
                 <div class="max-w-md">
                     <h1 class="text-4xl font-bold mb-6 leading-tight">
-                        Welcome to <span class="text-blue-300">Vitalife!</span>
+                        Welcome too <span class="text-blue-300">Vitalife!</span>
                     </h1>
                     <p class="text-lg mb-8 opacity-90 leading-relaxed">
                         Join our community of healthy travellers. Create your account and start your wellness journey with us today.
