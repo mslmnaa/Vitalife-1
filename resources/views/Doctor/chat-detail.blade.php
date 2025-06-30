@@ -159,7 +159,7 @@
                 </button>
                 <button class="w-full bg-purple-50 hover:bg-purple-100 text-purple-700 font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center">
                     <i class="fas fa-file-medical mr-2"></i>
-                    Catatan Medis
+                    Catatan Mediss
                 </button>
             </div>
         </div>
