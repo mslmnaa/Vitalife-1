@@ -27,7 +27,7 @@
                     <a href="{{ route('doctor.patient.detail', $payment->id) }}" 
                        class="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg transition-all duration-200 flex items-center">
                         <i class="fas fa-info-circle mr-2"></i>
-                        <span class="hidden sm:inline">Detail Pasien</span>
+                        <span class="hidden sm:inline">Detail Pasienn</span>
                     </a>
                 </div>
             </div>
