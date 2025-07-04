@@ -164,9 +164,7 @@
                 </div>
 
                 <!-- Registration Form -->
-               <form id="registerForm" method="POST" action="{{ route('register') }}" class="space-y-6">
-    @csrf
-
+                <form id="registerForm" class="space-y-6">
                     <!-- Name Field -->
                     <div>
                         <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
@@ -192,8 +190,6 @@
                             placeholder="Enter your email"
                         >
                     </div>
-
-                   
 
                     <!-- Password Fields -->
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -267,7 +263,7 @@
                     </div>
 
                     <!-- Social Register -->
-                                        <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-2 gap-4">
                         <a href="{{ url('auth/google') }}" class="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors group">
                             <svg class="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/>
@@ -298,7 +294,7 @@
     <script>
         function togglePassword(fieldId) {
             const passwordInput = document.getElementById(fieldId);
-            const eyeIcon = document.getElementById(eyeIcon-${fieldId});
+            const eyeIcon = document.getElementById(`eyeIcon-${fieldId}`);
             
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
@@ -318,18 +314,21 @@
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('registerForm');
             
+            // Setup CSRF token for AJAX requests
+            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+            
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
                 // Get form data
-                const name = form.querySelector('#name').value;
-                const email = form.querySelector('#email').value;
-                const role = form.querySelector('#role').value;
-                const password = form.querySelector('#password').value;
-                const passwordConfirmation = form.querySelector('#password_confirmation').value;
-                const terms = form.querySelector('#terms').checked;
+                const formData = new FormData(form);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const password = formData.get('password');
+                const passwordConfirmation = formData.get('password_confirmation');
+                const terms = formData.get('terms');
                 
-                // Validate form
+                // Client-side validation
                 if (!name || !email || !password || !passwordConfirmation || !terms) {
                     Swal.fire({
                         icon: 'error',
@@ -350,11 +349,11 @@
                     return;
                 }
                 
-                if (password.length < 6) {
+                if (password.length < 8) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Password Too Short',
-                        text: 'Password must be at least 6 characters long!',
+                        text: 'Password must be at least 8 characters long!',
                         confirmButtonColor: '#355385'
                     });
                     return;
@@ -372,21 +371,64 @@
                     Creating Account...
                 `;
                 
-                // Simulate API call
-                setTimeout(() => {
+                // AJAX request to controller
+                fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        password: password,
+                        password_confirmation: passwordConfirmation
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: `Welcome ${name}! Your account has been created successfully.`,
+                            confirmButtonColor: '#355385'
+                        }).then(() => {
+                            // Redirect to dashboard
+                            window.location.href = data.redirect;
+                        });
+                    } else {
+                        // Handle validation errors
+                        let errorMessage = data.message || 'Registration failed!';
+                        if (data.errors) {
+                            const errorMessages = Object.values(data.errors).flat();
+                            errorMessage = errorMessages.join('\n');
+                        }
+                        
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Registration Failed',
+                            text: errorMessage,
+                            confirmButtonColor: '#355385'
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        text: Welcome ${name}! Your account has been created successfully.,
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'An unexpected error occurred. Please try again.',
                         confirmButtonColor: '#355385'
-                    }).then(() => {
-                        // Reset form or redirect
-                        form.reset();
-                        submitButton.disabled = false;
-                        submitButton.innerHTML = originalButtonText;
-                        // window.location.href = '/login';
                     });
-                }, 2000);
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                });
             });
 
             // Add focus animations to inputs
