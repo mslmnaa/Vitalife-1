@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Mail\LoginSuccessNotification;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class GoogleController extends Controller
 {
@@ -29,86 +30,135 @@ class GoogleController extends Controller
     public function callback(): RedirectResponse
     {
         try {
+            Log::info('Google OAuth callback started');
+            
             $googleUser = Socialite::driver('google')->user();
+            Log::info('Google user data retrieved', [
+                'email' => $googleUser->email,
+                'name' => $googleUser->name,
+                'google_id' => $googleUser->id
+            ]);
 
-            // Cek apakah user sudah ada berdasarkan email
-            $existingUser = User::where('email', $googleUser->email)->first();
+            // Gunakan database transaction untuk memastikan konsistensi
+            DB::beginTransaction();
             
-            // Cek apakah user sudah punya google_id
-            $googleLinkedUser = User::where('google_id', $googleUser->id)->first();
-
-            $isNewUser = false;
-            $isFirstGoogleLogin = false;
-
-            if (!$existingUser) {
-                // User benar-benar baru
-                $user = User::create([
-                    'name' => $googleUser->name,
-                    'email' => $googleUser->email,
-                    'google_id' => $googleUser->id,
-                    'avatar' => $googleUser->avatar,
-                    'email_verified_at' => now(),
-                    'password' => bcrypt(Str::random(16)),
-                ]);
-                
-                $isNewUser = true;
-            } else {
-                // User sudah ada, tapi mungkin belum link dengan Google
-                $user = $existingUser;
-                
-                if (!$user->google_id) {
-                    $isFirstGoogleLogin = true;
-                }
-                
-                $user->update([
-                    'google_id' => $googleUser->id,
-                    'name' => $googleUser->name,
-                    'avatar' => $googleUser->avatar,
-                ]);
-            }
-
-            // Update last login SEBELUM membuat email notification
-            $user->updateLastLogin();
-            
-            // Login user
-            Auth::login($user, true);
-
-            // Kirim welcome email untuk user baru atau first Google login
-            if ($isNewUser || $isFirstGoogleLogin) {
-                Log::info('Mengirim WelcomeEmail ke: ' . $user->email);
-                
-                try {
-                    // Dispatch ke queue untuk menghindari blocking
-                    Mail::to($user->email)->queue(new WelcomeEmail($user));
-                    Log::info('WelcomeEmail berhasil di-queue ke: ' . $user->email);
-                } catch (\Exception $e) {
-                    Log::error('Gagal queue WelcomeEmail: ' . $e->getMessage());
-                }
-            }
-
-            // Simpan data untuk login notification
-            $currentTime = now();
-            $ipAddress = request()->ip();
-            $userAgent = request()->userAgent();
-
-            // Kirim login notification dengan data yang sudah disimpan
             try {
-                // Refresh user untuk mendapatkan data terbaru
+                // Cek apakah user sudah ada berdasarkan email
+                $existingUser = User::where('email', $googleUser->email)->first();
+                
+                // Cek apakah user sudah punya google_id
+                $googleLinkedUser = User::where('google_id', $googleUser->id)->first();
+
+                $isNewUser = false;
+                $isFirstGoogleLogin = false;
+
+                if (!$existingUser) {
+                    // User benar-benar baru
+                    Log::info('Creating new user from Google OAuth', ['email' => $googleUser->email]);
+                    
+                    $user = User::create([
+                        'name' => $googleUser->name,
+                        'email' => $googleUser->email,
+                        'google_id' => $googleUser->id,
+                        'avatar' => $googleUser->avatar,
+                        'email_verified_at' => now(),
+                        'password' => bcrypt(Str::random(16)),
+                    ]);
+                    
+                    $isNewUser = true;
+                    Log::info('New user created', ['user_id' => $user->id, 'email' => $user->email]);
+                } else {
+                    // User sudah ada, tapi mungkin belum link dengan Google
+                    Log::info('Existing user found', ['user_id' => $existingUser->id, 'email' => $existingUser->email]);
+                    
+                    $user = $existingUser;
+                    
+                    if (!$user->google_id) {
+                        $isFirstGoogleLogin = true;
+                        Log::info('First time Google login for existing user', ['user_id' => $user->id]);
+                    }
+                    
+                    $user->update([
+                        'google_id' => $googleUser->id,
+                        'name' => $googleUser->name,
+                        'avatar' => $googleUser->avatar,
+                    ]);
+                }
+
+                // Update last login
+                $user->updateLastLogin();
+                
+                // Commit transaction sebelum mengirim email
+                DB::commit();
+                
+                // Refresh user dari database untuk memastikan data terbaru
                 $user = $user->fresh();
                 
-                // Buat custom notification dengan data yang sudah disimpan
-                $loginNotification = new LoginSuccessNotification($user, $currentTime, $ipAddress, $userAgent);
+                Log::info('User data after refresh', [
+                    'user_id' => $user->id,
+                    'email' => $user->email,
+                    'name' => $user->name,
+                    'google_id' => $user->google_id,
+                    'last_login_at' => $user->last_login_at
+                ]);
+
+                // Login user
+                Auth::login($user, true);
+                Log::info('User logged in successfully', ['user_id' => $user->id]);
+
+                // Kirim welcome email untuk user baru atau first Google login
+                if ($isNewUser || $isFirstGoogleLogin) {
+                    Log::info('Preparing to send WelcomeEmail', [
+                        'user_id' => $user->id,
+                        'email' => $user->email,
+                        'is_new_user' => $isNewUser,
+                        'is_first_google_login' => $isFirstGoogleLogin
+                    ]);
+                    
+                    try {
+                        // Kirim langsung tanpa queue untuk debugging
+                        Mail::to($user->email)->send(new WelcomeEmail($user));
+                        Log::info('WelcomeEmail sent successfully', ['email' => $user->email]);
+                    } catch (\Exception $e) {
+                        Log::error('Failed to send WelcomeEmail', [
+                            'email' => $user->email,
+                            'error' => $e->getMessage(),
+                            'trace' => $e->getTraceAsString()
+                        ]);
+                    }
+                }
+
+                // Kirim login notification
+                Log::info('Preparing to send LoginSuccessNotification', [
+                    'user_id' => $user->id,
+                    'email' => $user->email
+                ]);
                 
-                Mail::to($user->email)->send($loginNotification);
-                Log::info('LoginSuccessNotification di-queue ke: ' . $user->email);
+                try {
+                    // Kirim langsung tanpa queue untuk debugging
+                    Mail::to($user->email)->send(new LoginSuccessNotification($user));
+                    Log::info('LoginSuccessNotification sent successfully', ['email' => $user->email]);
+                } catch (\Exception $e) {
+                    Log::error('Failed to send LoginSuccessNotification', [
+                        'email' => $user->email,
+                        'error' => $e->getMessage(),
+                        'trace' => $e->getTraceAsString()
+                    ]);
+                }
+
+                Log::info('Google OAuth callback completed successfully');
+                return redirect()->route('dashboard')->with('success', 'Login berhasil!');
+                
             } catch (\Exception $e) {
-                Log::error('Gagal queue LoginSuccessNotification: ' . $e->getMessage());
+                DB::rollback();
+                throw $e;
             }
 
-            return redirect()->route('dashboard')->with('success', 'Login berhasil!');
-
         } catch (\Exception $e) {
-            Log::error('Google OAuth Error: ' . $e->getMessage());
+            Log::error('Google OAuth Error', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
             return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login dengan Google.');
         }
     }
