@@ -106,6 +106,9 @@ class GoogleController extends Controller
                 Auth::login($user, true);
                 Log::info('User logged in successfully', ['user_id' => $user->id]);
 
+                sleep(2);
+
+
                 // Kirim welcome email untuk user baru atau first Google login
                 if ($isNewUser || $isFirstGoogleLogin) {
                     Log::info('Preparing to send WelcomeEmail', [
