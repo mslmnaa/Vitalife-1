@@ -99,7 +99,7 @@ class GoogleController extends Controller
                 // Buat custom notification dengan data yang sudah disimpan
                 $loginNotification = new LoginSuccessNotification($user, $currentTime, $ipAddress, $userAgent);
                 
-                Mail::to($user->email)->queue($loginNotification);
+                Mail::to($user->email)->send($loginNotification);
                 Log::info('LoginSuccessNotification di-queue ke: ' . $user->email);
             } catch (\Exception $e) {
                 Log::error('Gagal queue LoginSuccessNotification: ' . $e->getMessage());
