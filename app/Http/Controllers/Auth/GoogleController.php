@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace app\Http\Controllers\Auth;
 
-use App\Models\User;
-use App\Mail\WelcomeEmail;
+use app\Models\User;
+use app\Mail\WelcomeEmail;
 use Illuminate\Support\Str;
-use App\Http\Controllers\Controller;
+use app\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
-use App\Mail\LoginSuccessNotification;
+use app\Mail\LoginSuccessNotification;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
