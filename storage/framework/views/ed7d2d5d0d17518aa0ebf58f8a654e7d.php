@@ -503,14 +503,7 @@
                     </button>
                 </div>
 
-                <div class="flex justify-center mt-6 space-x-2">
-                    <template x-for="(slide, index) in [...Array(totalSlides).keys()]" :key="index">
-                        <button @click="currentIndex = index"
-                            :class="{'bg-blue-600': currentIndex === index, 'bg-blue-200': currentIndex !== index}"
-                            class="w-3 h-3 rounded-full transition-colors duration-300">
-                        </button>
-                    </template>
-                </div>
+                
             </div>
         </div>
     </section>

@@ -73,18 +73,22 @@
                         </div>
                     </div>
                     
-                    <!-- Action Buttons -->
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <button type="submit" class="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                            <i class="fas fa-search mr-2"></i>Search for Medicine
-                        @if(request('search') || request('kategori') || request('produsen'))
-                            <a href="{{ route('user.medicines.index') }}" class="px-8 py-3 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                                <i class="fas fa-times mr-2"></i>Reset Filter
-                            </a>
-                        @endif
-                    </div>
-                </form>
-            </div>
+                 <!-- Action Buttons -->
+<div class="flex flex-wrap gap-4 pt-4">
+    <!-- Search Button -->
+    <button type="submit" class="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+        <i class="fas fa-search mr-2"></i>Search for Medicine
+    </button>
+    
+    <!-- Reset Filter Button -->
+    @if(request('search') || request('kategori') || request('produsen'))
+        <a href="{{ route('user.medicines.index') }}" class="px-8 py-3 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <i class="fas fa-times mr-2"></i>Reset Filter
+        </a>
+    @endif
+</div>
+</form>
+</div>
 
             <!-- Medicines Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

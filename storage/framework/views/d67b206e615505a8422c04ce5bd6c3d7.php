@@ -20,49 +20,58 @@
         <div x-data="{ openItem: null }" class="space-y-6">
           <div class="border-b pb-4" x-data="{ id: 1 }">
             <button @click="openItem = openItem === 1 ? null : 1" class="flex justify-between w-full text-left items-center">
-              <span class="text-blue-900 font-semibold pr-4">What makes you prefer Vitalife compared to other wellness tourism platforms?</span>
+              <span class="text-blue-900 font-semibold pr-4">What is this  platfrom and who can use it?</span>
               <svg class="w-5 h-5 text-blue-500 transform transition-transform duration-300" :class="{ 'rotate-45': openItem === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path>
               </svg>
             </button>
             <div x-show="openItem === 1" x-transition class="mt-2 text-sm text-gray-700">
-              I prefer Vitalife because of its transparency in pricing and service, helpful user reviews, and progress tracking features that allow me to monitor my health progress in real-time. In addition, this platform offers comprehensive and innovative wellness tourism solutions, including online health consultations, recommendations for yoga centers and spas, as well as ease of booking and cancellation.
+              This is a health and wellness platform that provides online medical consultations, medicine purchases, health event information, and more. It is available to the public, but some features require user registration and login.
             </div>
           </div>
 
           <div class="border-b pb-4" x-data="{ id: 2 }">
             <button @click="openItem = openItem === 2 ? null : 2" class="flex justify-between w-full text-left items-center">
-              <span class="text-blue-900 font-semibold pr-4">What was your experience with the registration process and initial use of the Vitalife website?</span>
+              <span class="text-blue-900 font-semibold pr-4">How do I register on this website?</span>
               <svg class="w-5 h-5 text-blue-500 transform transition-transform duration-300" :class="{ 'rotate-45': openItem === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path>
               </svg>
             </button>
             <div x-show="openItem === 2" x-transition class="mt-2 text-sm text-gray-700">
-              The initial registration and usage experience is very easy and intuitive. The clear guidance and user-friendly interface made me feel comfortable and helpful from the start.
+              To register, simply go to the homepage and you will be redirected to the registration page. You can sign up using your email address or through social login options like Google. 
             </div>
           </div>
 
           <div class="border-b pb-4" x-data="{ id: 3 }">
             <button @click="openItem = openItem === 3 ? null : 3" class="flex justify-between w-full text-left items-center">
-              <span class="text-blue-900 font-semibold pr-4">What features appealed to you the most when you first saw the Vitalife website?</span>
+              <span class="text-blue-900 font-semibold pr-4">What services are available on this platform?</span>
               <svg class="w-5 h-5 text-blue-500 transform transition-transform duration-300" :class="{ 'rotate-45': openItem === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path>
               </svg>
             </button>
             <div x-show="openItem === 3" x-transition class="mt-2 text-sm text-gray-700">
-              The most interesting feature for me is the online consultation with specialists and general practitioners. This provides a sense of security and comfort because I can get medical advice before participating in intense physical activity.
+              This platform offers a variety of services, including:
+
+                Online Medical Consultations - Users can consult with medical specialists.
+                Medicine Purchases - Users can browse and buy medicines online.
+                Health Event Information - Users can explore health-related events.
+                Real-Time Chat System - Integrated messaging for communication between users and specialists.
+                Payment and Voucher Support - Users can make payments and apply vouchers for discounts.
+
+
+                If you have more specific questions about any of these services, feel free to ask!  
             </div>
           </div>
 
           <div class="border-b pb-4" x-data="{ id: 4 }">
             <button @click="openItem = openItem === 4 ? null : 4" class="flex justify-between w-full text-left items-center">
-              <span class="text-blue-900 font-semibold pr-4">How can Vitalife help you plan and enjoy your wellness journey?</span>
+              <span class="text-blue-900 font-semibold pr-4">How can I contact the support team or send feedback?</span>
               <svg class="w-5 h-5 text-blue-500 transform transition-transform duration-300" :class="{ 'rotate-45': openItem === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6"></path>
               </svg>
             </button>
             <div x-show="openItem === 4" x-transition class="mt-2 text-sm text-gray-700">
-              Vitalife was very helpful in planning my wellness trip by providing complete information about relevant facilities, packages and sporting events. The sports event recommendation feature also really helps me find interesting events in the destinations I visit.
+              I do not have direct access to connect you with an admin, but if you click the button below you can open the chat with our admin team, or alternatively you can just leave us a message.
             </div>
           </div>
         </div>

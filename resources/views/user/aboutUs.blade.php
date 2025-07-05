@@ -1,447 +1,526 @@
 <x-app-layout>
-    <section class="ezy__team1 light py-6 md:py-16 bg-blue-100  text-zinc-900">
-        <div class="bg-slate-300 p-4 sm:p-8">
-            <div class="relative w-96 h-96 mx-auto mb-6">
-                <img src="../image/logovitalife.png" alt="Logo Vitalife"
-                    class="absolute inset-0 object-center w-full h-full">
-            </div>
-            <h1 class="text-4xl sm:text-5xl font-bold text-center mb-4 sm:mb-8">Vitalife?</h1>
-
-            <p class="text-center mb-6 sm:mb-8 text-sm text-gray-600 px-14 sm:px-14">
-                Vitalife is an innovative application focused on health consultation, designed for consultation with specialist doctors. 
-                This application offers consultation recommendations and pharmacy locations in the Yogyakarta area. In addition, 
-                Vitalife connects users with specialist doctors for health consultations, both before and after travel activities, 
-                to ensure the safety and physical readiness of users. Easy and transparent online reservation features, complete information about facilities. 
-                Another feature of Vitalife is an interactive chatbot powered by AI.
-
-            </p>
-        </div>
-        <div class="relative w-full mb-6">
-            <img src="../image/webvitalife.png" alt="Logo Vitalife" class="w-full h-auto object-contain">
-        </div>
-        <div class="container mx-auto px-4 py-8">
-            <h1 class="text-3xl font-bold text-center mb-8">Color Palette</h1>
-
-            <div class="grid grid-cols-4 sm:grid-cols-4 gap-10 max-w-4xl mx-auto">
-                <div class="flex flex-col items-center w-full h-32 sm:h-32">
-                    <img src="../image/custom1.png" alt="Logo Vitalife" class="w-full h-auto object-contain">
-                    <p class="mt-3 text-sm font-medium">#DCF0ED</p>
-                </div>
-                <div class="flex flex-col items-center w-full h-32 sm:h-32">
-                    <img src="../image/custom2.png" alt="Logo Vitalife" class="w-full h-auto object-contain">
-                    <p class="mt-3 text-sm font-medium">#80C8DC</p>
-                </div>
-                <div class="flex flex-col items-center w-full h-32 sm:h-32">
-                    <img src="../image/custom3.png" alt="Logo Vitalife" class="w-full h-auto object-contain">
-                    <p class="mt-3 text-sm font-medium">#355385</p>
-                </div>
-                <div class="flex flex-col items-center w-full h-32 sm:h-32">
-                    <img src="../image/custom4.png" alt="Logo Vitalife" class="w-full h-auto object-contain">
-                    <p class="mt-3 text-sm font-medium">#0E1036</p>
-                </div>
-            </div>
-        </div>
-        <div class="p-6 md:p-10 max-w-6xl mx-auto mt-28">
-            <p class="mb-6 text-lg font-semibold">
-                <span class="font-bold">Vitalife</span> embodies the harmony between fitness, self-indulgence and
-                invigorating travel experiences. The app combines key elements to createan active and balanced lifestyle:
-            </p>
-
-            <ol class="list-decimal pl-6 mb-6 space-y-2">
-            <li>Vitality as the foundation of holistic health.</li>
-            <li>Mindful indulgence to balance hard work and relaxation.</li>
-            <li>Tourism that inspires and broadens horizons.</li>
-            <li>Activities that foster physical and mental growth.</li>
-            <li>A lifestyle that supports long-term well-being.</li>
-            <li>Invigoration to renew spirit and energy.</li>
-            <li>Fitness as the key to a better quality of life.</li>
-            <li>Events that bring together communities with shared interests.</li>
-
-            </ol>
-
-            <p class="text-lg">
-            This philosophy reflects <span class="font-bold">Vitalife</span>'s commitment to integrating health, enjoyment, and adventure into a comprehensive platform, supporting each individual's journey toward a healthier and more fulfilling life.
-
-            </p>
-        </div>
-
-        <div class="container mx-auto p-4 py-8">
-            <h1 class="text-3xl font-bold text-center mb-6">Color Pallet</h1>
-
-            <div class="grid grid-cols-1 gap-4">
-    <!-- Dark Blue -->
-    <div style="background-image: url('../image/custom-4.png');" class="bg-cover bg-center text-white p-3 rounded-lg text-lg">
-        <div class="ml-10">
-            <h2 class="font-bold mb-4">Dark Blue:</h2>
-            <ol class="list-decimal list-inside space-y-2">
-                <li>Symbolizes trust, professionalism, and stability.</li>
-                <li>Represents deep experience and knowledge in the health and tourism industries.</li>
-                <li>Reflects the security and reliability of Vitalife’s services.</li>
-            </ol>
-        </div>
-    </div>
-
-    <!-- Light Blue -->
-    <div style="background-image: url('../image/custom-2.png');" class="bg-cover bg-center p-3 rounded-lg text-lg">
-        <div class="ml-10">
-            <h2 class="font-bold mb-4">Light Blue:</h2>
-            <ol class="list-decimal list-inside space-y-2">
-                <li>Symbolizes freshness, vitality, and positive energy.</li>
-                <li>Illustrates the clarity of mind and tranquility achieved through a healthy lifestyle.</li>
-                <li>Represents innovation and a modern approach to health tourism.</li>
-            </ol>
-        </div>
-    </div>
-
-    <!-- Combination -->
-    <div style="background-image: url('../image/custom-1.png');" class="bg-cover bg-center p-3 rounded-lg">
-        <p class="text-lg ml-10 mr-40">
-            The combination of these two colors in the Vitalife logo creates a harmonious impression between the professional and refreshing aspects of the services offered. 
-            The gradient from dark blue to light blue can be interpreted as a transformative journey experienced by users — from seeking health stability to achieving optimal vitality and fitness.
-        </p>
-    </div>
-</div>
-
-<div class="container pl-24 pt-20">
-    <div class="space-y-10 text-lg">
-        <!-- Logo 1 -->
-        <div class="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-            <img src="../image/log1.png" alt="Logo 1" class="w-40 h-40 object-contain mr-10">
-            <div>
-                <h2 class="font-bold text-lg mb-2">Circle:</h2>
-                <ol class="list-decimal list-inside space-y-1">
-                    <li>Symbolizes wholeness, balance, and the continuous cycle of life.</li>
-                    <li>Represents Vitalife’s holistic approach to health and well-being.</li>
-                    <li>Illustrates community and inclusivity within the health tourism experience.</li>
-                </ol>
-            </div>
-        </div>
-
-        <!-- Logo 2 -->
-        <div class="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-4 md:space-x-6">
-            <img src="../image/log2.png" alt="Logo 2" class="w-40 h-40 object-contain mr-10">
-            <div>
-                <h2 class="font-bold text-lg mb-2">Human Figures:</h2>
-                <ol class="list-decimal list-inside space-y-1">
-                    <li>Two shapes resembling human figures with raised arms, symbolizing:</li>
-                    <li>Joy and freedom gained from a healthy lifestyle.</li>
-                </ol>
-            </div>
-        </div>
-
-        <!-- Logo 3 -->
-        <div class="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-4 md:space-x-6">
-            <img src="../image/log3.png" alt="Logo 3" class="w-40 h-40 object-contain mr-10">
-            <div>
-                <h2 class="font-bold text-lg mb-2">Leaf-Like Element:</h2>
-                <p>Leaf: growth, renewal, and sustainability throughout the health journey.</p>
-            </div>
-        </div>
-    </div>
-</div>
-    </section>
-
-    <section class="ezy__team1 light py-6 md:py-16 bg-blue-100  text-zinc-900">
-        <div class="container px-4 mx-auto">
-            <div class="flex justify-center mb-6 md:mb-12 text-lg">
-                <div class="max-w-lg text-center">
-                    <h2 class="text-4xl leading-none font-bold mb-4">Our Experts Team</h2>
-                    <p class="text-gray-900">Contributed in building this website</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
-                <!-- item 1 -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                    <img src="../image/tir.jpeg" alt="Suci Mutiarani" class="w-full h-64 object-cover" />
-                    <div class="p-6 text-center">
-                        <h4 class="text-xl text-gray-200 font-semibold mb-1">Suci Mutiarani</h4>
-                        <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">Project Manajer</h6>
-                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">
-                            <span class="short-text">
-                                A Project Manager is an individual who is responsible for managing and coordinating all
-                                aspects of a project, including planning, implementation, and supervision, to ensure the
-                                project is completed on time.
-                            </span>
-                            <span class="full-text" style="display: none;">
-                                A Project Manager is an individual who is responsible for managing and coordinating all
-                                aspects of a project, including planning, implementation, and supervision, to ensure the
-                                project is completed on time.
-                            </span>
-                        </p>
-                        <div
-                            class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                            <div class="flex space-x-4">
-                                <button onclick="window.open('https://instagram.com/scmtrnnn', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-pink-600"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="none" viewBox="0 0 24 24">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                            d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <button onclick="window.open('https://wa.me/08816759161', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-green-500"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="none" viewBox="0 0 24 24">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                            d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z"
-                                            clip-rule="evenodd" />
-                                        <path fill="currentColor"
-                                            d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0.288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z" />
-                                    </svg>
-                                </button>
-                                <button onclick="window.open('https://www.linkedin.com/in/suci-mutiarani-9b1b62237', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-blue-500"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="currentColor" viewBox="0 0 24 24">
-                                        <path fill-rule="evenodd"
-                                            d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z"
-                                            clip-rule="evenodd" />
-                                        <path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 to-teal-50 py-16 md:py-24">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12">
+                <!-- Logo Section -->
+                <div class="flex justify-center mb-8">
+                    <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl">
+                        <img src="../image/logovitalife.png" alt="Vitalife Logo" 
+                             class="w-full h-full object-cover">
                     </div>
                 </div>
-
-                {{-- item 2 --}}
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                    <img src="../image/lega.jpeg" alt="Legawan Perkasa" class="w-full h-64 object-cover" />
-                    <div class="p-6 text-center">
-                        <h4 class="text-xl text-gray-200 font-semibold mb-1">Legawan Perkasa</h4>
-                        <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">Analisis Sistem</h6>
-                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">
-                            <span class="short-text">
-                                Systems Analysis is the process of understanding and evaluating information systems or
-                                business processes with the aim of improving efficiency, effectiveness and suitability
-                                to organizational needs through
-                            </span>
-                        </p>
-                        <div
-                            class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                            <div class="flex space-x-4">
-                                <button
-                                    onclick="window.open('https://www.instagram.com/legawanp13?igsh=OTcyeHFieGpvMno0', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-pink-600"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="none" viewBox="0 0 24 24">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                            d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <button onclick="window.open('https://wa.me/082280718889', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-green-500"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="none" viewBox="0 0 24 24">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                            d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z"
-                                            clip-rule="evenodd" />
-                                        <path fill="currentColor"
-                                            d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0.288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z" />
-                                    </svg>
-                                </button>
-                                <button onclick="window.open('https://linkedin.com/your_profile_username', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-blue-500"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="currentColor" viewBox="0 0 24 24">
-                                        <path fill-rule="evenodd"
-                                            d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z"
-                                            clip-rule="evenodd" />
-                                        <path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- item 3 --}}
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                    <img src="../image/dims2.jpeg" alt="Dimas Rizki Setyaji"
-                        class="w-full h-64 object-cover" />
-                    <div class="p-6 text-center">
-                        <h4 class="text-xl text-gray-200 font-semibold mb-1">Dimas Rizki Setyaji</h4>
-                        <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">UI Desainer</h6>
-                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">UI UX Designer is a professional who
-                            designs user interfaces (UI) and ensures optimal user experience (UX) in digital products,
-                            with the aim of ensuring that the product</p>
-                        <div
-                            class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                            <div class="flex space-x-4">
-                                <button
-                                    onclick="window.open('https://www.instagram.com/dimrizji?igsh=bHRsd2MwbGZnOW56', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-pink-600"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="none" viewBox="0 0 24 24">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                            d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <button onclick="window.open('https://wa.me/082234441456', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-green-500"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="none" viewBox="0 0 24 24">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                            d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z"
-                                            clip-rule="evenodd" />
-                                        <path fill="currentColor"
-                                            d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0.288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z" />
-                                    </svg>
-                                </button>
-                                <button
-                                    onclick="window.open('https://www.linkedin.com/in/ahmad-sholis-9786a4296', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-blue-500"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="currentColor" viewBox="0 0 24 24">
-                                        <path fill-rule="evenodd"
-                                            d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z"
-                                            clip-rule="evenodd" />
-                                        <path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 
                 
+                <!-- Title -->
+                <h1 class="text-4xl md:text-6xl font-bold text-center mb-8 bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
+                    What is Vitalife?
+                </h1>
 
-
-
-
-                {{-- item 4 --}}
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                    <img src="../image/deemz.jpeg" alt="Dimas Edwin Saputra"
-                        class="w-full h-64 object-cover" />
-                    <div class="p-6 text-center">
-                        <h4 class="text-xl text-gray-200 font-semibold mb-1">Dimas Edwin Saputra</h4>
-                        <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">Web Developer</h6>
-                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">Web Developers are professionals who
-                            design, create, and maintain websites. They work on both the display (front-end) and server
-                            (back-end) parts of the website, using a variety of programming languages ​​and technologies
-                            to ensure the site functions properly and securely.</p>
-                        <div
-                            class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                            <div class="flex space-x-4">
-                                <button onclick="window.open('https://www.instagram.com/_dimassaputra_', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-pink-600"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="none" viewBox="0 0 24 24">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                            d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <button onclick="window.open('https://wa.me/089602651828', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-green-500"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="none" viewBox="0 0 24 24">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                            d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z"
-                                            clip-rule="evenodd" />
-                                        <path fill="currentColor"
-                                            d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0.288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z" />
-                                    </svg>
-                                </button>
-                                <button
-                                    onclick="window.open('https://www.linkedin.com/in/dimas-edwin-saputra', '_blank')">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-blue-500"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" fill="currentColor" viewBox="0 0 24 24">
-                                        <path fill-rule="evenodd"
-                                            d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z"
-                                            clip-rule="evenodd" />
-                                        <path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Description -->
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                        Vitalife is an innovative health consultation application focused on connecting users with specialist doctors. 
+                        This platform offers consultation recommendations and pharmacy locations throughout the Yogyakarta area. 
+                        Vitalife bridges the gap between users and healthcare specialists for comprehensive health consultations, 
+                        both before and after travel activities, ensuring user safety and physical readiness. 
+                        Features include easy and transparent online reservations, complete facility information, 
+                        and an interactive AI-powered chatbot for enhanced user experience.
+                    </p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <footer>
-
-
-  <!-- Footer Section -->
-  <section class="bg-gray-900 text-white py-16">
-    <div class="container mx-auto px-6 lg:px-16">
-      <div class="grid md:grid-cols-3 gap-12">
-        <!-- Logo Column -->
-        <div>
-          <div class="flex items-center mb-4">
-            <img src="../image/LOGO_1.png" alt="Vitalife Logo" class="h-12 w-auto">
-            <span class="ml-3 text-2xl font-bold bg-gradient-to-r from-blue-400 to-teal-300 text-transparent bg-clip-text">Vitalife</span>
-          </div>
-          <p class="text-gray-400">&copy; {{ date('Y') }} All Rights Reserved</p>
-          <div class="flex mt-4 space-x-4">
-            <!-- Social icons -->
-            <a href="#" class="hover:text-blue-400">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="hover:text-blue-400">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="hover:text-blue-400">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </div>
+    <!-- App Preview Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img src="../image/webvitalife.png" alt="Vitalife Application Preview" 
+                     class="w-full h-auto object-cover">
+            </div>
         </div>
+    </section>
 
-        <!-- Navigation -->
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Navigation</h3>
-          <ul class="space-y-3 text-gray-400">
-            <li><a href="{{ route('contact') }}" class="hover:text-blue-400">Contact</a></li>
-            <li><a href="{{ route('aboutus') }}" class="hover:text-blue-400">About Us</a></li>
-            <li><a href="#" class="hover:text-blue-400">Services</a></li>
-            <li><a href="#" class="hover:text-blue-400">FAQ</a></li>
-          </ul>
+    <!-- Color Palette Section -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Brand Color Palette</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-full h-24 rounded-xl mb-4 overflow-hidden">
+                        <img src="../image/custom1.png" alt="Color 1" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-mono text-sm font-semibold text-gray-700">#DCF0ED</p>
+                    <p class="text-xs text-gray-500 mt-1">Light Mint</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-full h-24 rounded-xl mb-4 overflow-hidden">
+                        <img src="../image/custom2.png" alt="Color 2" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-mono text-sm font-semibold text-gray-700">#80C8DC</p>
+                    <p class="text-xs text-gray-500 mt-1">Sky Blue</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-full h-24 rounded-xl mb-4 overflow-hidden">
+                        <img src="../image/custom3.png" alt="Color 3" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-mono text-sm font-semibold text-gray-700">#355385</p>
+                    <p class="text-xs text-gray-500 mt-1">Navy Blue</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-full h-24 rounded-xl mb-4 overflow-hidden">
+                        <img src="../image/custom4.png" alt="Color 4" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-mono text-sm font-semibold text-gray-700">#0E1036</p>
+                    <p class="text-xs text-gray-500 mt-1">Deep Navy</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- About -->
-        <div>
-          <h3 class="text-xl font-semibold mb-4">About Vitalife</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Vitalife is a health tourism app for discovering yoga & spa centers, sports, events, doctor consultations, and health tracking.
-          </p>
-          <a href="#" class="inline-block mt-6 bg-blue-600 hover:bg-blue-700 transition px-4 py-2 rounded-lg text-sm font-semibold">Join as a Partner</a>
+    <!-- Philosophy Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Our Philosophy</h2>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-teal-50 rounded-3xl p-8 md:p-12">
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+                        <span class="font-bold text-blue-600">Vitalife</span> embodies the perfect harmony between fitness, wellness, and enriching travel experiences. 
+                        Our platform combines essential elements to create an active and balanced lifestyle:
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">1</div>
+                                <p class="text-gray-700">Vitality as the foundation of holistic health</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">2</div>
+                                <p class="text-gray-700">Mindful wellness to balance work and relaxation</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">3</div>
+                                <p class="text-gray-700">Healthcare tourism that inspires and broadens horizons</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">4</div>
+                                <p class="text-gray-700">Activities that foster physical and mental growth</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm">5</div>
+                                <p class="text-gray-700">Lifestyle supporting long-term well-being</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm">6</div>
+                                <p class="text-gray-700">Invigoration to renew spirit and energy</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm">7</div>
+                                <p class="text-gray-700">Fitness as the key to better quality of life</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm">8</div>
+                                <p class="text-gray-700">Community events for shared wellness interests</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-lg text-gray-700 mt-8 text-center">
+                        This philosophy reflects <span class="font-bold text-blue-600">Vitalife</span>'s commitment to integrating health, 
+                        wellness, and adventure into a comprehensive platform, supporting each individual's journey toward a healthier 
+                        and more fulfilling life.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="mt-12 pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-        <p>Made with <span class="text-red-500">❤</span> by the Vitalife Team</p>
-        <p class="mt-2 md:mt-0">&copy; {{ date('Y') }} All rights reserved</p>
-      </div>
-    </div>
-  </section>
-</footer>
+    </section>
+
+    <!-- Color Meaning Section -->
+    <section class="py-16 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <h2 class="text-4xl font-bold text-center mb-12">Color Psychology</h2>
+            
+            <div class="grid gap-8 max-w-5xl mx-auto">
+                <!-- Dark Blue -->
+                <div class="bg-gradient-to-r from-blue-900 to-blue-800 rounded-2xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-200">Dark Blue (#355385, #0E1036)</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-blue-300 rounded-full"></div>
+                            <p>Symbolizes trust, professionalism, and stability</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-blue-300 rounded-full"></div>
+                            <p>Represents deep healthcare expertise and knowledge</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-blue-300 rounded-full"></div>
+                            <p>Reflects security and reliability of our services</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Light Blue -->
+                <div class="bg-gradient-to-r from-teal-500 to-blue-500 rounded-2xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-100">Light Blue (#80C8DC, #DCF0ED)</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-blue-100 rounded-full"></div>
+                            <p>Symbolizes freshness, vitality, and positive energy</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-blue-100 rounded-full"></div>
+                            <p>Represents clarity of mind and tranquility</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-blue-100 rounded-full"></div>
+                            <p>Illustrates innovation and modern healthcare approach</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combination -->
+                <div class="bg-gradient-to-r from-blue-100 to-teal-100 text-gray-800 rounded-2xl p-8 shadow-xl">
+                    <p class="text-lg leading-relaxed">
+                        The combination of these colors in the Vitalife brand creates a harmonious impression between 
+                        professional healthcare services and refreshing wellness experiences. The gradient from dark blue 
+                        to light blue represents the transformative journey our users experience — from seeking health 
+                        stability to achieving optimal vitality and wellness.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Elements Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Logo Elements & Meaning</h2>
+            
+            <div class="space-y-12 max-w-4xl mx-auto">
+                <!-- Circle Element -->
+                <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 bg-gradient-to-r from-blue-50 to-teal-50 rounded-2xl p-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full bg-gradient-to-br from-blue-400 to-teal-400 flex items-center justify-center shadow-xl">
+                            <img src="../image/log1.png" alt="Circle Logo Element" class="w-24 h-24 object-contain">
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Circle</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start space-x-2">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Symbolizes wholeness, balance, and the continuous cycle of life</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Represents Vitalife's holistic approach to health and well-being</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Illustrates community and inclusivity in healthcare tourism</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Human Figures -->
+                <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 bg-gradient-to-r from-teal-50 to-blue-50 rounded-2xl p-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full bg-gradient-to-br from-teal-400 to-blue-400 flex items-center justify-center shadow-xl">
+                            <img src="../image/log2.png" alt="Human Figures Logo Element" class="w-24 h-24 object-contain">
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Human Figures</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start space-x-2">
+                                <span class="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Two dynamic figures with raised arms symbolizing celebration</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Represents joy and freedom gained from a healthy lifestyle</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></span>
+                                <span>Embodies the human connection in healthcare and wellness</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Leaf Element -->
+                <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl p-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-32 h-32 rounded-full bg-gradient-to-br from-green-400 to-teal-400 flex items-center justify-center shadow-xl">
+                            <img src="../image/log3.png" alt="Leaf Logo Element" class="w-24 h-24 object-contain">
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Leaf Element</h3>
+                        <p class="text-gray-700 text-lg">
+                            The leaf represents growth, renewal, and sustainability throughout the health journey. 
+                            It symbolizes natural healing, environmental consciousness, and the organic progression 
+                            toward better health and wellness.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-teal-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-gray-800">Our Expert Team</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Meet the talented professionals who contributed to building this innovative healthcare platform
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                <!-- Team Member 1 - Project Manager -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img src="../image/team/yunan.jpg"  class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Yunan Singgih</h4>
+                        <h6 class="text-blue-600 font-semibold mb-3">Project Manager</h6>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Project Manager responsible for managing and coordinating all aspects of the project, 
+                            including planning, implementation, and supervision to ensure timely delivery.
+                        </p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="https://instagram.com/scmtrnnn" target="_blank" 
+                               class="p-2 bg-pink-100 hover:bg-pink-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/08816759161" target="_blank" 
+                               class="p-2 bg-green-100 hover:bg-green-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/suci-mutiarani-9b1b62237" target="_blank" 
+                               class="p-2 bg-blue-100 hover:bg-blue-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 - Programmer 1 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img src="../image/team/salman.jpg"  class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Muhammad Salman</h4>
+                        <h6 class="text-blue-600 font-semibold mb-3">Programmer</h6>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Frontend Developer specializing in creating intuitive user interfaces and responsive web applications 
+                            using modern technologies and best practices.
+                        </p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="https://www.instagram.com/legawanp13?igsh=OTcyeHFieGpvMno0" target="_blank" 
+                               class="p-2 bg-pink-100 hover:bg-pink-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/082280718889" target="_blank"
+                                class="p-2 bg-green-100 hover:bg-green-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                            </a>
+                            <a href="https://linkedin.com/in/legawan-perkasa" target="_blank"
+                                class="p-2 bg-blue-100 hover:bg-blue-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 - UI Designer -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img src="../image/" alt="samsul" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Syamsul Amilien</h4>
+                        <h6 class="text-blue-600 font-semibold mb-3">Programmer</h6>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            UI/UX Designer responsible for creating intuitive user interfaces and ensuring optimal user experience 
+                            in digital products, focusing on user-centered design principles.
+                        </p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="https://www.instagram.com/dimrizji?igsh=bHRsd2MwbGZnOW56" target="_blank"
+                                class="p-2 bg-pink-100 hover:bg-pink-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/082234441456" target="_blank"
+                                class="p-2 bg-green-100 hover:bg-green-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/dimas-rizki-setyaji" target="_blank"
+                                class="p-2 bg-blue-100 hover:bg-blue-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 - Programmer 2 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img src="../image/team/dayat.jpg" alt="Dimas Edwin Saputra" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Muh Hidayat</h4>
+                        <h6 class="text-blue-600 font-semibold mb-3">Tester</h6>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Full-Stack Developer specializing in both frontend and backend development, 
+                            using various programming languages and technologies to ensure websites function properly and securely.
+                        </p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="https://www.instagram.com/_dimassaputra_" target="_blank"
+                                class="p-2 bg-pink-100 hover:bg-pink-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/089602651828" target="_blank"
+                                class="p-2 bg-green-100 hover:bg-green-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/dimas-edwin-saputra" target="_blank"
+                                class="p-2 bg-blue-100 hover:bg-blue-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 - System Analyst -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative">
+                        <img src="../image/team/anin.jpg" alt="System Analyst" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Asinin Ahmad</h4>
+                        <h6 class="text-blue-600 font-semibold mb-3">System Analyst</h6>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            System Analyst responsible for understanding and evaluating information systems and business processes 
+                            to improve efficiency, effectiveness, and alignment with organizational needs.
+                        </p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="https://www.instagram.com/ahmad_sholis" target="_blank"
+                                class="p-2 bg-pink-100 hover:bg-pink-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/081234567890" target="_blank"
+                                class="p-2 bg-green-100 hover:bg-green-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ahmad-sholis-9786a4296" target="_blank"
+                                class="p-2 bg-blue-100 hover:bg-blue-200 rounded-full transition-colors">
+                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       @include('layouts.footer2')
 
 </x-app-layout>
-<script>
-    document.querySelectorAll('.read-more').forEach(function(button) {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            var container = this.closest('p');
-            var shortText = container.querySelector('.short-text');
-            var fullText = container.querySelector('.full-text');
 
-            if (shortText.style.display !== 'none') {
-                shortText.style.display = 'none';
-                fullText.style.display = 'inline';
-                this.textContent = 'Baca lebih sedikit';
-            } else {
-                shortText.style.display = 'inline';
-                fullText.style.display = 'none';
-                this.textContent = 'Baca selengkapnya';
+<script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
+    });
+
+    // Add scroll animation for team cards
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe team cards for animation
+    document.querySelectorAll('.group').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+
+    // Add loading animation for images
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.3s ease';
     });
 </script>

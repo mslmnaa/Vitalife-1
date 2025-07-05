@@ -230,20 +230,6 @@
                         </div>
                     </div>
 
-                    <!-- Terms and Conditions -->
-                    <div class="flex items-center">
-                        <input 
-                            type="checkbox" 
-                            id="terms" 
-                            name="terms" 
-                            required 
-                            class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
-                        >
-                        <label for="terms" class="ml-2 text-sm text-gray-600">
-                            I agree to the <a href="#" class="text-blue-600 hover:text-blue-800 font-medium hover:underline">Terms & Conditions</a> and <a href="#" class="text-blue-600 hover:text-blue-800 font-medium hover:underline">Privacy Policy</a>
-                        </label>
-                    </div>
-
                     <!-- Register Button -->
                     <button 
                         type="submit" 
@@ -326,14 +312,13 @@
                 const email = formData.get('email');
                 const password = formData.get('password');
                 const passwordConfirmation = formData.get('password_confirmation');
-                const terms = formData.get('terms');
                 
-                // Client-side validation
-                if (!name || !email || !password || !passwordConfirmation || !terms) {
+                // Client-side validation (removed terms validation)
+                if (!name || !email || !password || !passwordConfirmation) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Please fill in all required fields and agree to the terms & conditions!',
+                        text: 'Please fill in all required fields!',
                         confirmButtonColor: '#355385'
                     });
                     return;
