@@ -44,6 +44,83 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 
 
+<?php
+
+// Tambahkan di routes/web.php
+Route::get('/test-email/{email}', function ($email) {
+    Log::info('Testing email to: ' . $email);
+    
+    try {
+        // Test 1: Simple email
+        Mail::raw('Test email content', function ($message) use ($email) {
+            $message->to($email)
+                    ->subject('Test Email from ' . config('app.name'))
+                    ->from('noreply@vitalife.my.id', 'Vitalife Team');
+        });
+        
+        Log::info('Simple email sent successfully to: ' . $email);
+        
+        // Test 2: Create dummy user for WelcomeEmail
+        $dummyUser = new \App\Models\User([
+            'name' => 'Test User',
+            'email' => $email,
+            'id' => 999
+        ]);
+        
+        Mail::to($email)->send(new \App\Mail\WelcomeEmail($dummyUser));
+        
+        Log::info('WelcomeEmail sent successfully to: ' . $email);
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Both emails sent successfully to ' . $email
+        ]);
+        
+    } catch (\Exception $e) {
+        Log::error('Email test failed', [
+            'email' => $email,
+            'error' => $e->getMessage(),
+            'trace' => $e->getTraceAsString()
+        ]);
+        
+        return response()->json([
+            'success' => false,
+            'error' => $e->getMessage()
+        ]);
+    }
+});
+
+// Test dengan email yang berbeda
+Route::get('/test-google-login-email', function () {
+    $user = Auth::user();
+    
+    if (!$user) {
+        return 'Please login first';
+    }
+    
+    Log::info('Testing Google login email for user: ' . $user->email);
+    
+    try {
+        // Test dengan user yang sudah login
+        Mail::to($user->email)->send(new \App\Mail\WelcomeEmail($user));
+        Mail::to($user->email)->send(new \App\Mail\LoginSuccessNotification($user));
+        
+        return 'Emails sent successfully to ' . $user->email;
+        
+    } catch (\Exception $e) {
+        Log::error('Google login email test failed', [
+            'user_id' => $user->id,
+            'email' => $user->email,
+            'error' => $e->getMessage()
+        ]);
+        
+        return 'Error: ' . $e->getMessage();
+    }
+});
+
+
+
+
 // Redirect root and register to dashboard routes
 Route::get('/', function () {
     return redirect()->route('dashboard');
