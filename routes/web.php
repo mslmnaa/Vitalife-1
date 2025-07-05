@@ -44,7 +44,6 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 
 
-<?php
 
 // Tambahkan di routes/web.php
 Route::get('/test-email/{email}', function ($email) {
