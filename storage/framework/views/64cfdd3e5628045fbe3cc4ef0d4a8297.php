@@ -330,12 +330,12 @@ unset($__errorArgs, $__bag); ?>
                                             </td>
                                             <td class="px-4 py-3">
                                                 <input type="time" name="operating_hours[<?php echo e($key); ?>][open]" 
-                                                       id="open_<?php echo e($key); ?>" value="<?php echo e(old("operating_hours.{$key}.open", $dayData['open'])); ?>"
+                                                       value="<?php echo e(old("operating_hours.{$key}.close", $dayData['close'] ?? '')); ?>"
                                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent time-input">
                                             </td>
                                             <td class="px-4 py-3">
                                                 <input type="time" name="operating_hours[<?php echo e($key); ?>][close]" 
-                                                       id="close_<?php echo e($key); ?>" value="<?php echo e(old("operating_hours.{$key}.close", $dayData['close'])); ?>"
+                                                       value="<?php echo e(old("operating_hours.{$key}.close", $dayData['close'] ?? '')); ?>"
                                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent time-input">
                                             </td>
                                         </tr>

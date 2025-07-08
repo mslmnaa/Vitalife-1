@@ -39,73 +39,74 @@ class AdminPharmacyController extends Controller
     public function create()
     {
         $medicines = Medicine::orderBy('nama')->get();
+    //     dd([
+    //     'count' => $medicines->count(),
+    //     'first_medicine' => $medicines->first(),
+    //     'all_medicines' => $medicines->toArray()
+    // ]);
         $facilities = Pharmacy::getFacilitiesOptions();
         
         return view('admin.pharmacies.create', compact('medicines', 'facilities'));
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string',
-            'phone' => 'required|string|max:20',
-            'whatsapp' => 'required|string|max:20',
-            'description' => 'nullable|string',
-            'latitude' => 'nullable|numeric|between:-90,90',
-            'longitude' => 'nullable|numeric|between:-180,180',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'facilities' => 'nullable|array',
-            'operating_hours' => 'required|array',
-            'operating_hours.*.is_open' => 'required|boolean',
-            'operating_hours.*.open' => 'required_if:operating_hours.*.is_open,true|date_format:H:i',
-            'operating_hours.*.close' => 'required_if:operating_hours.*.is_open,true|date_format:H:i',
-            'medicines' => 'nullable|array',
-            'medicines.*.medicine_id' => 'required_with:medicines|exists:medicines,id_medicine',
-            'medicines.*.stock' => 'required_with:medicines|integer|min:0',
-            'medicines.*.price' => 'nullable|integer|min:0',
-            'medicines.*.notes' => 'nullable|string',
-        ]);
+    // Update method store() di AdminPharmacyController
 
-        DB::beginTransaction();
+public function store(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'address' => 'required|string',
+        'phone' => 'required|string|max:20',
+        'whatsapp' => 'required|string|max:20',
+        'description' => 'nullable|string',
+        'latitude' => 'nullable|numeric|between:-90,90',
+        'longitude' => 'nullable|numeric|between:-180,180',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'facilities' => 'nullable|array',
+        'operating_hours' => 'required|array',
+        'operating_hours.*.is_open' => 'boolean',
+        'operating_hours.*.open' => 'required_if:operating_hours.*.is_open,true|date_format:H:i',
+        'operating_hours.*.close' => 'required_if:operating_hours.*.is_open,true|date_format:H:i|after:operating_hours.*.open',
+    ]);
+
+    DB::beginTransaction();
+    
+    try {
+        $data = $request->except(['image']);
         
-        try {
-            $data = $request->except(['image', 'medicines']);
-            
-            // Handle image upload
-            if ($request->hasFile('image')) {
-                $data['image'] = $request->file('image')->store('pharmacies', 'public');
-            }
-
-            $pharmacy = Pharmacy::create($data);
-
-            // Attach medicines if provided
-            if ($request->has('medicines') && is_array($request->medicines)) {
-                foreach ($request->medicines as $medicineData) {
-                    if (!empty($medicineData['medicine_id'])) {
-                        $pharmacy->medicines()->attach($medicineData['medicine_id'], [
-                            'stock' => $medicineData['stock'] ?? 0,
-                            'price' => $medicineData['price'] ?? null,
-                            'is_available' => true,
-                            'notes' => $medicineData['notes'] ?? null,
-                        ]);
-                    }
-                }
-            }
-
-            DB::commit();
-            
-            return redirect()->route('admin.pharmacies.index')
-                           ->with('success', 'Pharmacy berhasil ditambahkan.');
-                           
-        } catch (\Exception $e) {
-            DB::rollback();
-            
-            return redirect()->back()
-                           ->withInput()
-                           ->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('pharmacies', 'public');
         }
+        
+        // Create pharmacy
+        $pharmacy = Pharmacy::create($data);
+        
+        // AUTO-ATTACH SEMUA MEDICINES
+        $allMedicines = Medicine::all();
+        
+        foreach ($allMedicines as $medicine) {
+            $pharmacy->medicines()->attach($medicine->id_medicine, [
+                'stock' => 0, // Default stock 0, bisa diubah nanti
+                'price' => $medicine->harga, // Ambil harga dari tabel medicines
+                'is_available' => true,
+                'notes' => 'Auto-added when pharmacy created',
+            ]);
+        }
+        
+        DB::commit();
+        
+        return redirect()->route('admin.pharmacies.index')
+                       ->with('success', 'Pharmacy berhasil ditambahkan dengan ' . $allMedicines->count() . ' medicines.');
+                       
+    } catch (\Exception $e) {
+        DB::rollback();
+        
+        return redirect()->back()
+                       ->withInput()
+                       ->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
     }
+}
 
     public function show(Pharmacy $pharmacy)
     {
