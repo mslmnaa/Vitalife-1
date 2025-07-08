@@ -70,7 +70,7 @@
     <?php if($patient->status === 'confirmed'): ?>
         <a href="<?php echo e(route('doctor.patient.detail', $patient->id)); ?>" 
            class="text-blue-600 hover:text-blue-900">
-            <i class="fas fa-eye mr-1"></i>Detail
+            <i class="fas fa-eye mr-1"></i>Detaill
         </a>
         <a href="<?php echo e(route('doctor.chat.detail', $patient->id)); ?>" 
            class="text-green-600 hover:text-green-900">
