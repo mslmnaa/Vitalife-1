@@ -219,10 +219,11 @@
                                         <tr>
                                             <td class="px-4 py-3 text-sm text-gray-900">{{ $day }}</td>
                                             <td class="px-4 py-3 text-center">
-                                                <input type="checkbox" name="operating_hours[{{ $key }}][is_open]" value="1"
-                                                       id="day_{{ $key }}" data-day="{{ $key }}"
-                                                       class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded day-toggle"
-                                                       {{ old("operating_hours.{$key}.is_open", $dayData['is_open']) ? 'checked' : '' }}>
+                                               <input type="checkbox" name="operating_hours[{{ $key }}][is_open]" value="1"
+       id="day_{{ $key }}" data-day="{{ $key }}"
+       class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded day-toggle"
+       {{ old("operating_hours.{$key}.is_open", $dayData['is_open'] ?? false) ? 'checked' : '' }}>
+
                                             </td>
                                             <td class="px-4 py-3">
                                                 <input type="time" name="operating_hours[{{ $key }}][open]" 
@@ -245,13 +246,13 @@
                         <div class="mb-8">
                             <div class="flex justify-between items-center mb-4">
                                 <h3 class="text-lg font-semibold text-gray-900">Obat-obatan</h3>
-                                <button type="button" id="add-medicine" 
+                                {{-- <button type="button" id="add-medicine" 
                                         class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm">
                                     <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                     </svg>
                                     Tambah Obat
-                                </button>
+                                </button> --}}
                             </div>
                             <div id="medicines-container" class="space-y-4">
                                 @foreach($pharmacy->medicines as $index => $medicine)

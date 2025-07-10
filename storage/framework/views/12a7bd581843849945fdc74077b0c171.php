@@ -233,7 +233,9 @@
 
                                             <!-- Delete Button -->
                                             <button type="button"
-                                                    onclick="showDeleteModal('<?php echo e($pharmacy->id); ?>', '<?php echo e(addslashes($pharmacy->name)); ?>')"
+                                                     data-name="<?php echo e($pharmacy->name); ?>"
+                                                        data-url="<?php echo e(route('admin.pharmacies.destroy', $pharmacy)); ?>"
+                                                        onclick="showDeleteModal(this)"
                                                     class="inline-flex items-center px-3 py-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-lg transition-colors duration-200 group"
                                                     title="Delete pharmacy">
                                                 <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
@@ -292,9 +294,9 @@
                             class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                         Cancel
                     </button>
-                    <form id="deleteForm" method="POST" class="flex-1">
-                        <?php echo csrf_field(); ?>
-                        <?php echo method_field('DELETE'); ?>
+                        <form id="deleteForm" method="POST" action="#">
+    <?php echo csrf_field(); ?>
+    <?php echo method_field('DELETE'); ?>
                         <button type="submit" 
                                 class="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-200">
                             Delete
@@ -323,44 +325,50 @@
         </div>
     </div>
 
-    <script>
-        function showDeleteModal(id, name) {
-            document.getElementById('pharmacyName').textContent = name;
-            document.getElementById('deleteForm').action = `/admin/pharmacies/${id}`;
-            document.getElementById('deleteModal').classList.remove('hidden');
-        }
+   <script>
+   
+    function showDeleteModal(button) {
+    const name = button.dataset.name;
+    const url = button.dataset.url;
 
-        function hideDeleteModal() {
-            document.getElementById('deleteModal').classList.add('hidden');
-        }
+    document.getElementById('pharmacyName').textContent = name;
+    document.getElementById('deleteForm').action = url;
+    document.getElementById('deleteModal').classList.remove('hidden');
+}
 
-        function showImageModal(src, title) {
-            document.getElementById('modalImage').src = src;
-            document.getElementById('modalImageTitle').textContent = title;
-            document.getElementById('imageModal').classList.remove('hidden');
-        }
+    function hideDeleteModal() {
+        document.getElementById('deleteModal').classList.add('hidden');
+    }
 
-        function hideImageModal() {
-            document.getElementById('imageModal').classList.add('hidden');
-        }
+    function showImageModal(src, title) {
+        document.getElementById('modalImage').src = src;
+        document.getElementById('modalImageTitle').textContent = title;
+        document.getElementById('imageModal').classList.remove('hidden');
+    }
 
-        function toggleDropdown(id) {
-            // Add your dropdown logic here
-            console.log('Toggle dropdown:', id);
-        }
+    function hideImageModal() {
+        document.getElementById('imageModal').classList.add('hidden');
+    }
 
-        // Close modals when clicking outside
-        document.addEventListener('click', function(event) {
-            const deleteModal = document.getElementById('deleteModal');
-            const imageModal = document.getElementById('imageModal');
-            
-            if (event.target === deleteModal) {
-                hideDeleteModal();
-            }
-            if (event.target === imageModal) {
-                hideImageModal();
-            }
-        });
-    </script>
+    function toggleDropdown(id) {
+        // Add your dropdown logic here
+        console.log('Toggle dropdown:', id);
+    }
+
+    // Close modal when clicking outside
+    document.addEventListener('click', function(event) {
+        const deleteModal = document.getElementById('deleteModal');
+        const imageModal = document.getElementById('imageModal');
+        
+        if (event.target === deleteModal) {
+            hideDeleteModal();
+        }
+        if (event.target === imageModal) {
+            hideImageModal();
+        }
+        
+
+    });
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.admin', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Coding\Project 4 matklul\Vitalife-1\resources\views/admin/pharmacies/index.blade.php ENDPATH**/ ?>

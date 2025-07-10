@@ -81,7 +81,7 @@
         <div class="py-6 sticky top-0 bg-gradient-to-r from-gray-900 to-gray-800 z-10 border-b border-gray-700">
             <div class="flex justify-center">
                 <div class="relative">
-                    <img src="../image/LOGO_1.png" alt="Logo" class="h-10 w-auto logo-glow">
+<img src="{{ asset('image/LOGO_1.png') }}" alt="Logo" class="h-10 w-auto logo-glow">
                     <div class="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 blur-md"></div>
                 </div>
             </div>

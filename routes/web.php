@@ -341,7 +341,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::delete('/event/{id_event}', [EventController::class, 'destroy'])->name('event.destroy');
 
 
-    Route::resource('pharmacies', AdminPharmacyController::class);
+    Route::resource('/admin/pharmacies', AdminPharmacyController::class);
     Route::patch('pharmacies/{pharmacy}/toggle-status', [AdminPharmacyController::class, 'toggleStatus'])
          ->name('pharmacies.toggle-status');
 

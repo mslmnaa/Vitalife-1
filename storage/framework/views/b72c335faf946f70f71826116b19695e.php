@@ -9,40 +9,172 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
     <div class="py-12">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-6">
-                <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                    <?php echo e(__('Account Settings')); ?>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <!-- Header Section -->
+            <div class="mb-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                            <?php echo e(__('Account Settings')); ?>
 
-                </h1>
-                <p class="text-gray-600 dark:text-gray-400">
-                    <?php echo e(__('Manage your account settings and preferences.')); ?>
+                        </h1>
+                        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                            <?php echo e(__('Manage your account settings and preferences.')); ?>
 
-                </p>
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <!-- Profile Image (Larger on Desktop) -->
-                <div class="lg:col-span-8 bg-white white:bg-gray-800 shadow rounded-lg p-6">
-                    <?php echo $__env->make('profile.partials.update-profile-image', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Left Column - Main Settings -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Profile Information -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                            <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                <?php echo e(__('Profile Information')); ?>
+
+                            </h2>
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                <?php echo e(__('Update your account profile information and email address.')); ?>
+
+                            </p>
+                        </div>
+                        <div class="p-6">
+                            <?php echo $__env->make('profile.partials.update-profile-information-form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+                        </div>
+                    </div>
+
+                    <!-- Email Settings -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                            <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                <?php echo e(__('Email Settings')); ?>
+
+                            </h2>
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                <?php echo e(__('Update your email address and notification preferences.')); ?>
+
+                            </p>
+                        </div>
+                        <div class="p-6">
+                            <?php echo $__env->make('profile.partials.update-email-form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+                        </div>
+                    </div>
+
+                    <!-- Password Security -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                            <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                <?php echo e(__('Password & Security')); ?>
+
+                            </h2>
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                <?php echo e(__('Ensure your account is using a long, random password to stay secure.')); ?>
+
+                            </p>
+                        </div>
+                        <div class="p-6">
+                            <?php echo $__env->make('profile.partials.update-password-form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+                        </div>
+                    </div>
+
+                    <!-- Danger Zone -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg border-red-200 dark:border-red-800">
+                        <div class="p-6 border-b border-red-200 dark:border-red-700 bg-red-50 dark:bg-red-900/20">
+                            <h2 class="text-lg font-semibold text-red-900 dark:text-red-100">
+                                <?php echo e(__('Danger Zone')); ?>
+
+                            </h2>
+                            <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                                <?php echo e(__('Permanently delete your account and all associated data.')); ?>
+
+                            </p>
+                        </div>
+                        <div class="p-6">
+                            <?php echo $__env->make('profile.partials.delete-user-form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Other Settings (Stacked on Mobile, Side by Side on Desktop) -->
-                <div class="lg:col-span-8 space-y-6">
-                    <div class="bg-white white:bg-gray-800 shadow rounded-lg p-6">
-                        <?php echo $__env->make('profile.partials.update-profile-information-form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+                <!-- Right Column - Profile Image & Quick Actions -->
+                <div class="lg:col-span-1 space-y-6">
+                    <!-- Profile Image -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                            <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                <?php echo e(__('Profile Picture')); ?>
+
+                            </h2>
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                <?php echo e(__('Update your profile picture.')); ?>
+
+                            </p>
+                        </div>
+                        <div class="p-6">
+                            <?php echo $__env->make('profile.partials.update-profile-image', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+                        </div>
                     </div>
 
-                    <div class="bg-white white:bg-gray-800 shadow rounded-lg p-6">
-                        <?php echo $__env->make('profile.partials.update-email-form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+                    <!-- Quick Actions -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                            <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                <?php echo e(__('Quick Actions')); ?>
+
+                            </h2>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200">
+                                <?php echo e(__('Download My Data')); ?>
+
+                            </button>
+                            <button class="w-full bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200">
+                                <?php echo e(__('Privacy Settings')); ?>
+
+                            </button>
+                            <button class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200">
+                                <?php echo e(__('Export Settings')); ?>
+
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="bg-white white:bg-gray-800 shadow rounded-lg p-6">
-                        <?php echo $__env->make('profile.partials.update-password-form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
-                    </div>
+                    <!-- Account Summary -->
+                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                            <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                <?php echo e(__('Account Summary')); ?>
 
-                    <div class="bg-white white:bg-gray-800 shadow rounded-lg p-6">
-                        <?php echo $__env->make('profile.partials.delete-user-form', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+                            </h2>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400"><?php echo e(__('Member since')); ?></span>
+                                    <span class="text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        <?php echo e(Auth::user()->created_at->format('M Y')); ?>
+
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400"><?php echo e(__('Last login')); ?></span>
+                                    <span class="text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        <?php echo e(__('Today')); ?>
+
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400"><?php echo e(__('Account status')); ?></span>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                                        <?php echo e(__('Active')); ?>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
