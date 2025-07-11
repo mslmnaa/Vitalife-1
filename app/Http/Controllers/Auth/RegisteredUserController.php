@@ -48,7 +48,7 @@ class RegisteredUserController extends Controller
             $admin->notify(new NewUserRegistered($user));
         }
 
-         Mail::to('alfarizim168@gmail.com')->send(new WelcomeEmail($user));
+        Mail::to($user->email)->send(mailable: new WelcomeEmail($user));
 
         Auth::login($user);
 
