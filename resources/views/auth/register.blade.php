@@ -250,12 +250,12 @@
 
                     <!-- Social Register -->
                     <div class="grid grid-cols-2 gap-4">
-                        {{-- <a href="{{ url('auth/google') }}" class="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors group">
+                        <a href="{{ url('auth/google') }}" class="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors group">
                             <svg class="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/>
                             </svg>
                             <span class="text-sm font-medium text-gray-700">Google</span>
-                        </a> --}}
+                        </a>
                         
                         <a href="{{ url('auth/facebook') }}" class="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors group">
                             <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
