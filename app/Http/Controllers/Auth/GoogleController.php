@@ -84,7 +84,7 @@ class GoogleController extends Controller
                         'avatar' => $googleUser->avatar,
                     ]);
                 }
-
+                
                 // Update last login
                 // $user->updateLastLogin();
                 
@@ -118,8 +118,9 @@ class GoogleController extends Controller
                     ]);
                     
                     try {
-                        // Kirim langsung tanpa queue untuk debugging
-         Mail::to('alfarizim168@gmail.com')->send(new WelcomeEmail($user));
+                        Log::info('Sebelum kirim email welcome');
+
+                     Mail::to('alfarizim168@gmail.com')->send(new WelcomeEmail($user));
                         Log::info('WelcomeEmail sent successfully', ['email' => $user->email]);
                     } catch (\Exception $e) {
                         Log::error('Failed to send WelcomeEmail', [
