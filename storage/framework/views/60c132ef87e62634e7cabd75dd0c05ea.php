@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Detail Pharmacy'); ?>
+<?php $__env->startSection('title', 'Pharmacy Details'); ?>
 
 <?php $__env->startSection('content'); ?>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -7,7 +7,7 @@
         <div class="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
             <div class="flex justify-between items-center">
                 <h1 class="text-2xl font-bold text-white">
-                    Detail Pharmacy: <?php echo e($pharmacy->name); ?>
+                    Pharmacy Details: <?php echo e($pharmacy->name); ?>
 
                 </h1>
                 <div class="flex space-x-3">
@@ -23,7 +23,7 @@
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                         </svg>
-                        Kembali
+                        Back
                     </a>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <!-- Basic Information -->
                 <div>
                     <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">
-                        Informasi Dasar
+                        Basic Information
                     </h2>
                     
                     <?php if($pharmacy->image): ?>
@@ -48,15 +48,15 @@
                         <table class="min-w-full">
                             <tbody class="divide-y divide-gray-200">
                                 <tr>
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100 w-1/3">Nama</td>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100 w-1/3">Name</td>
                                     <td class="px-4 py-3 text-sm text-gray-900"><?php echo e($pharmacy->name); ?></td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Alamat</td>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Address</td>
                                     <td class="px-4 py-3 text-sm text-gray-900"><?php echo e($pharmacy->address); ?></td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Telepon</td>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Phone</td>
                                     <td class="px-4 py-3 text-sm text-gray-900"><?php echo e($pharmacy->phone); ?></td>
                                 </tr>
                                 <tr>
@@ -75,7 +75,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Deskripsi</td>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Description</td>
                                     <td class="px-4 py-3 text-sm text-gray-900"><?php echo e($pharmacy->description ?: '-'); ?></td>
                                 </tr>
                                 <tr>
@@ -84,28 +84,28 @@
                                         <div class="flex items-center space-x-2">
                                             <?php if($pharmacy->is_active): ?>
                                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                                    Aktif
+                                                    Active
                                                 </span>
                                             <?php else: ?>
                                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                                    Tidak Aktif
+                                                    Inactive
                                                 </span>
                                             <?php endif; ?>
                                             
                                             <?php if($pharmacy->is_open_now === true): ?>
                                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                                    Sedang Buka
+                                                    Open Now
                                                 </span>
                                             <?php elseif($pharmacy->is_open_now === false): ?>
                                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                                    Sedang Tutup
+                                                    Closed Now
                                                 </span>
                                             <?php endif; ?>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Koordinat</td>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Coordinates</td>
                                     <td class="px-4 py-3 text-sm text-gray-900">
                                         <?php if($pharmacy->latitude && $pharmacy->longitude): ?>
                                             <div class="flex items-center">
@@ -117,7 +117,7 @@
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                                     </svg>
-                                                    Lihat di Maps
+                                                    View on Maps
                                                 </a>
                                             </div>
                                         <?php else: ?>
@@ -126,11 +126,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Dibuat</td>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Created</td>
                                     <td class="px-4 py-3 text-sm text-gray-900"><?php echo e($pharmacy->created_at->format('d/m/Y H:i')); ?></td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Diperbarui</td>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100">Updated</td>
                                     <td class="px-4 py-3 text-sm text-gray-900"><?php echo e($pharmacy->updated_at->format('d/m/Y H:i')); ?></td>
                                 </tr>
                             </tbody>
@@ -141,7 +141,7 @@
                 <!-- Facilities & Operating Hours -->
                 <div>
                     <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">
-                        Fasilitas
+                        Facilities
                     </h2>
                     <?php if($pharmacy->facilities && count($pharmacy->facilities) > 0): ?>
                         <div class="mb-6">
@@ -155,30 +155,30 @@
                             </div>
                         </div>
                     <?php else: ?>
-                        <p class="text-gray-500 mb-6">Tidak ada fasilitas yang tercatat.</p>
+                        <p class="text-gray-500 mb-6">No facilities recorded.</p>
                     <?php endif; ?>
 
                     <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">
-                        Jam Operasional
+                        Operating Hours
                     </h2>
                     <div class="bg-gray-50 rounded-lg overflow-hidden">
                         <table class="min-w-full">
                             <thead class="bg-gray-100">
                                 <tr>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Hari</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Jam</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Day</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Hours</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 <?php
                                     $days = [
-                                        'monday' => 'Senin',
-                                        'tuesday' => 'Selasa', 
-                                        'wednesday' => 'Rabu',
-                                        'thursday' => 'Kamis',
-                                        'friday' => 'Jumat',
-                                        'saturday' => 'Sabtu',
-                                        'sunday' => 'Minggu'
+                                        'monday' => 'Monday',
+                                        'tuesday' => 'Tuesday', 
+                                        'wednesday' => 'Wednesday',
+                                        'thursday' => 'Thursday',
+                                        'friday' => 'Friday',
+                                        'saturday' => 'Saturday',
+                                        'sunday' => 'Sunday'
                                     ];
                                 ?>
                                 <?php $__currentLoopData = $days; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $day): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -191,7 +191,7 @@
                                         <?php if($dayData && $dayData['is_open']): ?>
                                             <span class="text-green-600 font-medium"><?php echo e($dayData['open']); ?> - <?php echo e($dayData['close']); ?></span>
                                         <?php else: ?>
-                                            <span class="text-gray-400">Tutup</span>
+                                            <span class="text-gray-400">Closed</span>
                                         <?php endif; ?>
                                     </td>
                                 </tr>
@@ -205,7 +205,7 @@
             <!-- Medicines -->
             <div class="mt-8">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">
-                    Obat-obatan (<?php echo e($pharmacy->medicines->count()); ?> obat)
+                    Medicines (<?php echo e($pharmacy->medicines->count()); ?> medicines)
                 </h2>
                 
                 <?php if($medicinesByCategory->count() > 0): ?>
@@ -216,11 +216,11 @@
                             <table class="min-w-full">
                                 <thead class="bg-gray-50">
                                     <tr>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Obat</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stok</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Medicine Name</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Catatan</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Notes</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -248,11 +248,11 @@
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <?php if($medicine->pivot->is_available): ?>
                                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                                    Tersedia
+                                                    Available
                                                 </span>
                                             <?php else: ?>
                                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                                    Tidak Tersedia
+                                                    Unavailable
                                                 </span>
                                             <?php endif; ?>
                                         </td>
@@ -274,7 +274,7 @@
                             </div>
                             <div class="ml-3">
                                 <p class="text-sm text-blue-700">
-                                    Belum ada obat yang terdaftar di pharmacy ini.
+                                    No medicines are registered at this pharmacy yet.
                                 </p>
                             </div>
                         </div>

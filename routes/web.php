@@ -58,8 +58,9 @@ Route::get('/', function () {
 
 
 Route::get('/register', function () {
-    return redirect()->route('auth.register');
+    return view('auth.register');
 });
+
 
 // Public routes - accessible without authentication
 Route::get('/contact', function () {
@@ -390,11 +391,11 @@ Broadcast::routes(['middleware' => ['auth']]);
 
 
 
-// // Google OAuth Routes
-// Route::prefix('auth/google')->group(function () {
-//     Route::get('/', [GoogleController::class, 'redirect'])->name('google.redirect');
-//     Route::get('/callback', [GoogleController::class, 'callback'])->name('google.callback');
-// });
+// Google OAuth Routes
+Route::prefix('auth/google')->group(function () {
+    Route::get('/', [GoogleController::class, 'redirect'])->name('google.redirect');
+    Route::get('/callback', [GoogleController::class, 'callback'])->name('google.callback');
+});
 
 // Include authentication routes from auth.php
 require __DIR__ . '/auth.php';
