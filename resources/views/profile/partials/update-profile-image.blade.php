@@ -1,4 +1,4 @@
-<section class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+<section class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
     <!-- Header with gradient background -->
     <div class="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-4">
         <div class="flex items-center space-x-3">
@@ -28,7 +28,7 @@
             <!-- Profile Image Display -->
             <div class="flex flex-col items-center space-y-4">
                 <div class="relative">
-                    <div class="w-32 h-32 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-4 border-white dark:border-gray-600 shadow-lg">
+                    <div class="w-32 h-32 rounded-full overflow-hidden bg-gray-100 border-4 border-white shadow-lg">
                         @if(Auth::check() && Auth::user()->image)
                             <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="{{ Auth::user()->name }}" 
                                 class="w-full h-full object-cover" id="profile-image-preview">
@@ -63,26 +63,26 @@
                 
                 <!-- Instructions -->
                 <div class="text-center">
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                    <p class="text-sm text-gray-600">
                         {{ __('Click the camera icon to change your profile picture') }}
                     </p>
-                    <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                    <p class="text-xs text-gray-500 mt-1">
                         {{ __('Supports JPG, PNG, GIF up to 10MB') }}
                     </p>
                 </div>
             </div>
 
             <!-- Drag & Drop Area -->
-            <div id="drop-area" class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center transition-all duration-200 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 cursor-pointer" onclick="document.getElementById('image').click()">
-                <svg class="h-12 w-12 text-gray-400 dark:text-gray-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div id="drop-area" class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center transition-all duration-200 hover:border-blue-500 hover:bg-blue-50 cursor-pointer" onclick="document.getElementById('image').click()">
+                <svg class="h-12 w-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                 </svg>
-                <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('Drag and drop your image here') }}</p>
-                <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">{{ __('or click to browse') }}</p>
+                <p class="text-sm text-gray-600">{{ __('Drag and drop your image here') }}</p>
+                <p class="text-xs text-gray-500 mt-1">{{ __('or click to browse') }}</p>
             </div>
 
             <!-- Action buttons with improved styling -->
-            <div class="flex items-center justify-between pt-6 border-t border-gray-200 dark:border-gray-600">
+            <div class="flex items-center justify-between pt-6 border-t border-gray-200">
                 <div class="flex items-center space-x-4">
                     <button type="submit" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -91,7 +91,7 @@
                         {{ __('Save Image') }}
                     </button>
                     
-                    <button type="button" onclick="removeImage()" class="inline-flex items-center px-4 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg transition-all duration-200">
+                    <button type="button" onclick="removeImage()" class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium rounded-lg transition-all duration-200">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                         </svg>
@@ -101,7 +101,7 @@
 
                 <!-- Success message with enhanced styling -->
                 @if (session('status') === 'image-updated')
-                <div x-data="{ show: true }" x-show="show" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90" x-init="setTimeout(() => show = false, 3000)" class="flex items-center space-x-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 px-4 py-2 rounded-lg border border-green-200 dark:border-green-700">
+                <div x-data="{ show: true }" x-show="show" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90" x-init="setTimeout(() => show = false, 3000)" class="flex items-center space-x-2 bg-green-50 text-green-700 px-4 py-2 rounded-lg border border-green-200">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
@@ -173,17 +173,17 @@
         
         dropArea.addEventListener('dragover', (e) => {
             e.preventDefault();
-            dropArea.classList.add('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+            dropArea.classList.add('border-blue-500', 'bg-blue-50');
         });
         
         dropArea.addEventListener('dragleave', (e) => {
             e.preventDefault();
-            dropArea.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+            dropArea.classList.remove('border-blue-500', 'bg-blue-50');
         });
         
         dropArea.addEventListener('drop', (e) => {
             e.preventDefault();
-            dropArea.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+            dropArea.classList.remove('border-blue-500', 'bg-blue-50');
             
             const files = e.dataTransfer.files;
             if (files.length > 0) {
