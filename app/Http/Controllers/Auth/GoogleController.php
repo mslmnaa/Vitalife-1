@@ -86,7 +86,7 @@ class GoogleController extends Controller
                 }
 
                 // Update last login
-                $user->updateLastLogin();
+                // $user->updateLastLogin();
                 
                 // Commit transaction sebelum mengirim email
                 DB::commit();
@@ -106,7 +106,6 @@ class GoogleController extends Controller
                 Auth::login($user, true);
                 Log::info('User logged in successfully', ['user_id' => $user->id]);
 
-                sleep(2);
 
 
                 // Kirim welcome email untuk user baru atau first Google login
