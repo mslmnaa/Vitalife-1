@@ -1,4 +1,4 @@
-<section class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-red-200 dark:border-red-700 overflow-hidden">
+<section class="bg-white rounded-xl shadow-lg border border-red-200 overflow-hidden">
     <!-- Header with gradient background -->
     <div class="bg-gradient-to-r from-red-600 to-pink-600 px-6 py-4">
         <div class="flex items-center space-x-3">
@@ -22,17 +22,17 @@
 
     <!-- Form content -->
     <div class="p-6">
-        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-lg p-4 mb-6">
+        <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
             <div class="flex items-start space-x-3">
                 <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
                 </svg>
                 <div>
-                    <h3 class="text-sm font-medium text-red-800 dark:text-red-200">
+                    <h3 class="text-sm font-medium text-red-800">
                         <?php echo e(__('Warning: This action cannot be undone')); ?>
 
                     </h3>
-                    <p class="mt-1 text-sm text-red-700 dark:text-red-300">
+                    <p class="mt-1 text-sm text-red-700">
                         <?php echo e(__('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.')); ?>
 
                     </p>
@@ -65,24 +65,24 @@
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['name' => 'confirm-user-deletion','show' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($errors->userDeletion->isNotEmpty()),'focusable' => true]); ?>
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl">
+        <div class="bg-white rounded-lg shadow-xl">
             <form method="post" action="<?php echo e(route('profile.destroy')); ?>" class="p-6">
                 <?php echo csrf_field(); ?>
                 <?php echo method_field('delete'); ?>
 
                 <!-- Modal Header -->
                 <div class="flex items-center space-x-3 mb-6">
-                    <div class="w-12 h-12 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center">
-                        <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
                         </svg>
                     </div>
                     <div>
-                        <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                        <h2 class="text-xl font-semibold text-gray-900">
                             <?php echo e(__('Are you sure you want to delete your account?')); ?>
 
                         </h2>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                        <p class="text-sm text-gray-600 mt-1">
                             <?php echo e(__('This action cannot be undone.')); ?>
 
                         </p>
@@ -90,8 +90,8 @@
                 </div>
 
                 <!-- Warning message -->
-                <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-lg p-4 mb-6">
-                    <p class="text-sm text-red-700 dark:text-red-300">
+                <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                    <p class="text-sm text-red-700">
                         <?php echo e(__('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.')); ?>
 
                     </p>
@@ -101,14 +101,14 @@
                 <div class="mb-6">
                     <?php if (isset($component)) { $__componentOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.input-label','data' => ['for' => 'password','value' => ''.e(__('Password')).'','class' => 'text-sm font-medium text-gray-700 dark:text-gray-300 mb-2']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.input-label','data' => ['for' => 'password','value' => ''.e(__('Password')).'','class' => 'text-sm font-medium text-gray-700 mb-2']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('input-label'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['for' => 'password','value' => ''.e(__('Password')).'','class' => 'text-sm font-medium text-gray-700 dark:text-gray-300 mb-2']); ?>
+<?php $component->withAttributes(['for' => 'password','value' => ''.e(__('Password')).'','class' => 'text-sm font-medium text-gray-700 mb-2']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginale3da9d84bb64e4bc2eeebaafabfb2581)): ?>
@@ -127,14 +127,14 @@
                         </div>
                         <?php if (isset($component)) { $__componentOriginal18c21970322f9e5c938bc954620c12bb = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal18c21970322f9e5c938bc954620c12bb = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.text-input','data' => ['id' => 'password','name' => 'password','type' => 'password','class' => 'pl-10 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200','placeholder' => ''.e(__('Enter your password to confirm')).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.text-input','data' => ['id' => 'password','name' => 'password','type' => 'password','class' => 'pl-10 block w-full rounded-lg border-gray-300 bg-gray-50 text-gray-900 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200','placeholder' => ''.e(__('Enter your password to confirm')).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('text-input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['id' => 'password','name' => 'password','type' => 'password','class' => 'pl-10 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200','placeholder' => ''.e(__('Enter your password to confirm')).'']); ?>
+<?php $component->withAttributes(['id' => 'password','name' => 'password','type' => 'password','class' => 'pl-10 block w-full rounded-lg border-gray-300 bg-gray-50 text-gray-900 focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200','placeholder' => ''.e(__('Enter your password to confirm')).'']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal18c21970322f9e5c938bc954620c12bb)): ?>
@@ -172,7 +172,7 @@
                 <div class="flex items-center justify-end space-x-3">
                     <button type="button" 
                         x-on:click="$dispatch('close')"
-                        class="inline-flex items-center px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors duration-200">
+                        class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition-colors duration-200">
                         <?php echo e(__('Cancel')); ?>
 
                     </button>
