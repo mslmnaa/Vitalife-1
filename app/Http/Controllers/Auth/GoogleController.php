@@ -86,7 +86,7 @@ class GoogleController extends Controller
                 }
                 
                 // Update last login
-                $user->updateLastLogin();
+                // $user->updateLastLogin();
                 
                 // Commit transaction sebelum mengirim email
                 DB::commit();
