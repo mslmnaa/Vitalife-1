@@ -2,7 +2,7 @@
 
 namespace app\Http\Controllers\Auth;
 
-use app\Models\User;
+use App\Models\User;
 use app\Mail\WelcomeEmail;
 use Illuminate\Support\Str;
 use app\Http\Controllers\Controller;
