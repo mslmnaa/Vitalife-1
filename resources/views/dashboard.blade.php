@@ -55,7 +55,7 @@
                     class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-50 to-green-50 backdrop-blur-sm rounded-full border border-emerald-200 shadow-sm animate-fade-in-up">
                     <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse mr-3"></div>
                     <p class="text-sm font-semibold text-emerald-700">
-                        🏥 Health Tourism • Yogyakarta Ready
+                        🏥 Health Tourism • Yogyakarta Readyy
                     </p>
                 </div>
 
