@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Chat;
+use App\Models\User;
 use App\Mail\WelcomeEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
