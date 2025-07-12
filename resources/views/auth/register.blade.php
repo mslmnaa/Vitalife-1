@@ -268,6 +268,7 @@
                     <!-- Login Link -->
                     <div class="text-center mt-6">
                         <p class="text-sm text-gray-600">
+                            
                             Already have an account? 
                             <a href="{{ route('login') }}" class="text-blue-600 hover:text-blue-800 font-semibold hover:underline">Sign in here</a>
                         </p>

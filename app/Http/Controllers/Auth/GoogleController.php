@@ -28,13 +28,11 @@ class GoogleController extends Controller
      * Handle Google OAuth callback
      */
     public function callback(): RedirectResponse
-    {   
-        Log::info('MASUK CALLBACK GOOGLE');
-
+    {
         try {
             Log::info('Google OAuth callback started');
             
-$googleUser = Socialite::driver('google')->stateless()->user();
+            $googleUser = Socialite::driver('google')->user();
             Log::info('Google user data retrieved', [
                 'email' => $googleUser->email,
                 'name' => $googleUser->name,
@@ -88,7 +86,7 @@ $googleUser = Socialite::driver('google')->stateless()->user();
                 }
                 
                 // Update last login
-                $user->updateLastLogin();
+                // $user->updateLastLogin();
                 
                 // Commit transaction sebelum mengirim email
                 DB::commit();
@@ -164,7 +162,7 @@ $googleUser = Socialite::driver('google')->stateless()->user();
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString()
             ]);
-            return redirect()->route('login')->with('error', 'Terjadi kesalahann saat login dengan Google.');
+            return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login dengan Google.');
         }
     }
 }
