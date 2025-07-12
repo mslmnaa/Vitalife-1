@@ -28,7 +28,9 @@ class GoogleController extends Controller
      * Handle Google OAuth callback
      */
     public function callback(): RedirectResponse
-    {
+    {   
+        Log::info('MASUK CALLBACK GOOGLE');
+
         try {
             Log::info('Google OAuth callback started');
             
