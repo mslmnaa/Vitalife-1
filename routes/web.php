@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Chat;
+use App\Mail\WelcomeEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ use App\Http\Controllers\TransactionUserController;
 use App\Http\Controllers\Admin\SpesialisisController;
 use App\Http\Controllers\Admin\AdminPharmacyController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use Illuminate\Support\Facades\Mail;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -389,6 +392,25 @@ Broadcast::routes(['middleware' => ['auth']]);
 
 Route::get('auth/google', [GoogleController::class, 'redirect'])->name('google.redirect');
 Route::get('auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
+
+
+
+
+
+
+Route::get('/test-email', function () {
+    $user = User::where('email', 'test-w54kj2ck7@srv1.mail-tester.com')->first(); // Ganti emailmu
+    if (!$user) {
+        return 'User tidak ditemukan.';
+    }
+
+    try {
+        Mail::to($user->email)->send(new WelcomeEmail($user));
+        return 'Email berhasil dikirim ke ' . $user->email;
+    } catch (\Exception $e) {
+        return 'Gagal kirim email: ' . $e->getMessage();
+    }
+});
 
 
 // Include authentication routes from auth.php
