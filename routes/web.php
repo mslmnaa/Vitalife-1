@@ -116,9 +116,9 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
 
-// Social authentication routes
-Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
-Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProviderCallback']);
+// // Social authentication routes
+// Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
+// Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProviderCallback']);
 
 // User authenticated routes
 Route::middleware('auth')->group(function () {
