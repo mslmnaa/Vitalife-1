@@ -397,5 +397,9 @@ Broadcast::routes(['middleware' => ['auth']]);
 //     Route::get('/callback', [GoogleController::class, 'callback'])->name('google.callback');
 // });
 
+Route::get('auth/google', [GoogleController::class, 'redirect'])->name('google.redirect');
+Route::get('auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
+
+
 // Include authentication routes from auth.php
 require __DIR__ . '/auth.php';
