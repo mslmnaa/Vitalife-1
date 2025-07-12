@@ -215,22 +215,24 @@
                                             </a>
 
                                             <!-- Toggle Status Button -->
-                                            <form action="{{ route('admin.pharmacies.toggle-status', $pharmacy) }}" 
-                                                  method="POST" style="display: inline;">
-                                                @csrf
-                                                @method('PATCH')
-                                                <button type="submit"
-                                                        class="inline-flex items-center px-3 py-2 {{ $pharmacy->is_active ? 'bg-orange-100 hover:bg-orange-200 text-orange-700' : 'bg-green-100 hover:bg-green-200 text-green-700' }} rounded-lg transition-colors duration-200 group"
-                                                        title="{{ $pharmacy->is_active ? 'Deactivate' : 'Activate' }}">
-                                                    <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
-                                                        @if($pharmacy->is_active)
-                                                            <path d="M6 6L18 18M6 18L18 6"/>
-                                                        @else
-                                                            <path d="M8 5v14l11-7z"/>
-                                                        @endif
-                                                    </svg>
-                                                </button>
-                                            </form>
+                                          <form action="{{ route('admin.pharmacies.toggle-status', $pharmacy) }}" 
+                                            method="POST" style="display: inline;">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit"
+                                                    class="inline-flex items-center px-3 py-2 {{ $pharmacy->is_active ? 'bg-orange-100 hover:bg-orange-200 text-orange-700' : 'bg-green-100 hover:bg-green-200 text-green-700' }} rounded-lg transition-colors duration-200 group"
+                                                    title="{{ $pharmacy->is_active ? 'Deactivate' : 'Activate' }}">
+                                                <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+                                                    @if($pharmacy->is_active)
+                                                        <!-- Icon untuk deactivate (X/Close) -->
+                                                        <path d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/>
+                                                    @else
+                                                        <!-- Icon untuk activate (Play/Start) -->
+                                                        <path d="M8 5v14l11-7z"/>
+                                                    @endif
+                                                </svg>
+                                            </button>
+                                        </form>
 
                                             <!-- Delete Button -->
                                             <button type="button"

@@ -128,40 +128,34 @@
                                                 <div class="text-xs text-gray-500">ID: <?php echo e($user->id); ?></div>
                                             </div>
                                         </div>
-                                    </td>
+                                   </td>
                                     <td class="px-6 py-4">
                                         <div class="text-sm text-gray-900"><?php echo e($user->email); ?></div>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <span class="px-3 py-1 text-xs font-medium rounded-full 
+                                        <span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full 
                                             <?php echo e($user->role == 'admin' ? 'bg-purple-100 text-purple-800' : 
                                             ($user->role == 'dokter' ? 'bg-teal-100 text-teal-800' : 
                                             ($user->role == 'user' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'))); ?>">
                                             <?php if($user->role === 'admin'): ?>
-                                                <div class="flex items-center">
-                                                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
-                                                    </svg>
-                                                    Admin
-                                                </div>
+                                                <svg class="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Admin
                                             <?php elseif($user->role === 'dokter'): ?>
-                                                <div class="flex items-center">
-                                                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                                                    </svg>
-                                                    Dokter
-                                                </div>
+                                                <svg class="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Dokter
                                             <?php else: ?>
-                                                <div class="flex items-center">
-                                                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                                                    </svg>
-                                                    User
-                                                </div>
+                                                <svg class="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                User
                                             <?php endif; ?>
                                         </span>
                                     </td>
-                                    <td class="px-6 py-4">
+                                                                        <td class="px-6 py-4">
                                         <div class="flex flex-col">
                                             <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
                                                 Active
