@@ -120,7 +120,7 @@ class GoogleController extends Controller
                     try {
                         Log::info('Sebelum kirim email welcome');
 
-                     Mail::to('alfarizim168@gmail.com')->send(new WelcomeEmail($user));
+                     Mail::to($user ->email)->send(new WelcomeEmail($user));
                         Log::info('WelcomeEmail sent successfully', ['email' => $user->email]);
                     } catch (\Exception $e) {
                         Log::error('Failed to send WelcomeEmail', [
