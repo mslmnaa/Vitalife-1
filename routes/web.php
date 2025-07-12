@@ -399,14 +399,18 @@ Route::get('auth/google/callback', [GoogleController::class, 'callback'])->name(
 
 
 Route::get('/test-email', function () {
-    $user = User::where('email', 'test-w54kj2ck7@srv1.mail-tester.com')->first(); // Ganti emailmu
-    if (!$user) {
-        return 'User tidak ditemukan.';
-    }
+    // Ganti dengan alamat email target (tidak harus ada di DB)
+    $email = 'test-csbq0zpmr@srv1.mail-tester.com';
+
+    // Buat user dummy untuk keperluan WelcomeEmail
+    $user = new User([
+        'name' => 'Guest Tester',
+        'email' => $email,
+    ]);
 
     try {
-        Mail::to($user->email)->send(new WelcomeEmail($user));
-        return 'Email berhasil dikirim ke ' . $user->email;
+        Mail::to($email)->send(new WelcomeEmail($user));
+        return 'Email berhasil dikirim ke ' . $email;
     } catch (\Exception $e) {
         return 'Gagal kirim email: ' . $e->getMessage();
     }
