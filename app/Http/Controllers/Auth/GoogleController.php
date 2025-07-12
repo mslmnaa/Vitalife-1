@@ -162,7 +162,7 @@ class GoogleController extends Controller
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString()
             ]);
-            return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login dengan Google.');
+            return redirect()->route('login')->with('error', 'Terjadi kesalahann saat login dengan Google.');
         }
     }
 }
