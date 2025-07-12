@@ -3,13 +3,13 @@
 namespace app\Http\Controllers\Auth;
 
 use App\Models\User;
-use app\Mail\WelcomeEmail;
+use App\Mail\WelcomeEmail;
 use Illuminate\Support\Str;
-use app\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
-use app\Mail\LoginSuccessNotification;
+use App\Mail\LoginSuccessNotification;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
