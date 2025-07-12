@@ -20,7 +20,6 @@ use App\Http\Controllers\PharmacyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\HealthChatController;
-use App\Http\Controllers\SocialAuthController;
 use App\Http\Controllers\AccountUserController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\VoucherUserController;
@@ -29,7 +28,6 @@ use App\Http\Controllers\MedicineUserController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserMedicineController;
 use App\Http\Controllers\Admin\VoucherController;
-use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\PaymentHistoryController;
 use App\Http\Controllers\TransactionUserController;
 use App\Http\Controllers\Admin\SpesialisisController;
@@ -116,9 +114,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
 
-// // Social authentication routes
-// Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
-// Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProviderCallback']);
+
 
 // User authenticated routes
 Route::middleware('auth')->group(function () {
@@ -390,12 +386,6 @@ Broadcast::routes(['middleware' => ['auth']]);
 
 
 
-
-// // Google OAuth Routes
-// Route::prefix('auth/google')->group(function () {
-//     Route::get('/', [GoogleController::class, 'redirect'])->name('google.redirect');
-//     Route::get('/callback', [GoogleController::class, 'callback'])->name('google.callback');
-// });
 
 Route::get('auth/google', [GoogleController::class, 'redirect'])->name('google.redirect');
 Route::get('auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');

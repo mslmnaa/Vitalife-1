@@ -121,6 +121,7 @@ class GoogleController extends Controller
                         Log::info('Sebelum kirim email welcome');
 
                      Mail::to($user->email)->send(new WelcomeEmail($user));
+                     
                         Log::info('WelcomeEmail sent successfully', ['email' => $user->email]);
                     } catch (\Exception $e) {
                         Log::error('Failed to send WelcomeEmail', [
@@ -140,6 +141,7 @@ class GoogleController extends Controller
                 try {
                     // Kirim langsung tanpa queue untuk debugging
                     Mail::to($user->email)->send(new LoginSuccessNotification($user));
+                    
                     Log::info('LoginSuccessNotification sent successfully', ['email' => $user->email]);
                 } catch (\Exception $e) {
                     Log::error('Failed to send LoginSuccessNotification', [

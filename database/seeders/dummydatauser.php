@@ -66,8 +66,6 @@ class dummydatauser extends Seeder
             'updated_at' => now()
         ]);
 
-        $this->command->info('✅ Seeder berhasil!');
-        $this->command->info('Login User: user@test.com / password');
-        $this->command->info('Login Dokter: dokter@test.com / password');
+       
     }
 }
