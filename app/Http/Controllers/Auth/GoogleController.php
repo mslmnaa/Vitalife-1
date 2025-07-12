@@ -32,7 +32,7 @@ class GoogleController extends Controller
         try {
             Log::info('Google OAuth callback started');
             
-            $googleUser = Socialite::driver('google')->user();
+$googleUser = Socialite::driver('google')->stateless()->user();
             Log::info('Google user data retrieved', [
                 'email' => $googleUser->email,
                 'name' => $googleUser->name,
