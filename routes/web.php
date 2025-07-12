@@ -400,7 +400,7 @@ Route::get('auth/google/callback', [GoogleController::class, 'callback'])->name(
 
 Route::get('/test-email', function () {
     // Ganti dengan alamat email target (tidak harus ada di DB)
-    $email = 'test-944b46@test.mailgenius.com';
+    $email = 'test-3c1rc3sga@srv1.mail-tester.com';
     
     // Buat user dummy untuk keperluan WelcomeEmail
     $user = new User([
