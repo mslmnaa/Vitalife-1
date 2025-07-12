@@ -86,7 +86,7 @@ class GoogleController extends Controller
                 }
                 
                 // Update last login
-                // $user->updateLastLogin();
+                $user->updateLastLogin();
                 
                 // Commit transaction sebelum mengirim email
                 DB::commit();
@@ -120,8 +120,7 @@ class GoogleController extends Controller
                     try {
                         Log::info('Sebelum kirim email welcome');
 
-                     Mail::to($user->email)->send(new WelcomeEmail($user));
-                     
+                     Mail::to('alfarizim168@gmail.com')->send(new WelcomeEmail($user));
                         Log::info('WelcomeEmail sent successfully', ['email' => $user->email]);
                     } catch (\Exception $e) {
                         Log::error('Failed to send WelcomeEmail', [
@@ -141,7 +140,6 @@ class GoogleController extends Controller
                 try {
                     // Kirim langsung tanpa queue untuk debugging
                     Mail::to($user->email)->send(new LoginSuccessNotification($user));
-                    
                     Log::info('LoginSuccessNotification sent successfully', ['email' => $user->email]);
                 } catch (\Exception $e) {
                     Log::error('Failed to send LoginSuccessNotification', [
