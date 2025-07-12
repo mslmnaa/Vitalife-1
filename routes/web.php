@@ -57,9 +57,9 @@ Route::get('/', function () {
 
 
 
-Route::get('/register', function () {
-    return view('auth.register');
-});
+// Route::get('/register', function () {
+//     return view('auth.register');
+// });
 
 
 // Public routes - accessible without authentication

@@ -34,12 +34,12 @@
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                             <!-- Basic Information -->
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Informasi Dasar</h3>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Basic Information</h3>
                                 
                                 <div class="space-y-4">
-                                    <!-- Nama Pharmacy -->
+                                    <!-- Pharmacy Name -->
                                     <div>
-                                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nama Pharmacy <span class="text-red-500">*</span></label>
+                                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Pharmacy Name <span class="text-red-500">*</span></label>
                                         <input type="text" name="name" id="name" value="<?php echo e(old('name', $pharmacy->name)); ?>" 
                                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -62,9 +62,9 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                     </div>
 
-                                    <!-- Alamat -->
+                                    <!-- Address -->
                                     <div>
-                                        <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Alamat <span class="text-red-500">*</span></label>
+                                        <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Address <span class="text-red-500">*</span></label>
                                         <textarea name="address" id="address" rows="3" 
                                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['address'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -90,7 +90,7 @@ unset($__errorArgs, $__bag); ?>
                                     <!-- Phone & WhatsApp -->
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
-                                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Telepon <span class="text-red-500">*</span></label>
+                                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone <span class="text-red-500">*</span></label>
                                             <input type="text" name="phone" id="phone" value="<?php echo e(old('phone', $pharmacy->phone)); ?>" 
                                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['phone'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -137,9 +137,9 @@ unset($__errorArgs, $__bag); ?>
                                         </div>
                                     </div>
 
-                                    <!-- Deskripsi -->
+                                    <!-- Description -->
                                     <div>
-                                        <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi</label>
+                                        <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description</label>
                                         <textarea name="description" id="description" rows="3" 
                                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['description'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -210,7 +210,7 @@ unset($__errorArgs, $__bag); ?>
 
                             <!-- Location & Settings -->
                             <div>
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Lokasi & Pengaturan</h3>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Location & Settings</h3>
                                 
                                 <div class="space-y-4">
                                     <!-- Latitude & Longitude -->
@@ -263,9 +263,9 @@ unset($__errorArgs, $__bag); ?>
                                         </div>
                                     </div>
 
-                                    <!-- Fasilitas -->
+                                    <!-- Facilities -->
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-3">Fasilitas</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-3">Facilities</label>
                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                                             <?php $__currentLoopData = $facilities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <div class="flex items-center">
@@ -278,13 +278,13 @@ unset($__errorArgs, $__bag); ?>
                                         </div>
                                     </div>
 
-                                    <!-- Status Aktif -->
+                                    <!-- Active Status -->
                                     <div>
                                         <div class="flex items-center">
                                             <input type="checkbox" name="is_active" value="1" id="is_active"
                                                    class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                                                    <?php echo e(old('is_active', $pharmacy->is_active) ? 'checked' : ''); ?>>
-                                            <label for="is_active" class="ml-2 text-sm text-gray-700">Aktif</label>
+                                            <label for="is_active" class="ml-2 text-sm text-gray-700">Active</label>
                                         </div>
                                     </div>
                                 </div>
@@ -293,27 +293,27 @@ unset($__errorArgs, $__bag); ?>
 
                         <!-- Operating Hours -->
                         <div class="mb-8">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Jam Operasional</h3>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Operating Hours</h3>
                             <div class="overflow-x-auto">
                                 <table class="min-w-full bg-white border border-gray-300 rounded-lg">
                                     <thead class="bg-gray-50">
                                         <tr>
-                                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-700 border-b">Hari</th>
-                                            <th class="px-4 py-3 text-center text-sm font-medium text-gray-700 border-b w-20">Buka</th>
-                                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-700 border-b w-32">Jam Buka</th>
-                                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-700 border-b w-32">Jam Tutup</th>
+                                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-700 border-b">Day</th>
+                                            <th class="px-4 py-3 text-center text-sm font-medium text-gray-700 border-b w-20">Open</th>
+                                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-700 border-b w-32">Opening Time</th>
+                                            <th class="px-4 py-3 text-left text-sm font-medium text-gray-700 border-b w-32">Closing Time</th>
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200">
                                         <?php
                                             $days = [
-                                                'monday' => 'Senin',
-                                                'tuesday' => 'Selasa', 
-                                                'wednesday' => 'Rabu',
-                                                'thursday' => 'Kamis',
-                                                'friday' => 'Jumat',
-                                                'saturday' => 'Sabtu',
-                                                'sunday' => 'Minggu'
+                                                'monday' => 'Monday',
+                                                'tuesday' => 'Tuesday', 
+                                                'wednesday' => 'Wednesday',
+                                                'thursday' => 'Thursday',
+                                                'friday' => 'Friday',
+                                                'saturday' => 'Saturday',
+                                                'sunday' => 'Sunday'
                                             ];
                                         ?>
                                         <?php $__currentLoopData = $days; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $day): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -331,7 +331,7 @@ unset($__errorArgs, $__bag); ?>
                                             </td>
                                             <td class="px-4 py-3">
                                                 <input type="time" name="operating_hours[<?php echo e($key); ?>][open]" 
-                                                       value="<?php echo e(old("operating_hours.{$key}.close", $dayData['close'] ?? '')); ?>"
+                                                       value="<?php echo e(old("operating_hours.{$key}.open", $dayData['open'] ?? '')); ?>"
                                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent time-input">
                                             </td>
                                             <td class="px-4 py-3">
@@ -349,7 +349,7 @@ unset($__errorArgs, $__bag); ?>
                         <!-- Medicines -->
                         <div class="mb-8">
                             <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-lg font-semibold text-gray-900">Obat-obatan</h3>
+                                <h3 class="text-lg font-semibold text-gray-900">Medicines</h3>
                                 
                             </div>
                             <div id="medicines-container" class="space-y-4">
@@ -357,10 +357,10 @@ unset($__errorArgs, $__bag); ?>
                                 <div class="medicine-row bg-gray-50 border border-gray-200 rounded-lg p-4">
                                     <div class="grid grid-cols-1 md:grid-cols-6 gap-4 items-end">
                                         <div class="md:col-span-2">
-                                            <label class="block text-sm font-medium text-gray-700 mb-2">Obat</label>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Medicine</label>
                                             <select name="medicines[<?php echo e($index); ?>][medicine_id]" 
                                                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent medicine-select">
-                                                <option value="">Pilih Obat</option>
+                                                <option value="">Select Medicine</option>
                                                 <?php $__currentLoopData = $medicines; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $med): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <option value="<?php echo e($med->id_medicine); ?>" 
                                                         <?php echo e($med->id_medicine == $medicine->id_medicine ? 'selected' : ''); ?>>
@@ -371,19 +371,19 @@ unset($__errorArgs, $__bag); ?>
                                             </select>
                                         </div>
                                         <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-2">Stok</label>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Stock</label>
                                             <input type="number" name="medicines[<?php echo e($index); ?>][stock]" min="0" 
                                                    value="<?php echo e($medicine->pivot->stock); ?>"
                                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                         </div>
                                         <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-2">Harga</label>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Price</label>
                                             <input type="number" name="medicines[<?php echo e($index); ?>][price]" min="0" 
                                                    value="<?php echo e($medicine->pivot->price); ?>"
                                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                         </div>
                                         <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-2">Catatan</label>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Notes</label>
                                             <input type="text" name="medicines[<?php echo e($index); ?>][notes]" 
                                                    value="<?php echo e($medicine->pivot->notes); ?>"
                                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
@@ -393,7 +393,7 @@ unset($__errorArgs, $__bag); ?>
                                                 <input type="checkbox" name="medicines[<?php echo e($index); ?>][is_available]" value="1"
                                                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                                                        <?php echo e($medicine->pivot->is_available ? 'checked' : ''); ?>>
-                                                <label class="ml-2 text-sm text-gray-700">Tersedia</label>
+                                                <label class="ml-2 text-sm text-gray-700">Available</label>
                                             </div>
                                             <button type="button" class="remove-medicine text-red-600 hover:text-red-800 p-1">
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -428,27 +428,27 @@ unset($__errorArgs, $__bag); ?>
         <div class="medicine-row bg-gray-50 border border-gray-200 rounded-lg p-4">
             <div class="grid grid-cols-1 md:grid-cols-6 gap-4 items-end">
                 <div class="md:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Obat</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Medicine</label>
                     <select name="medicines[INDEX][medicine_id]" 
                             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent medicine-select">
-                        <option value="">Pilih Obat</option>
+                        <option value="">Select Medicine</option>
                         <?php $__currentLoopData = $medicines; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $medicine): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($medicine->id_medicine); ?>"><?php echo e($medicine->nama); ?> - <?php echo e($medicine->kategori); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Stok</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Stock</label>
                     <input type="number" name="medicines[INDEX][stock]" min="0" value="0"
                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Harga</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Price</label>
                     <input type="number" name="medicines[INDEX][price]" min="0"
                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Catatan</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Notes</label>
                     <input type="text" name="medicines[INDEX][notes]"
                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                 </div>
@@ -456,7 +456,7 @@ unset($__errorArgs, $__bag); ?>
                     <div class="flex items-center">
                         <input type="checkbox" name="medicines[INDEX][is_available]" value="1" checked
                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                        <label class="ml-2 text-sm text-gray-700">Tersedia</label>
+                        <label class="ml-2 text-sm text-gray-700">Available</label>
                     </div>
                     <button type="button" class="remove-medicine text-red-600 hover:text-red-800 p-1">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
