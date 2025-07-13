@@ -416,6 +416,10 @@ Route::get('/test-email', function () {
     }
 });
 
+Route::get('/unsubscribe', function () {
+    return view('emails.unsubscribe');
+});
+
 
 // Include authentication routes from auth.php
 require __DIR__ . '/auth.php';

@@ -24,7 +24,10 @@ class WelcomeEmail extends Mailable
     {
         return new Envelope(
         from: new \Illuminate\Mail\Mailables\Address('noreply@vitalife.my.id', 'Vitalife Team'),
-            subject: 'Selamat Datang di Website Kami',
+            subject: 'Welcome to Vitalife!',
+            headers: [
+            'List-Unsubscribe' => '<mailto:unsubscribe@vitalife.my.id>, <https://vitalife.my.id/unsubscribe>',
+        ],
         );
     }
 
