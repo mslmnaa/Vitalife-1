@@ -292,13 +292,13 @@ unset($__errorArgs, $__bag); ?>
                             <span class="text-sm font-medium text-gray-700">Google</span>
                         </a>
                         
-                        <a href="<?php echo e(url('auth/facebook')); ?>" class="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors group">
-                            <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h8.62v-6.95h-2.35v-2.73h2.35v-2a3.28 3.28 0 0 1 3.52-3.59c.7 0 1.43.04 2 .12v2.32h-1.38c-1.08 0-1.29.52-1.29 1.28v1.87h2.58l-.34 2.73h-2.24V21H20a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1z"/>
-                            </svg>
-                            <span class="text-sm font-medium text-gray-700">Facebook</span>
-                        </a>
-                    </div>
+                            <a href="<?php echo e(url('auth/facebook')); ?>" class="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors group">
+                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h8.62v-6.95h-2.35v-2.73h2.35v-2a3.28 3.28 0 0 1 3.52-3.59c.7 0 1.43.04 2 .12v2.32h-1.38c-1.08 0-1.29.52-1.29 1.28v1.87h2.58l-.34 2.73h-2.24V21H20a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1z"/>
+                                </svg>
+                                <span class="text-sm font-medium text-gray-700">Facebook</span>
+                            </a>
+                        </div>
 
                     <!-- Register Link -->
                     <div class="text-center mt-6">

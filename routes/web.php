@@ -90,13 +90,7 @@ Route::get('/dayatganteng-admin2', function () {
 });
 
 
-Route::prefix('pharmacies')->name('pharmacies.')->group(function () {
-    Route::get('/pharmacy', [PharmacyController::class, 'index'])->name('index');
-    Route::get('/{id}', [PharmacyController::class, 'show'])->name('show')->where('id', '[0-9]+');
-    Route::get('/medicine-checker', [PharmacyController::class, 'checkMedicine'])->name('medicine-checker');
-    Route::get('/nearby', [PharmacyController::class, 'nearby'])->name('nearby');
-    Route::POST('/{id}/whatsapp', [PharmacyController::class, 'getWhatsAppLink'])->name('whatsapp')->where('id', '[0-9]+');
-});
+
 
 
 
@@ -129,6 +123,14 @@ Route::middleware('auth')->group(function () {
         Route::patch('/email', [ProfileController::class, 'updateEmail'])->name('profile.update.email');
         Route::post('/image', [ProfileController::class, 'updateImage'])->name('profile.update.image');
     });
+
+    Route::prefix('pharmacies')->name('pharmacies.')->group(function () {
+    Route::get('/pharmacy', [PharmacyController::class, 'index'])->name('index');
+    Route::get('/{id}', [PharmacyController::class, 'show'])->name('show')->where('id', '[0-9]+');
+    Route::get('/medicine-checker', [PharmacyController::class, 'checkMedicine'])->name('medicine-checker');
+    Route::get('/nearby', [PharmacyController::class, 'nearby'])->name('nearby');
+    Route::POST('/{id}/whatsapp', [PharmacyController::class, 'getWhatsAppLink'])->name('whatsapp')->where('id', '[0-9]+');
+});
 
 
     Route::get('/payment-history', [PaymentHistoryController::class, 'index'])
@@ -400,7 +402,7 @@ Route::get('auth/google/callback', [GoogleController::class, 'callback'])->name(
 
 Route::get('/test-email', function () {
     // Ganti dengan alamat email target (tidak harus ada di DB)
-    $email = 'validate+xNOzF4Ak9Z@verify.unspam.email';
+    $email = 'validate+KH9o9ilvE9@verify.unspam.email';
     
     // Buat user dummy untuk keperluan WelcomeEmail
     $user = new User([

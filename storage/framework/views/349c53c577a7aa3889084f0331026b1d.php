@@ -118,7 +118,7 @@
                     <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden group">
                         <!-- Image Section -->
                         <div class="relative overflow-hidden">
-                            <?php if($pharmacy->image_url): ?>
+                            <?php if($pharmacy->image): ?>
                                 <img src="<?php echo e($pharmacy->image_url); ?>" alt="<?php echo e($pharmacy->name); ?>" 
                                      class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
                             <?php else: ?>

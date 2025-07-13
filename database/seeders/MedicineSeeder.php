@@ -16,7 +16,7 @@ class MedicineSeeder extends Seeder
         $medicines = [
             [
                 'nama' => 'Amoxicillin',
-                'harga' => 15000,
+                'harga' => 15000,   
                 'deskripsi' => 'Antibiotic for bacterial infections.',
                 'kategori' => 'Antibiotic',
                 'stok' => 50,
@@ -102,7 +102,7 @@ class MedicineSeeder extends Seeder
                 'stok' => 45,
                 'tanggal_kadaluarsa' => Carbon::now()->addMonths(10),
                 'produsen' => 'PT Woods Indonesia',
-                'image' => 'Woods-Antihistamine.jpg',
+                'image' => 'Woods Antihistamine.jpg',
             ],
         ];
 

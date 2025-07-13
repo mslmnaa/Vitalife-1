@@ -119,7 +119,7 @@
                     </div>
 
                     <!-- Quick Actions -->
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <!-- <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 border-b border-gray-200">
                             <h2 class="text-lg font-semibold text-gray-900">
                                 <?php echo e(__('Quick Actions')); ?>
@@ -140,7 +140,7 @@
 
                             </button>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Account Summary -->
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

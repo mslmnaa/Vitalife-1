@@ -123,8 +123,8 @@
                     <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden group">
                         <!-- Image Section -->
                         <div class="relative overflow-hidden">
-                            @if($pharmacy->image_url)
-                                <img src="{{ $pharmacy->image_url }}" alt="{{ $pharmacy->name }}" 
+                            @if($pharmacy->image)
+                                <img src="{{ $pharmacy->image_url    }}" alt="{{ $pharmacy->name }}" 
                                      class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
                             @else
                                 <div class="w-full h-48 bg-gradient-to-br from-green-400 via-blue-500 to-purple-500 flex items-center justify-center relative">

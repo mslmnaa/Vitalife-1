@@ -110,7 +110,7 @@ class PharmacyController extends Controller
                     'distance' => round($pharmacy->distance ?? 0, 2),
                     'is_open_now' => $pharmacy->is_open_now,
                     'medicines_count' => $pharmacy->medicines->count(),
-                    'image_url' => $pharmacy->image_url,
+                    'image' => $pharmacy->image,
                     'url' => route('pharmacies.show', $pharmacy->id_pharmacy)
                 ];
             })

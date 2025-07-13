@@ -20,7 +20,8 @@
 
     <!-- Form content -->
     <div class="p-6">
-        <form method="post" action="#" class="space-y-6">
+        <form method="post" action="{{ route('profile.update') }}" class="space-y-6">
+            @csrf
             <!-- Name field with enhanced styling -->
             <div class="space-y-2">
                 <label for="name" class="text-sm font-medium text-gray-700">Name</label>
@@ -49,13 +50,13 @@
                 </div>
 
                 <!-- Success message with enhanced styling -->
-                <div class="flex items-center space-x-2 bg-green-50 text-green-700 px-4 py-2 rounded-lg border border-green-200">
+                <!-- <div class="flex items-center space-x-2 bg-green-50 text-green-700 px-4 py-2 rounded-lg border border-green-200">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     <span class="text-sm font-medium">Profile updated successfully!</span>
                 </div>
-            </div>
+            </div> -->
         </form>
     </div>
 </section>
