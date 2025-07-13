@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Headers; // ✅ Benar
 
 class WelcomeEmail extends Mailable
 {
@@ -25,11 +26,17 @@ class WelcomeEmail extends Mailable
         return new Envelope(
         from: new \Illuminate\Mail\Mailables\Address('noreply@vitalife.my.id', 'Vitalife Team'),
             subject: 'Welcome to Vitalife!',
-            headers: [
-            'List-Unsubscribe' => '<mailto:unsubscribe@vitalife.my.id>, <https://vitalife.my.id/unsubscribe>',
-        ],
+            
         );
     }
+    public function headers(): Headers
+{
+    return new Headers(
+        text: [
+            'List-Unsubscribe' => '<mailto:unsubscribe@vitalife.my.id>, <https://vitalife.my.id/unsubscribe>',
+        ],
+    );
+}
 
     public function content(): Content
     {
