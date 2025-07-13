@@ -29,14 +29,14 @@ class WelcomeEmail extends Mailable
             
         );
     }
-    public function headers(): Headers
-{
-    return new Headers(
-        text: [
-            'List-Unsubscribe' => '<mailto:unsubscribe@vitalife.my.id>, <https://vitalife.my.id/unsubscribe>',
-        ],
-    );
-}
+//     public function headers(): Headers
+// {
+//     return new Headers(
+//         text: [
+//             'List-Unsubscribe' => '<mailto:unsubscribe@vitalife.my.id>, <https://vitalife.my.id/unsubscribe>',
+//         ],
+//     );
+// }
 
     public function content(): Content
     {
