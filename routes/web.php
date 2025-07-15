@@ -401,22 +401,13 @@ Route::get('auth/google/callback', [GoogleController::class, 'callback'])->name(
 
 
 Route::get('/test-email', function () {
-    // Ganti dengan alamat email target (tidak harus ada di DB)
-    $email = 'validate+KH9o9ilvE9@verify.unspam.email';
-    
-    // Buat user dummy untuk keperluan WelcomeEmail
-    $user = new User([
-        'name' => 'Guest Tester',
-        'email' => $email,
-    ]);
+    Mail::to('alfatiktok02@gmail.com')->send(new \App\Mail\WelcomeEmail((object)[
+        'name' => 'Test User'
+    ]));
 
-    try {
-        Mail::to($email)->send(new WelcomeEmail($user));
-        return 'Email berhasil dikirim ke ' . $email;
-    } catch (\Exception $e) {
-        return 'Gagal kirim email: ' . $e->getMessage();
-    }
+    return 'Email sent';
 });
+
 
 Route::get('/unsubscribe', function () {
     return view('emails.unsubscribe');
