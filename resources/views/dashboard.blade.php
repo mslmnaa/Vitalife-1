@@ -62,7 +62,7 @@
                 {{-- Main Heading --}}
                 <div class="space-y-6 animate-fade-in-up animation-delay-200">
                     <h1 class="text-6xl lg:text-8xl font-black leading-tight tracking-tight">
-                        <span class="text-gray-900 drop-shadow-sm">Vitalife</span>
+                        <span class="text-gray-900 drop-shadow-sm">Vitalife2</span>
                         <br>
                     </h1>
 
