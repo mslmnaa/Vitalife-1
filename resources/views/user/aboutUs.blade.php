@@ -327,7 +327,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 </div>
                 <div class="p-6">
-                    <h4 class="text-xl font-bold text-gray-800 mb-2">Salman Alfarisi</h4>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">Syamsul Amilien</h4>
                     <h6 class="text-blue-600 font-semibold mb-3">Frontend Developer</h6>
                     <p class="text-gray-600 text-sm mb-4 leading-relaxed">
                         Develops user-facing features, creates responsive and interactive interfaces, implements design mockups, 
@@ -353,11 +353,11 @@
             <!-- Team Member 3 - Backend Developer -->
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
                 <div class="relative">
-                    <img src="../image/" alt="samsul" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <img src="../image/team/salman.jpg" alt="salman" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 </div>
                 <div class="p-6">
-                    <h4 class="text-xl font-bold text-gray-800 mb-2">Syamsul Amilien</h4>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">Salman Alfarisi</h4>
                     <h6 class="text-blue-600 font-semibold mb-3">Backend Developer</h6>
                     <p class="text-gray-600 text-sm mb-4 leading-relaxed">
                         Builds server-side logic, manages databases, develops APIs, handles data processing, 

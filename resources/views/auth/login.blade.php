@@ -206,7 +206,7 @@
                                 name="password" 
                                 required 
                                 class="input-focus w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-gray-900 placeholder-gray-500 @error('password') error-input @enderror"
-                                placeholder="••••••••••••"
+                                placeholder="Your Password"
                             >
                             <button type="button" onclick="togglePassword()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 transition-colors">
                                 <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -255,22 +255,15 @@
                         </div>
                     </div>
 
-                    <!-- Social Login -->
-                    <div class="grid grid-cols-2 gap-4">
-                        <a href="{{ url('auth/google') }}" class="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors group">
+                    <!-- Social Login - Google Only -->
+                    <div class="w-full">
+                        <a href="{{ url('auth/google') }}" class="w-full flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors group">
                             <svg class="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/>
                             </svg>
-                            <span class="text-sm font-medium text-gray-700">Google</span>
+                            <span class="text-sm font-medium text-gray-700">Continue with Google</span>
                         </a>
-                        
-                            <a href="{{ url('auth/facebook') }}" class="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors group">
-                                <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h8.62v-6.95h-2.35v-2.73h2.35v-2a3.28 3.28 0 0 1 3.52-3.59c.7 0 1.43.04 2 .12v2.32h-1.38c-1.08 0-1.29.52-1.29 1.28v1.87h2.58l-.34 2.73h-2.24V21H20a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1z"/>
-                                </svg>
-                                <span class="text-sm font-medium text-gray-700">Facebook</span>
-                            </a>
-                        </div>
+                    </div>
 
                     <!-- Register Link -->
                     <div class="text-center mt-6">
