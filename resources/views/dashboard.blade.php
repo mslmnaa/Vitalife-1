@@ -553,7 +553,7 @@
         </div>
     </div>
 
-    {{-- Statistics Section - Enhanced with Animated Counters --}}
+    {{-- Statistics Section - Enhanced with Animated Counters
     <section class="py-16 bg-gradient-to-b from-blue-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
@@ -643,7 +643,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
   
 

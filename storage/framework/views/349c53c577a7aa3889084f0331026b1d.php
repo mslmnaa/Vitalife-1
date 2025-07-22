@@ -119,7 +119,7 @@
                         <!-- Image Section -->
                         <div class="relative overflow-hidden">
                             <?php if($pharmacy->image): ?>
-                                <img src="<?php echo e($pharmacy->image_url); ?>" alt="<?php echo e($pharmacy->name); ?>" 
+                                <img src="<?php echo e(asset($pharmacy->image)); ?>" alt="<?php echo e($pharmacy->name); ?>" 
                                      class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
                             <?php else: ?>
                                 <div class="w-full h-48 bg-gradient-to-br from-green-400 via-blue-500 to-purple-500 flex items-center justify-center relative">

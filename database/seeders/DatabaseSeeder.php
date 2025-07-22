@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
         // SpesialisSeeder::class,
         MedicineSeeder::class,
         PharmacySeeder::class,
-        dummydatauser::class
-
-
+        // dummydatauser::class
+        dummydatadokter::class,
+        VoucherSeeder::class
     ]);
 }
 

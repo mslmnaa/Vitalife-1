@@ -323,7 +323,7 @@
             <!-- Team Member 2 - Frontend Developer -->
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
                 <div class="relative">
-                    <img src="../image/team/salman.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <img src="../image/team/samsul.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 </div>
                 <div class="p-6">
