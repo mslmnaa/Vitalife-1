@@ -46,6 +46,8 @@ class SpesialisisController extends Controller
             'alamat' => 'required|string',
             'noHP' => 'required|string|max:20',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'is_online' => 'nullable|boolean',
+
         ]);
 
         DB::beginTransaction();
@@ -127,6 +129,8 @@ class SpesialisisController extends Controller
             'alamat' => 'required|string',
             'noHP' => 'required|string|max:20',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'is_online' => 'nullable|boolean',
+
         ]);
 
         DB::beginTransaction();
@@ -239,4 +243,6 @@ class SpesialisisController extends Controller
             // Log::error('Failed to send doctor credentials: ' . $e->getMessage());
         }
     }
+
+    
 }

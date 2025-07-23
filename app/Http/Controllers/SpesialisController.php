@@ -73,7 +73,7 @@ class SpesialisController extends Controller
             $query->where('alamat', 'like', '%' . $request->input('location') . '%');
         }    
 
-        $spesLihat = $query->get();
+        $spesLihat = Spesialis::where('is_online', true)->with('user')->get();
 
         return view('user.spesialis', compact('spesLihat'));
     }

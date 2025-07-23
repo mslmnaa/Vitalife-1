@@ -115,7 +115,7 @@
                                 </form>
                             </div>
                         <?php else: ?>
-                            <form action="<?php echo e(route('admin.voucher')); ?>" method="POST" class="space-y-4">
+                        <form action="<?php echo e(route('admin.apply.voucher')); ?>" method="POST" class="space-y-4">
                                 <?php echo csrf_field(); ?>
                                 <input type="hidden" name="id_spesialis" value="<?php echo e($spesialis->id_spesialis); ?>">
                                 <div class="flex space-x-2">

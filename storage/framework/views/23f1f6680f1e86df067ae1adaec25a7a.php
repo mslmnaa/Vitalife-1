@@ -8,8 +8,10 @@
 <?php $attributes = $attributes->except(\App\View\Components\AppLayout::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-     <?php $__env->slot('header', null, []); ?> 
-        <div class="flex items-center justify-between">
+<div class="py-8 bg-gradient-to-br from-green-50 via-white to-blue-50" style="padding-top: 2rem;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- HEADER -->
+<div class="flex items-center justify-between z-20 relative bg-white/80 backdrop-blur-md rounded-xl px-4 py-3 shadow-md mt-16">
             <div class="flex items-center">
                 <a href="<?php echo e(route('pharmacies.index')); ?>" class="mr-4 p-2 rounded-lg hover:bg-gray-100 transition-colors">
                     <i class="fas fa-arrow-left text-gray-600"></i>
@@ -18,8 +20,7 @@
                     <div class="bg-gradient-to-r from-green-500 to-blue-600 p-3 rounded-xl mr-4 shadow-lg">
                         <i class="fas fa-clinic-medical text-white text-xl"></i>
                     </div>
-                    <?php echo e($pharmacy->name); ?>
-
+                    <span class="truncate max-w-[80vw]"><?php echo e($pharmacy->name); ?></span>
                 </h2>
             </div>
             <div class="flex items-center space-x-4">
@@ -42,17 +43,17 @@
                 <?php endif; ?>
             </div>
         </div>
-     <?php $__env->endSlot(); ?>
 
-    <div class="py-8 min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- KONTEN -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+
+                
                 <!-- Main Content -->
                 <div class="lg:col-span-2 space-y-8">
                     <!-- Pharmacy Image -->
                     <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-                        <?php if($pharmacy->image_url): ?>
-                            <img src="<?php echo e($pharmacy->image_url); ?>" alt="<?php echo e($pharmacy->name); ?>" 
+                        <?php if($pharmacy->image): ?>
+                                <img src="<?php echo e(asset($pharmacy->image)); ?>" alt="<?php echo e($pharmacy->name); ?>" 
                                  class="w-full h-64 object-cover">
                         <?php else: ?>
                             <div class="w-full h-64 bg-gradient-to-br from-green-400 via-blue-500 to-purple-500 flex items-center justify-center relative">
@@ -282,11 +283,11 @@
                 <!-- Sidebar -->
                 <div class="lg:col-span-1 space-y-6">
                     <!-- Quick Actions -->
-                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 mt-6">
-    <h3 class="font-bold text-lg text-gray-800 mb-6 flex items-center">
-        <i class="fas fa-phone mr-3 text-green-500"></i>
-        Quick Actions
-    </h3>
+                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sticky top-6">
+                        <h3 class="font-bold text-lg text-gray-800 mb-6 flex items-center">
+                            <i class="fas fa-phone mr-3 text-green-500"></i>
+                            Quick Actions
+                        </h3>
                         
                         <div class="space-y-4">
                             <a href="tel:<?php echo e($pharmacy->phone); ?>" 

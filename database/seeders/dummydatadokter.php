@@ -18,13 +18,14 @@ public function run()
 {
     $dokters = [
         [
-            'name' => 'Dr. Abduh',
-            'email' => 'ahmad@example.com',
+            'name' => 'Dr. Syamsu Abduh',
+            'email' => 'alfarizim168@gmail.com',
             'spesialisasi' => 'Anatomy',
             'tempatTugas' => 'RS Sardjito',
             'alamat' => 'Yogyakarta',
             'noHP' => '08123456789',
             'image' => 'image/dokter/Dokter1.jpeg',
+            'is_online' => false
         ],
         [
             'name' => 'Dr. Dayat',
@@ -84,7 +85,9 @@ public function run()
             'image' => $dokter['image'], // Tidak null
             'user_id' => $dokterId,
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
+            'is_online' => $dokter['is_online'] ?? true, // <-- tambahkan ini
+
         ]);
     }
 }

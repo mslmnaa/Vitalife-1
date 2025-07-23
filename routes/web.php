@@ -122,6 +122,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
         Route::patch('/email', [ProfileController::class, 'updateEmail'])->name('profile.update.email');
         Route::post('/image', [ProfileController::class, 'updateImage'])->name('profile.update.image');
+        Route::post('/image/remove', [ProfileController::class, 'removeImage'])->name('profile.remove.image');
+
     });
 
     Route::prefix('pharmacies')->name('pharmacies.')->group(function () {
@@ -206,6 +208,8 @@ Route::middleware('auth')->group(function () {
     // Routes untuk voucher pada halaman user
     Route::get('/vouchers', [VoucherUserController::class, 'index'])->name('user.vouchers.index');
     Route::get('/vouchers/{id}', [VoucherUserController::class, 'show'])->name('user.vouchers.show');
+    
+
 
     // ===== USER MEDICINE ROUTES =====
     // Routes untuk user melihat dan membeli obat
@@ -375,6 +379,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Profile Management
         Route::get('/profile', [DoctorController::class, 'profile'])->name('profile');
         Route::put('/profile', [DoctorController::class, 'updateProfile'])->name('profile.update');
+
+        Route::post('/toggle-online', [DoctorController::class, 'toggleOnline'])->name('doctor.toggleOnline');
+
         
     });
 });
@@ -412,6 +419,10 @@ Route::get('/test-email', function () {
 Route::get('/unsubscribe', function () {
     return view('emails.unsubscribe');
 });
+
+Route::post('/admin/apply-voucher', [VoucherController::class, 'apply'])->name('admin.apply.voucher');
+    Route::post('/remove-voucher', [VoucherController::class, 'removeVoucher'])->name('admin.remove.voucher');
+
 
 
 // Include authentication routes from auth.php

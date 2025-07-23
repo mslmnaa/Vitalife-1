@@ -123,7 +123,7 @@
         <form method="POST" action="<?php echo e(route('verification.send')); ?>">
             <?php echo csrf_field(); ?>
             <div class="form-group">
-                <button type="submit" onclick="showSuccessMessage()">Resend Verification Email</button>
+                <button type="submit" onclick="showSuccessMessage()">Send Verification Email</button>
             </div>
         </form>
         

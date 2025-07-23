@@ -115,4 +115,27 @@ class ProfileController extends Controller
             return redirect()->back()->with('error', 'Gagal menyimpan data Spesialis. Silakan coba lagi.');
         }
     }
+
+    public function removeImage(Request $request)
+{
+    $user = $request->user();
+
+    if ($user->image) {
+        $filePath = public_path($user->image);
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        } else {
+            return back()->with('error', 'File tidak ditemukan di: ' . $filePath);
+        }
+    } else {
+        return back()->with('error', 'User tidak memiliki image.');
+    }
+
+    $user->image = null;
+    $user->save();
+
+    return back()->with('success', 'Gambar berhasil dihapus');
+}
+
+
 }

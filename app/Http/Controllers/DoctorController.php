@@ -230,4 +230,15 @@ class DoctorController extends Controller
 
         return redirect()->route('doctor.profile')->with('success', 'Profil berhasil diperbarui');
     }
+
+    public function toggleOnline(Request $request)
+{
+    $user = auth()->user();
+
+    $spesialis = $user->spesialis;
+    $spesialis->is_online = !$spesialis->is_online;
+    $spesialis->save();
+
+    return back()->with('status', 'Status updated successfully!');
+}
 }

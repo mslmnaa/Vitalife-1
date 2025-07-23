@@ -43,6 +43,54 @@
             50% { opacity: 0.5; }
         }
         
+        /* Status indicator pulse animation */
+        .status-pulse {
+            animation: status-pulse 2s infinite;
+        }
+        
+        @keyframes status-pulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        
+        /* Toggle switch styles */
+        .toggle-switch {
+            position: relative;
+            width: 3rem;
+            height: 1.5rem;
+            background-color: #d1d5db;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .toggle-switch.active {
+            background-color: #10b981;
+        }
+        
+        .toggle-switch::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .toggle-switch.active::before {
+            transform: translateX(1.5rem);
+        }
+        
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
@@ -62,7 +110,12 @@
     @stack('styles')
 </head>
 <body class="bg-gray-50 font-sans antialiased">
-    <div class="min-h-screen flex" x-data="{ sidebarOpen: true, isMobile: window.innerWidth < 768 }" 
+    <div class="min-h-screen flex" x-data="{ 
+            sidebarOpen: true, 
+            isMobile: window.innerWidth < 768,
+            isOnline: {{ auth()->user()->spesialis->is_online ? 'true' : 'false' }},
+            toggleLoading: false
+         }" 
          x-init="
             $watch('sidebarOpen', value => {
                 if (isMobile) {
@@ -99,18 +152,81 @@
                     </div>
                 </div>
 
-                <!-- User Info -->
+                <!-- User Info with Status -->
                 <div class="px-6 py-4 border-b border-gray-200">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mr-3">
-                            <span class="text-white font-semibold text-sm">{{ substr(Auth::user()->name, 0, 1) }}</span>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-white font-semibold text-sm">{{ substr(Auth::user()->name, 0, 1) }}</span>
+                                </div>
+                                <!-- Status indicator -->
+                                <div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-white"
+                                     :class="isOnline ? 'bg-green-500 status-pulse' : 'bg-gray-400'"></div>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">{{ Auth::user()->name }}</p>
+                                <div class="flex items-center space-x-2">
+                                    <p class="text-gray-500 text-sm">
+                                        {{ Auth::user()->spesialis->spesialisasi ?? 'Doctor' }}
+                                    </p>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium"
+                                          :class="isOnline ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'">
+                                        <span x-text="isOnline ? 'Online' : 'Offline'"></span>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <p class="font-semibold text-gray-900">{{ Auth::user()->name }}</p>
-                            <p class="text-gray-500 text-sm">
-                                {{ Auth::user()->spesialis->spesialisasi ?? 'Doctor' }}
-                            </p>
+                    </div>
+                    
+                    <!-- Status Toggle -->
+                    <div class="mt-3 p-3 bg-gray-50 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-circle text-xs" :class="isOnline ? 'text-green-500' : 'text-gray-400'"></i>
+                                <span class="text-sm font-medium text-gray-700">Status</span>
+                            </div>
+                            <form method="POST" action="{{ route('doctor.doctor.toggleOnline') }}"
+                                  @submit="toggleLoading = true"
+                                  x-data="{
+                                      async submitForm(event) {
+                                          event.preventDefault();
+                                          toggleLoading = true;
+                                          
+                                          try {
+                                              const formData = new FormData(event.target);
+                                              const response = await fetch(event.target.action, {
+                                                  method: 'POST',
+                                                  body: formData,
+                                                  headers: {
+                                                      'X-Requested-With': 'XMLHttpRequest',
+                                                  }
+                                              });
+                                              
+                                              if (response.ok) {
+                                                  isOnline = !isOnline;
+                                              }
+                                          } catch (error) {
+                                              console.error('Error toggling status:', error);
+                                          } finally {
+                                              toggleLoading = false;
+                                          }
+                                      }
+                                  }"
+                                  @submit.prevent="submitForm">
+                                @csrf
+                                <button type="submit" 
+                                        :disabled="toggleLoading"
+                                        class="relative inline-flex items-center">
+                                    <div class="toggle-switch" :class="{ 'active': isOnline }"></div>
+                                    <div x-show="toggleLoading" 
+                                         class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                                    </div>
+                                </button>
+                            </form>
                         </div>
+                        <p class="text-xs text-gray-500 mt-1" x-text="isOnline ? 'Available for consultations' : 'Not accepting new patients'"></p>
                     </div>
                 </div>
 
@@ -121,14 +237,12 @@
                         <i class="fas fa-tachometer-alt mr-3 w-5"></i>
                         Dashboard
                     </a>
-                    
+
                     <a href="{{ route('doctor.patients') }}" 
                        class="flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('doctor.patients*') ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' : 'text-gray-700 hover:bg-gray-100' }}">
                         <i class="fas fa-users mr-3 w-5"></i>
-                        My Patientssss
+                        My Patients
                     </a>
-                    
-                   
                     
                     <a href="{{ route('doctor.profile') }}" 
                        class="flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors {{ request()->routeIs('doctor.profile*') ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700' : 'text-gray-700 hover:bg-gray-100' }}">
@@ -180,6 +294,13 @@
                     </div>
 
                     <div class="flex items-center space-x-4">
+                        <!-- Status indicator in header (mobile) -->
+                        <div class="sm:hidden flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full" :class="isOnline ? 'bg-green-500' : 'bg-gray-400'"></div>
+                            <span class="text-sm font-medium" :class="isOnline ? 'text-green-600' : 'text-gray-600'" 
+                                  x-text="isOnline ? 'Online' : 'Offline'"></span>
+                        </div>
+
                         <!-- Notifications -->
                         <div class="relative" x-data="{ open: false }">
                             <button @click="open = !open" 
@@ -223,8 +344,12 @@
                         <div class="relative" x-data="{ open: false }">
                             <button @click="open = !open" 
                                     class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
-                                <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center">
-                                    <span class="text-white font-semibold text-sm">{{ substr(Auth::user()->name, 0, 1) }}</span>
+                                <div class="relative">
+                                    <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center">
+                                        <span class="text-white font-semibold text-sm">{{ substr(Auth::user()->name, 0, 1) }}</span>
+                                    </div>
+                                    <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border border-white"
+                                         :class="isOnline ? 'bg-green-500' : 'bg-gray-400'"></div>
                                 </div>
                                 <div class="hidden sm:block text-left">
                                     <p class="text-sm font-medium text-gray-900">{{ Auth::user()->name }}</p>

@@ -324,18 +324,19 @@ unset($__errorArgs, $__bag); ?>
                                             <td class="px-4 py-3 text-sm text-gray-900"><?php echo e($day); ?></td>
                                             <td class="px-4 py-3 text-center">
                                                <input type="checkbox" name="operating_hours[<?php echo e($key); ?>][is_open]" value="1"
-       id="day_<?php echo e($key); ?>" data-day="<?php echo e($key); ?>"
-       class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded day-toggle"
-       <?php echo e(old("operating_hours.{$key}.is_open", $dayData['is_open'] ?? false) ? 'checked' : ''); ?>>
-
+                                                      id="day_<?php echo e($key); ?>" data-day="<?php echo e($key); ?>"
+                                                      class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded day-toggle"
+                                                      <?php echo e(old("operating_hours.{$key}.is_open", $dayData['is_open'] ?? false) ? 'checked' : ''); ?>>
                                             </td>
                                             <td class="px-4 py-3">
                                                 <input type="time" name="operating_hours[<?php echo e($key); ?>][open]" 
+                                                       id="open_<?php echo e($key); ?>"
                                                        value="<?php echo e(old("operating_hours.{$key}.open", $dayData['open'] ?? '')); ?>"
                                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent time-input">
                                             </td>
                                             <td class="px-4 py-3">
                                                 <input type="time" name="operating_hours[<?php echo e($key); ?>][close]" 
+                                                       id="close_<?php echo e($key); ?>"
                                                        value="<?php echo e(old("operating_hours.{$key}.close", $dayData['close'] ?? '')); ?>"
                                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent time-input">
                                             </td>
@@ -350,7 +351,13 @@ unset($__errorArgs, $__bag); ?>
                         <div class="mb-8">
                             <div class="flex justify-between items-center mb-4">
                                 <h3 class="text-lg font-semibold text-gray-900">Medicines</h3>
-                                
+                                <button type="button" id="add-medicine" 
+                                        class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm">
+                                    <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                    </svg>
+                                    Add Medicine
+                                </button>
                             </div>
                             <div id="medicines-container" class="space-y-4">
                                 <?php $__currentLoopData = $pharmacy->medicines; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $medicine): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -395,12 +402,12 @@ unset($__errorArgs, $__bag); ?>
                                                        <?php echo e($medicine->pivot->is_available ? 'checked' : ''); ?>>
                                                 <label class="ml-2 text-sm text-gray-700">Available</label>
                                             </div>
-                                            <button type="button" class="remove-medicine text-red-600 hover:text-red-800 p-1">
+                                            <button type="button" class="remove-medicine text-red-600 hover:text-red-800 p-1" title="Remove Medicine">
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                                 </svg>
                                             </button>
-                                        </div>
+                                        </div>  
                                     </div>
                                 </div>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -458,7 +465,7 @@ unset($__errorArgs, $__bag); ?>
                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
                         <label class="ml-2 text-sm text-gray-700">Available</label>
                     </div>
-                    <button type="button" class="remove-medicine text-red-600 hover:text-red-800 p-1">
+                    <button type="button" class="remove-medicine text-red-600 hover:text-red-800 p-1" title="Remove Medicine">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                         </svg>
@@ -485,12 +492,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const openInput = document.getElementById(`open_${day}`);
             const closeInput = document.getElementById(`close_${day}`);
             
-            openInput.disabled = !isChecked;
-            closeInput.disabled = !isChecked;
-            
-            if (!isChecked) {
-                openInput.value = '';
-                closeInput.value = '';
+            if (openInput && closeInput) {
+                openInput.disabled = !isChecked;
+                closeInput.disabled = !isChecked;
+                
+                if (!isChecked) {
+                    openInput.value = '';
+                    closeInput.value = '';
+                }
             }
         });
     });
@@ -498,20 +507,273 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize operating hours
     dayToggles.forEach(toggle => toggle.dispatchEvent(new Event('change')));
 
-    // Add medicine row
-    document.getElementById('add-medicine').addEventListener('click', function() {
-        const template = document.getElementById('medicine-row-template').innerHTML;
-        const newRow = template.replace(/INDEX/g, medicineIndex);
-        document.getElementById('medicines-container').insertAdjacentHTML('beforeend', newRow);
-        medicineIndex++;
-    });
+    // Add medicine row functionality
+    const addMedicineBtn = document.getElementById('add-medicine');
+    if (addMedicineBtn) {
+        addMedicineBtn.addEventListener('click', function() {
+            const template = document.getElementById('medicine-row-template');
+            if (template) {
+                const newRow = template.innerHTML.replace(/INDEX/g, medicineIndex);
+                document.getElementById('medicines-container').insertAdjacentHTML('beforeend', newRow);
+                medicineIndex++;
+            }
+        });
+    }
 
-    // Remove medicine row
+    // Remove medicine row functionality - using event delegation
     document.addEventListener('click', function(e) {
-        if (e.target.closest('.remove-medicine')) {
-            e.target.closest('.medicine-row').remove();
+        // Check if the clicked element or its parent is the remove button
+        const removeBtn = e.target.closest('.remove-medicine');
+        if (removeBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Find the medicine row and remove it
+            const medicineRow = removeBtn.closest('.medicine-row');
+            if (medicineRow) {
+                // Add confirmation dialog
+                if (confirm('Are you sure you want to remove this medicine?')) {
+                    medicineRow.remove();
+                }
+            }
         }
     });
+
+    // Update indices when medicines are removed to maintain proper form structure
+    function updateMedicineIndices() {
+        const medicineRows = document.querySelectorAll('.medicine-row');
+        medicineRows.forEach((row, index) => {
+            // Update all input names in this row
+            const inputs = row.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                if (input.name) {
+                    input.name = input.name.replace(/medicines\[\d+\]/, `medicines[${index}]`);
+                }
+            });
+        });
+        medicineIndex = medicineRows.length;
+    }
+
+    // Call updateMedicineIndices after removing a row
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList' && mutation.removedNodes.length > 0) {
+                // Check if a medicine row was removed
+                const removedMedicineRow = Array.from(mutation.removedNodes).some(node => 
+                    node.nodeType === Node.ELEMENT_NODE && node.classList && node.classList.contains('medicine-row')
+                );
+                if (removedMedicineRow) {
+                    updateMedicineIndices();
+                }
+            }
+        });
+    });
+
+    // Start observing the medicines container
+    const medicinesContainer = document.getElementById('medicines-container');
+    if (medicinesContainer) {
+        observer.observe(medicinesContainer, { childList: true });
+    }
+
+    // Enhanced form validation before submit
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            let isValid = true;
+            let errorMessage = '';
+
+            // Validate required fields
+            const requiredFields = form.querySelectorAll('input[required], textarea[required]');
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('border-red-500');
+                    errorMessage += `${field.previousElementSibling.textContent.replace('*', '').trim()} is required.\n`;
+                } else {
+                    field.classList.remove('border-red-500');
+                }
+            });
+
+            // Validate medicine selections
+            const medicineSelects = form.querySelectorAll('.medicine-select');
+            const selectedMedicines = [];
+            let duplicateFound = false;
+
+            medicineSelects.forEach((select, index) => {
+                if (select.value) {
+                    if (selectedMedicines.includes(select.value)) {
+                        duplicateFound = true;
+                        select.classList.add('border-red-500');
+                    } else {
+                        selectedMedicines.push(select.value);
+                        select.classList.remove('border-red-500');
+                    }
+                }
+            });
+
+            if (duplicateFound) {
+                isValid = false;
+                errorMessage += 'Duplicate medicines are not allowed.\n';
+            }
+
+            // Show validation errors
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please fix the following errors:\n\n' + errorMessage);
+                
+                // Scroll to first error
+                const firstError = form.querySelector('.border-red-500');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+            }
+        });
+    }
+
+    // Real-time validation for medicine duplicates
+    document.addEventListener('change', function(e) {
+        if (e.target.classList.contains('medicine-select')) {
+            const allSelects = document.querySelectorAll('.medicine-select');
+            const values = Array.from(allSelects)
+                .map(select => select.value)
+                .filter(value => value !== '');
+            
+            // Check for duplicates
+            const duplicates = values.filter((value, index) => values.indexOf(value) !== index);
+            
+            allSelects.forEach(select => {
+                if (select.value && duplicates.includes(select.value)) {
+                    select.classList.add('border-red-500');
+                    
+                    // Show error message
+                    let errorMsg = select.parentNode.querySelector('.duplicate-error');
+                    if (!errorMsg) {
+                        errorMsg = document.createElement('p');
+                        errorMsg.className = 'duplicate-error mt-1 text-sm text-red-600';
+                        errorMsg.textContent = 'This medicine is already selected';
+                        select.parentNode.appendChild(errorMsg);
+                    }
+                } else {
+                    select.classList.remove('border-red-500');
+                    
+                    // Remove error message
+                    const errorMsg = select.parentNode.querySelector('.duplicate-error');
+                    if (errorMsg) {
+                        errorMsg.remove();
+                    }
+                }
+            });
+        }
+    });
+
+    // Auto-save functionality (optional)
+    let autoSaveTimeout;
+    const autoSaveFields = form.querySelectorAll('input:not([type="file"]):not([type="checkbox"]), textarea, select');
+    
+    autoSaveFields.forEach(field => {
+        field.addEventListener('input', function() {
+            clearTimeout(autoSaveTimeout);
+            autoSaveTimeout = setTimeout(() => {
+                // You can implement auto-save to localStorage here if needed
+                console.log('Auto-save triggered');
+            }, 2000);
+        });
+    });
+
+    // Image preview functionality
+    const imageInput = document.getElementById('image');
+    if (imageInput) {
+        imageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                // Validate file type
+                const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+                if (!allowedTypes.includes(file.type)) {
+                    alert('Please select a valid image file (JPG, PNG, or GIF).');
+                    this.value = '';
+                    return;
+                }
+
+                // Validate file size (2MB)
+                const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+                if (file.size > maxSize) {
+                    alert('File size must be less than 2MB.');
+                    this.value = '';
+                    return;
+                }
+
+                // Show preview
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Remove existing preview
+                    const existingPreview = document.getElementById('image-preview');
+                    if (existingPreview) {
+                        existingPreview.remove();
+                    }
+
+                    // Create new preview
+                    const preview = document.createElement('div');
+                    preview.id = 'image-preview';
+                    preview.className = 'mt-2';
+                    preview.innerHTML = `
+                        <div class="flex items-center space-x-4">
+                            <img src="${e.target.result}" alt="Preview" class="h-20 w-20 object-cover rounded-lg border border-gray-300">
+                            <span class="text-sm text-gray-600">New image preview</span>
+                        </div>
+                    `;
+                    
+                    imageInput.closest('div').appendChild(preview);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        // Ctrl/Cmd + S to save
+        if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+            e.preventDefault();
+            const submitBtn = document.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.click();
+            }
+        }
+
+        // Ctrl/Cmd + Enter to save (alternative)
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+            e.preventDefault();
+            const submitBtn = document.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.click();
+            }
+        }
+    });
+
+    // Show loading state on form submission
+    if (form) {
+        form.addEventListener('submit', function() {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-3 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Updating...
+                `;
+
+                // Reset button after 30 seconds (timeout protection)
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }, 30000);
+            }
+        });
+    }
 });
 </script>
 <?php $__env->stopPush(); ?>

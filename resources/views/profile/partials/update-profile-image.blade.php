@@ -82,21 +82,24 @@
             </div>
 
             <!-- Action buttons with improved styling -->
-            <div class="flex items-center justify-between pt-6 border-t border-gray-200">
-                <div class="flex items-center space-x-4">
-                    <button type="submit" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#0E1036] to-[#1a1f5c] hover:from-[#0a0c2b] hover:to-[#151a4f] text-white font-medium rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#0E1036] focus:ring-offset-2">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        {{ __('Save Image') }}
-                    </button>
+<div class="flex justify-center pt-6 border-t border-gray-200">
+    <button type="submit" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#0E1036] to-[#1a1f5c] hover:from-[#0a0c2b] hover:to-[#151a4f] text-white font-medium rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#0E1036] focus:ring-offset-2">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        {{ __('Save Image') }}
+    </button>
                     
-                    <button type="button" onclick="removeImage()" class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium rounded-lg transition-all duration-200">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                        </svg>
-                        {{ __('Remove') }}
-                    </button>
+                   <!-- <form action="{{ route('profile.remove.image') }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus gambar profil?')" class="inline">
+                        @csrf
+                        <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium rounded-lg transition-all duration-200">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                            {{ __('Remove') }}
+                        </button>
+                    </form> -->
+
                 </div>
 
                 <!-- Success message with enhanced styling -->

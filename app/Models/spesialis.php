@@ -20,7 +20,8 @@ class Spesialis extends Model
         'alamat',
         'noHP',
         'image',
-        'user_id'
+        'user_id',
+        'is_online'
     ];
 
     /**

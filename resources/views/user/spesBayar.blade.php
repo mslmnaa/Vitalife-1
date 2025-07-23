@@ -104,7 +104,7 @@
                                 </form>
                             </div>
                         @else
-                            <form action="{{ route('admin.voucher') }}" method="POST" class="space-y-4">
+                        <form action="{{ route('admin.apply.voucher') }}" method="POST" class="space-y-4">
                                 @csrf
                                 <input type="hidden" name="id_spesialis" value="{{ $spesialis->id_spesialis }}">
                                 <div class="flex space-x-2">
