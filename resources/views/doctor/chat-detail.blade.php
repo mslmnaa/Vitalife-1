@@ -1,7 +1,7 @@
 @extends('layouts.doctor')
 
-@section('title', 'Chat dengan Pasien')
-@section('page-title', 'Chat dengan ' . $payment->full_name)
+@section('title', 'Chat with Patient')
+@section('page-title', 'Chat with ' . $payment->full_name)
 
 @section('content')
 <div class="flex flex-col lg:flex-row gap-6">
@@ -20,13 +20,13 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-xl">{{ $payment->full_name }}</h3>
-                            <p class="text-blue-100 text-sm">{{ $payment->gender }}, {{ \Carbon\Carbon::parse($payment->date_of_birth)->age }} tahun</p>
+                            <p class="text-blue-100 text-sm">{{ $payment->gender }}, {{ \Carbon\Carbon::parse($payment->date_of_birth)->age }} years old</p>
                         </div>
                     </div>
                     <a href="{{ route('doctor.patient.detail', $payment->id) }}" 
                        class="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg transition-all duration-200 flex items-center">
                         <i class="fas fa-info-circle mr-2"></i>
-                        <span class="hidden sm:inline">Detail Pasienn</span>
+                        <span class="hidden sm:inline">Patient Details</span>
                     </a>
                 </div>
             </div>
@@ -60,8 +60,8 @@
                         <div class="bg-blue-50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-comments text-3xl text-blue-400"></i>
                         </div>
-                        <p class="text-gray-500 text-lg font-medium">Belum ada percakapan</p>
-                        <p class="text-gray-400 text-sm mt-1">Mulai chat dengan pasien!</p>
+                        <p class="text-gray-500 text-lg font-medium">No conversations yet</p>
+                        <p class="text-gray-400 text-sm mt-1">Start chatting with your patient!</p>
                     </div>
                 @endforelse
             </div>
@@ -73,7 +73,7 @@
                     <div class="flex-1 relative">
                         <input type="text" 
                                name="message" 
-                               placeholder="Ketik pesan Anda..." 
+                               placeholder="Type your message..." 
                                class="w-full border-2 border-gray-200 rounded-2xl px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
                                required>
                         <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
@@ -95,7 +95,7 @@
             <div class="p-6 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
                 <h4 class="font-bold text-lg text-gray-800 flex items-center">
                     <i class="fas fa-user-injured mr-3 text-blue-600"></i>
-                    Informasi Pasien
+                    Patient Information
                 </h4>
             </div>
             
@@ -103,7 +103,7 @@
                 <div class="bg-red-50 rounded-lg p-4 border-l-4 border-red-400">
                     <p class="text-sm font-medium text-red-800 mb-2 flex items-center">
                         <i class="fas fa-exclamation-triangle mr-2"></i>
-                        Keluhan Utama
+                        Chief Complaint
                     </p>
                     <p class="text-red-700 font-medium">{{ $payment->complaints }}</p>
                 </div>
@@ -111,9 +111,9 @@
                 <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-400">
                     <p class="text-sm font-medium text-blue-800 mb-2 flex items-center">
                         <i class="fas fa-notes-medical mr-2"></i>
-                        Riwayat Medis
+                        Medical History
                     </p>
-                    <p class="text-blue-700 font-medium">{{ $payment->medical_history ?: 'Tidak ada' }}</p>
+                    <p class="text-blue-700 font-medium">{{ $payment->medical_history ?: 'None' }}</p>
                 </div>
                 
                 <div class="space-y-4">
@@ -122,7 +122,7 @@
                             <i class="fas fa-phone text-green-600 text-sm"></i>
                         </div>
                         <div class="flex-1">
-                            <p class="text-sm font-medium text-gray-600">No. Telepon</p>
+                            <p class="text-sm font-medium text-gray-600">Phone Number</p>
                             <p class="text-gray-800 font-medium">{{ $payment->phone_number }}</p>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                             <i class="fas fa-map-marker-alt text-purple-600 text-sm"></i>
                         </div>
                         <div class="flex-1">
-                            <p class="text-sm font-medium text-gray-600">Alamat</p>
+                            <p class="text-sm font-medium text-gray-600">Address</p>
                             <p class="text-gray-800 font-medium">{{ $payment->address }}</p>
                         </div>
                     </div>
@@ -140,29 +140,7 @@
             </div>
         </div>
         
-        <!-- Quick Actions -->
-        <div class="mt-6 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-            <div class="p-4 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
-                <h4 class="font-bold text-lg text-gray-800 flex items-center">
-                    <i class="fas fa-bolt mr-3 text-yellow-600"></i>
-                    Aksi Cepat
-                </h4>
-            </div>
-            <div class="p-4 space-y-3">
-                <button class="w-full bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center">
-                    <i class="fas fa-prescription-bottle-alt mr-2"></i>
-                    Resep Obat
-                </button>
-                <button class="w-full bg-green-50 hover:bg-green-100 text-green-700 font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center">
-                    <i class="fas fa-calendar-check mr-2"></i>
-                    Jadwal Kontrol
-                </button>
-                <button class="w-full bg-purple-50 hover:bg-purple-100 text-purple-700 font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center">
-                    <i class="fas fa-file-medical mr-2"></i>
-                    Catatan Mediss
-                </button>
-            </div>
-        </div>
+        
     </div>
 </div>
 @endsection
