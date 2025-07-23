@@ -25,7 +25,7 @@ public function run()
             'alamat' => 'Yogyakarta',
             'noHP' => '08123456789',
             'image' => 'image/dokter/Dokter1.jpeg',
-            'is_online' => false
+            'is_online' => true
         ],
         [
             'name' => 'Dr. Dayat',

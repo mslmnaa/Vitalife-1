@@ -11,7 +11,7 @@
             <div class="flex items-center space-x-6">
                 <div class="flex-shrink-0">
                     @if($specialist && $specialist->image && $specialist->image !== 'default-doctor.png')
-                        <img src="{{ asset('storage/' . $specialist->image) }}" 
+                                        <img src="{{ asset($spesialis->image) }}" alt="{{ $spesialis->nama }}" 
                              alt="Profile Photo" 
                              class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-lg">
                     @else
