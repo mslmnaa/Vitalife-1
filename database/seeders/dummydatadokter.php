@@ -29,7 +29,7 @@ public function run()
         ],
         [
             'name' => 'Dr. Dayat',
-            'email' => 'siti@example.com',
+            'email' => 'syamsulamiliennn@gmail.com',
             'spesialisasi' => 'Primary Care',
             'tempatTugas' => 'RS Bethesda',
             'alamat' => 'Sleman',
