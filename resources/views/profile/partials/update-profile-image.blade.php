@@ -30,7 +30,7 @@
                 <div class="relative">
                     <div class="w-32 h-32 rounded-full overflow-hidden bg-gray-100 border-4 border-white shadow-lg">
                         @if(Auth::check() && Auth::user()->image)
-                            <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="{{ Auth::user()->name }}" 
+                            <img src="{{ asset(Auth::user()->image) }}"
                                 class="w-full h-full object-cover" id="profile-image-preview">
                         @else
                             <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-400 to-purple-500" id="default-avatar">

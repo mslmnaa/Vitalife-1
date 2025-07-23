@@ -32,7 +32,7 @@
                 <div class="relative">
                     <div class="w-32 h-32 rounded-full overflow-hidden bg-gray-100 border-4 border-white shadow-lg">
                         <?php if(Auth::check() && Auth::user()->image): ?>
-                            <img src="<?php echo e(asset('storage/' . Auth::user()->image)); ?>" alt="<?php echo e(Auth::user()->name); ?>" 
+                            <img src="<?php echo e(asset(Auth::user()->image)); ?>"
                                 class="w-full h-full object-cover" id="profile-image-preview">
                         <?php else: ?>
                             <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-400 to-purple-500" id="default-avatar">

@@ -97,12 +97,12 @@ class ProfileController extends Controller
     public function updateImage(Request $request)
     {
         $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
     
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('admin/images'), $imageName);
+            $request->image->move(public_path('images'), $imageName);
             $validatedData['image'] = 'images/' . $imageName;
         }
     
